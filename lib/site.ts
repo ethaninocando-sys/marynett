@@ -151,6 +151,6 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [];
 
 export const cta = {
-  primary: "Book my 15-minute check",
-  header: "Book a 15-minute check",
+  primary: "Let’s talk",
+  header: "Let’s talk",
 } as const;

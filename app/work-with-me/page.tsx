@@ -169,7 +169,7 @@ export default function WorkWithMePage() {
               job.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Cta href="#book">Ask me what it takes</Cta>
+              <Cta href="#book">Let’s talk</Cta>
               <Cta href={agent.phoneHref} variant="secondary">
                 Or call {agent.phoneDisplay}
               </Cta>

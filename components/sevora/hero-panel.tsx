@@ -1,0 +1,104 @@
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+/**
+ * Sevora's hero, rebuilt from measurements of the live template at 1512px.
+ *
+ *   panel      1152 x 612, radius 32, padding 96, on a light ground
+ *   text       480 wide, left aligned, Lora at 72px
+ *   portrait   549 x 700, absolutely positioned, taller than the panel so it
+ *              crops at the top and sits flush to the bottom right corner
+ *   card       360 x 156, radius 16, floating over the lower part of the photo
+ *
+ * The panel clips its own overflow, which is what gives the portrait its
+ * bottom-right radius without needing one of its own.
+ */
+export function SevoraHeroPanel({
+  eyebrow,
+  children,
+  image,
+  imageAlt,
+  card,
+  className,
+}: {
+  eyebrow?: string;
+  children: React.ReactNode;
+  image?: string;
+  imageAlt?: string;
+  card?: { label: string; title: string; body: string; href: string };
+  className?: string;
+}) {
+  return (
+    <section className="px-4 pt-8 pb-12 sm:px-6 md:pt-14">
+      <div
+        className={cn(
+          "relative mx-auto w-full max-w-[1152px] overflow-hidden rounded-[32px] bg-muted",
+          "px-6 py-12 sm:px-10 sm:py-16 lg:px-24 lg:py-24",
+          className
+        )}
+      >
+        {/* Portrait. Hidden below lg, where the template stacks and centres. */}
+        {image ? (
+          <div className="pointer-events-none absolute right-0 bottom-0 hidden h-[700px] w-[549px] lg:block">
+            {/*
+              Desaturated to match the template, whose hero portrait is black
+              and white. It also neutralises the blue glass backdrop in her
+              source photo, which fought the grey panel.
+            */}
+            {/*
+              Explicit intrinsic size rather than `fill`. With `fill` the
+              browser was picking a 240px srcset entry and stretching it to
+              549, which looked like mush. A `0px` branch in `sizes` makes it
+              worse: some browsers evaluate that before layout and take the
+              smallest candidate in the set.
+            */}
+            <Image
+              src={image}
+              alt={imageAlt ?? ""}
+              width={549}
+              height={700}
+              sizes="549px"
+              quality={90}
+              className="h-full w-full object-cover object-top grayscale contrast-[1.05]"
+              priority
+            />
+            {/* Softens the straight edge where the photo meets the copy. */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-muted to-transparent"
+            />
+          </div>
+        ) : null}
+
+        <div className="hero-copy relative max-w-[480px] text-center lg:max-w-[560px] lg:text-left">
+          {eyebrow ? (
+            <p className="label mb-5 text-muted-foreground">{eyebrow}</p>
+          ) : null}
+          {children}
+        </div>
+
+        {/* Floating card over the photo, lg and up only. */}
+        {card && image ? (
+          <a
+            href={card.href}
+            className="absolute right-12 bottom-12 hidden w-[360px] items-start gap-4 rounded-2xl bg-foreground/85 p-5 text-background backdrop-blur-md transition-colors hover:bg-foreground lg:flex"
+          >
+            <div className="min-w-0">
+              <p className="text-[13px] text-background/60">{card.label}</p>
+              <p className="mt-1 text-[17px] font-medium tracking-[-0.02em]">
+                {card.title}
+              </p>
+              <p className="mt-1.5 text-[13px] leading-snug text-background/70">
+                {card.body}
+              </p>
+            </div>
+            <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-background text-foreground">
+              <ArrowUpRight className="size-5" aria-hidden="true" />
+            </span>
+          </a>
+        ) : null}
+      </div>
+    </section>
+  );
+}

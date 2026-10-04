@@ -173,7 +173,7 @@ export default function CoveragePage() {
             </table>
 
             <Cta href="#book" className="mt-10">
-              Check what mine covers
+              See the difference
             </Cta>
           </Container>
         </Section>
@@ -254,7 +254,7 @@ export default function CoveragePage() {
             </dl>
 
             <div className="mt-12 flex flex-wrap gap-3">
-              <Cta href="#book">Book my 15-minute check</Cta>
+              <Cta href="#book">Let’s talk</Cta>
               <Cta href={agent.phoneHref} variant="secondary">
                 Or call {agent.phoneDisplay}
               </Cta>

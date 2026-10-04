@@ -140,7 +140,7 @@ export default function BCoverage() {
             </div>
             <div className="mt-8 text-center">
               <Cta href="#book" className="rounded-full">
-                Check what mine covers
+                See the difference
               </Cta>
             </div>
           </Container>
@@ -198,7 +198,7 @@ export default function BCoverage() {
             </dl>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Cta href="#book" className="rounded-full">
-                Book my 15-minute check
+                Let’s talk
               </Cta>
               <Cta
                 href={agent.phoneHref}

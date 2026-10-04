@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Container, Section } from "@/components/archio/section";
+import { SevoraHeroPanel } from "@/components/sevora/hero-panel";
 import { Cta } from "@/components/archio/cta";
 import { AnimatedHeading } from "@/components/motion/animated-heading";
 import { agent } from "@/lib/site";
@@ -45,50 +45,55 @@ export default function DirectionBHome() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        {/* Hero, centred, with the per-character reveal */}
-        <Section tone="white" className="bg-background pt-10 text-center">
-          <Container className="max-w-3xl">
-            <p className="label text-muted-foreground">
-              Registered nurse · Licensed Texas agent
-            </p>
+        <SevoraHeroPanel
+          eyebrow="Registered nurse · Licensed Texas agent"
+          image="/marynett-bolivar.webp"
+          imageAlt={`${agent.name}, registered nurse and licensed Texas insurance agent`}
+          card={{
+            label: "Next step",
+            title: "Let’s talk",
+            body: "Tell me what you have. I'll tell you where you stand.",
+            href: "/b/coverage",
+          }}
+        >
+          <AnimatedHeading
+            className="display-xl text-balance"
+            text={`${agent.nurseYearsWord} years at the bedside taught me what families aren't ready for.`}
+          />
 
-            <AnimatedHeading
-              className="display-xl mt-6 text-balance"
-              text={`${agent.nurseYearsWord} years at the bedside taught me what families aren't ready for.`}
-            />
+          <p className="lede mt-6 text-muted-foreground">
+            I&rsquo;m Marynett, a registered nurse and a licensed Texas
+            insurance agent since {agent.licensedSince}. I help families
+            understand their protection before they need it, and I teach others
+            to do the same.
+          </p>
 
-            <p className="lede mx-auto mt-6 max-w-xl text-muted-foreground">
-              I&rsquo;m Marynett, a registered nurse and a licensed Texas
-              insurance agent since {agent.licensedSince}. I help families
-              understand their protection before they need it, and I teach
-              others to do the same.
-            </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+            <Cta href="/b/coverage" className="rounded-full">
+              Protect my family
+            </Cta>
+            <Cta
+              href="/b/work-with-me"
+              variant="secondary"
+              className="rounded-full border border-border"
+            >
+              Work with me
+            </Cta>
+          </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Cta href="/b/coverage" className="rounded-full">
-                Protect my family
-              </Cta>
-              <Cta
-                href="/b/work-with-me"
-                variant="secondary"
-                className="rounded-full border border-border"
-              >
-                Work with me
-              </Cta>
-            </div>
-
-            <dl className="mt-16 grid grid-cols-3 gap-6 border-t border-border pt-10">
-              {stats.map(([value, label]) => (
-                <div key={label}>
-                  <dt className="font-display text-[28px] leading-none font-semibold tracking-[-0.02em] md:text-[34px]">
-                    {value}
-                  </dt>
-                  <dd className="label mt-2 text-muted-foreground">{label}</dd>
-                </div>
-              ))}
-            </dl>
-          </Container>
-        </Section>
+          <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8">
+            {stats.map(([value, label]) => (
+              <div key={label}>
+                <dt className="font-display text-[22px] leading-none font-semibold tracking-[-0.02em] md:text-[26px]">
+                  {value}
+                </dt>
+                <dd className="label mt-2 text-[13px] text-muted-foreground">
+                  {label}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </SevoraHeroPanel>
 
         {/* Two doors */}
         <Section tone="white" className="bg-background pt-0">
@@ -117,7 +122,7 @@ export default function DirectionBHome() {
 
         {/* Why a nurse does this */}
         <Section tone="white" className="bg-background">
-          <Container className="grid items-center gap-10 md:grid-cols-[1fr_0.8fr] md:gap-16">
+          <Container className="max-w-3xl">
             <div>
               <p className="label text-muted-foreground">
                 Why a nurse does this
@@ -141,18 +146,6 @@ export default function DirectionBHome() {
               </div>
             </div>
 
-            <figure className="mx-auto w-full max-w-xs md:max-w-none">
-              <div className="overflow-hidden rounded-2xl border border-border bg-card">
-                <Image
-                  src="/marynett-bolivar.webp"
-                  alt={`${agent.name}, registered nurse and licensed Texas insurance agent`}
-                  width={525}
-                  height={635}
-                  sizes="(min-width: 768px) 22rem, 80vw"
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-            </figure>
           </Container>
         </Section>
 

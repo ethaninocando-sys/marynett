@@ -145,7 +145,7 @@ export default function BWorkWithMe() {
                 href="#book"
                 className="rounded-full bg-white px-6 py-3 text-[15px] font-medium text-primary transition-opacity hover:opacity-90"
               >
-                Ask me what it takes
+                Let’s talk
               </a>
               <Cta
                 href={agent.phoneHref}

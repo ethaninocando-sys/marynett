@@ -91,7 +91,7 @@ export default function Home() {
                   {door.body}
                 </p>
                 <p className="mt-6 flex items-center gap-2 text-[15px] font-medium transition-colors group-hover:text-primary">
-                  Start here
+                  Go
                   <ArrowRight
                     className="size-4 transition-transform group-hover:translate-x-1"
                     aria-hidden="true"

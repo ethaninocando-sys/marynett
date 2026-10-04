@@ -216,8 +216,8 @@
    ========================================================================== */
 
 .theme-sevora {
-  /* Sans for display too. Serif vs sans is the fastest difference to read. */
-  --font-display: var(--font-instrument);
+  /* Lora, as the template uses. The two directions differ by layout now. */
+  --font-display: var(--font-lora);
   --font-body: var(--font-instrument);
   --font-label: var(--font-instrument);
 
@@ -253,21 +253,21 @@
 
 /* Lora runs heavier and tighter than Crimson Pro, at -0.02em not -0.04em. */
 .theme-sevora .display-xl {
-  font-weight: 600;
-  font-size: 38px;
-  letter-spacing: -0.035em;
+  font-weight: 500;
+  font-size: 40px;
+  letter-spacing: -0.02em;
   line-height: 1.05em;
 }
 @media (min-width: 768px) {
   .theme-sevora .display-xl {
-    font-size: 60px;
+    font-size: 72px;
     line-height: 64px;
   }
 }
 .theme-sevora .display-lg {
   font-weight: 600;
-  font-size: 30px;
-  letter-spacing: -0.03em;
+  font-size: 32px;
+  letter-spacing: -0.02em;
   line-height: 1.2em;
 }
 @media (min-width: 768px) {
@@ -278,8 +278,8 @@
 }
 .theme-sevora .display-md {
   font-weight: 600;
-  font-size: 24px;
-  letter-spacing: -0.025em;
+  font-size: 26px;
+  letter-spacing: -0.02em;
   line-height: 1.3em;
 }
 @media (min-width: 768px) {
@@ -371,5 +371,26 @@
     filter: none;
     transform: none;
     color: var(--foreground);
+  }
+}
+
+/*
+ * Sevora's hero headline is 27 characters. Ours run to 70, so the template's
+ * 72px would wrap to seven lines and push the panel taller than the portrait.
+ * The hero panel gets its own step down; the rest of the page keeps the
+ * template's scale.
+ */
+.theme-sevora .hero-copy .display-xl {
+  font-size: 34px;
+}
+@media (min-width: 640px) {
+  .theme-sevora .hero-copy .display-xl {
+    font-size: 44px;
+  }
+}
+@media (min-width: 1024px) {
+  .theme-sevora .hero-copy .display-xl {
+    font-size: 52px;
+    line-height: 1.04em;
   }
 }

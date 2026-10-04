@@ -16,10 +16,10 @@ import { consent } from "@/lib/site";
 
 const COPY = {
   coverage: {
-    title: "Get your 15-minute check",
-    sub: "I call you myself, at a time that works around your shift.",
-    submit: "Book my 15-minute check",
-    foot: "This goes to me. Not a call center, not a lead list.",
+    title: "Let’s get in contact",
+    sub: "Fifteen minutes on the phone. Tell me when works.",
+    submit: "Send",
+    foot: "Goes to me. Not a call center.",
     roleLabel: "I am",
     role: [
       ["family", "Someone my family depends on"],
@@ -30,10 +30,10 @@ const COPY = {
     ],
   },
   recruit: {
-    title: "Ask me what it takes",
-    sub: "I’ll walk you through how I got licensed and what the work actually looks like.",
-    submit: "Start the conversation",
-    foot: "No pressure. You can stop after the call.",
+    title: "Let’s get in contact",
+    sub: "I’ll tell you how I got licensed and what the work is.",
+    submit: "Send",
+    foot: "No obligation either way.",
     roleLabel: "I am",
     role: [
       ["nurse", "A nurse"],
