@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   Marynett Bolivar — Rio Grande Valley life insurance
+   Warm off-white ground, deep navy bands, one warm gold for action.
+   Teal is carried over from her existing printed material as a quiet accent.
+   ========================================================================== */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Display serif for headlines, geometric sans for everything else. */
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-heading: var(--font-display);
+
+  /* Dark bands: hero, "why a nurse", footer. */
+  --color-band: var(--band);
+  --color-band-foreground: var(--band-foreground);
+  --color-band-muted: var(--band-muted);
+  --color-band-border: var(--band-border);
+
+  /* Single action colour. */
+  --color-gold: var(--gold);
+  --color-gold-hover: var(--gold-hover);
+  --color-gold-foreground: var(--gold-foreground);
+
+  --color-teal: var(--teal);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+:root {
+  --background: #fafaf7;
+  --foreground: #15181c;
+
+  --card: #ffffff;
+  --card-foreground: #15181c;
+  --popover: #ffffff;
+  --popover-foreground: #15181c;
+
+  /* Navy — solid buttons on light ground. */
+  --primary: #0f2438;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f1f1ec;
+  --secondary-foreground: #23272d;
+
+  --muted: #f1f1ec;
+  /* 7.1:1 on the page ground. No grey-on-grey. */
+  --muted-foreground: #545c66;
+
+  --accent: #f1f1ec;
+  --accent-foreground: #23272d;
+
+  --destructive: #b3261e;
+
+  --border: #e4e3dc;
+  --input: #ffffff;
+  --ring: #0f2438;
+
+  /* Dark bands */
+  --band: #0d1e30;
+  --band-foreground: #ffffff;
+  --band-muted: #b4c2d1;
+  --band-border: #23384e;
+
+  /* Action */
+  --gold: #e5a84b;
+  --gold-hover: #d59635;
+  --gold-foreground: #1a1206;
+
+  /* Carried from her printed material */
+  --teal: #1a4a4f;
+
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  /* Headlines carry the serif. */
+  h1, h2, h3 {
+    @apply font-display;
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility eyebrow {
+  @apply text-[0.6875rem] font-semibold uppercase tracking-[0.14em];
+}
+
+/* Section rhythm — one place to retune vertical space across the page. */
+@utility section-y {
+  @apply py-16 sm:py-20 lg:py-28;
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
