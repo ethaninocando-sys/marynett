@@ -33,7 +33,7 @@ export function SevoraHeroPanel({
     <section className="px-4 pt-8 pb-12 sm:px-6 md:pt-14">
       <div
         className={cn(
-          "relative mx-auto w-full max-w-[1152px] overflow-hidden rounded-[32px] bg-muted",
+          "sv-panel relative mx-auto w-full max-w-[1152px] overflow-hidden rounded-[32px] bg-muted",
           "px-6 py-12 sm:px-10 sm:py-16 lg:px-24 lg:py-24",
           className
         )}
@@ -76,18 +76,18 @@ export function SevoraHeroPanel({
         {card && image ? (
           <a
             href={card.href}
-            className="absolute right-12 bottom-12 hidden w-[360px] items-start gap-4 rounded-2xl bg-foreground/85 p-5 text-background backdrop-blur-md transition-colors hover:bg-foreground lg:flex"
+            className="sv-card-dark absolute right-12 bottom-12 hidden w-[360px] items-start gap-4 rounded-2xl p-5 text-white transition-opacity hover:opacity-95 lg:flex"
           >
             <div className="min-w-0">
-              <p className="text-[13px] text-background/60">{card.label}</p>
+              <p className="text-[13px] text-white/60">{card.label}</p>
               <p className="mt-1 text-[17px] font-medium tracking-[-0.02em]">
                 {card.title}
               </p>
-              <p className="mt-1.5 text-[13px] leading-snug text-background/70">
+              <p className="mt-1.5 text-[13px] leading-snug text-white/70">
                 {card.body}
               </p>
             </div>
-            <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-background text-foreground">
+            <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white text-[#0e2536]">
               <ArrowUpRight className="size-5" aria-hidden="true" />
             </span>
           </a>

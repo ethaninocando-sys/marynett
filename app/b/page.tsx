@@ -151,7 +151,7 @@ export default function DirectionBHome() {
 
         {/* Closing */}
         <Section tone="white" className="bg-background">
-          <Container className="rounded-2xl bg-primary px-8 py-16 text-center text-primary-foreground">
+          <Container className="sv-card-dark rounded-2xl px-8 py-16 text-center text-white">
             <h2 className="display-lg text-balance">
               Not sure which door is yours?
             </h2>
@@ -161,7 +161,7 @@ export default function DirectionBHome() {
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
                 href={agent.phoneHref}
-                className="rounded-full bg-white px-6 py-3 text-[15px] font-medium text-primary transition-opacity hover:opacity-90"
+                className="rounded-full bg-white px-6 py-3 text-[15px] font-medium text-[#0e2536] transition-opacity hover:opacity-90"
               >
                 {agent.phoneDisplay}
               </a>

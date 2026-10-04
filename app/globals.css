@@ -394,3 +394,82 @@
     line-height: 1.04em;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Direction B, navy treatment. Ported from Ethan's build, which layers a navy
+   gradient set on top of Sevora's neutral ramp and swaps its green accent for
+   gold. Values are his.
+   -------------------------------------------------------------------------- */
+
+.theme-sevora {
+  --sv-50: #f7f7f8;
+  --sv-200: #e0e2e6;
+  --sv-300: #c9cdd2;
+  --sv-400: #94979e;
+
+  --sv-dark-top: #1d4059;
+  --sv-dark-bottom: #0e2536;
+  --sv-dark-edge: #3d627e;
+
+  --sv-accent: #b8862f;
+  --sv-accent-soft: #f3e3bd;
+
+  /* Fine diagonal tooth across the page, barely visible but it stops the
+     large flat areas reading as dead. */
+  background-image: repeating-linear-gradient(
+    145deg,
+    rgba(18, 18, 24, 0.018),
+    rgba(18, 18, 24, 0.018) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+/* Panel: light gradient, top-lit, sitting on the page rather than cut into it. */
+.theme-sevora .sv-panel {
+  background-color: var(--sv-50);
+  background-image: linear-gradient(var(--sv-50) 59%, var(--sv-200));
+  box-shadow:
+    0 4px 8px -4px var(--sv-300),
+    0 12px 18px -2px var(--sv-300),
+    inset 0 1px 0 0 #fff;
+}
+
+/* Primary actions pick up the navy gradient and its lit top edge. */
+.theme-sevora .shadow-cta {
+  background-image: linear-gradient(
+    var(--sv-dark-top),
+    var(--sv-dark-bottom)
+  );
+  box-shadow:
+    inset 0 2px 0 0 var(--sv-dark-edge),
+    0 2px 4px -2px rgba(18, 18, 24, 0.5),
+    0 4px 8px -4px rgba(18, 18, 24, 0.3);
+}
+.theme-sevora .shadow-cta:hover {
+  background-image: linear-gradient(
+    var(--sv-dark-edge),
+    var(--sv-dark-top)
+  );
+}
+
+/* Secondary pills: the same light gradient, inset top highlight. */
+.theme-sevora .sv-pill-light {
+  background-image: linear-gradient(var(--sv-50) 59%, var(--sv-200));
+  box-shadow:
+    0 4px 8px -4px var(--sv-300),
+    inset 0 1px 0 0 #fff,
+    inset 0 -1px 0 0 var(--sv-300);
+}
+
+/* The floating card over the portrait. */
+.theme-sevora .sv-card-dark {
+  background-image: linear-gradient(
+    var(--sv-dark-top),
+    var(--sv-dark-bottom)
+  );
+  box-shadow:
+    0 4px 8px -4px var(--sv-400),
+    0 12px 18px -2px var(--sv-400),
+    inset 0 1px 0 1px var(--sv-dark-edge);
+}

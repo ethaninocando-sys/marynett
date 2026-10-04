@@ -15,7 +15,7 @@ const styles = {
   primary:
     "bg-primary text-primary-foreground shadow-cta hover:bg-primary/90",
   secondary:
-    "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+    "sv-pill-light bg-secondary text-secondary-foreground hover:bg-secondary/80",
   ghost: "text-foreground underline underline-offset-4 hover:text-primary",
 } as const;
 
