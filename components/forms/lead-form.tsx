@@ -2,49 +2,62 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
-import { consent, cta } from "@/lib/site";
+import { consent } from "@/lib/site";
 
 /**
- * Native <select> rather than the Base UI one. Most traffic here arrives from
- * Meta on a phone, where the OS picker is faster and more reliable than any
- * custom listbox, and it keeps JS off the conversion path.
+ * One form, two funnels. `coverage` books the 15-minute review; `recruit`
+ * opens a conversation about getting licensed. The variant rides along to the
+ * API so the two never get mixed.
+ *
+ * Native <select> rather than a custom listbox: most traffic arrives from Meta
+ * on a phone, where the OS picker is faster and keeps JS off the conversion path.
  */
-function Field({
-  id,
-  label,
-  children,
+
+const COPY = {
+  coverage: {
+    title: "Get your 15-minute check",
+    sub: "I call you myself, at a time that works around your shift.",
+    submit: "Book my 15-minute check",
+    foot: "No spam, no list. One call, from me.",
+    roleLabel: "I am",
+    role: [
+      ["family", "Someone my family depends on"],
+      ["healthcare", "A nurse or healthcare worker"],
+      ["education", "A teacher or school employee"],
+      ["retired", "Retired or close to it"],
+      ["other", "Something else"],
+    ],
+  },
+  recruit: {
+    title: "Ask me what it takes",
+    sub: "I’ll walk you through how I got licensed and what the work actually looks like.",
+    submit: "Start the conversation",
+    foot: "No pressure. You can stop after the call.",
+    roleLabel: "I am",
+    role: [
+      ["nurse", "A nurse"],
+      ["teacher", "A teacher"],
+      ["licensed", "Already licensed"],
+      ["curious", "Just curious for now"],
+    ],
+  },
+} as const;
+
+const field =
+  "h-12 w-full rounded-[10px] border border-border bg-white px-3.5 text-[15px] " +
+  "tracking-[-0.02em] text-foreground outline-none transition-colors " +
+  "placeholder:text-muted-foreground/50 focus-visible:border-primary " +
+  "focus-visible:ring-2 focus-visible:ring-primary/20";
+
+export function LeadForm({
+  variant = "coverage",
+  className,
 }: {
-  id: string;
-  label: string;
-  children: React.ReactNode;
+  variant?: keyof typeof COPY;
+  className?: string;
 }) {
-  return (
-    <div className="space-y-1.5">
-      <Label
-        htmlFor={id}
-        className="eyebrow text-foreground/70"
-      >
-        {label}
-      </Label>
-      {children}
-    </div>
-  );
-}
-
-const selectClass =
-  "h-11 w-full appearance-none rounded-lg border border-border bg-input px-3 pr-9 text-[0.9375rem] " +
-  "text-foreground shadow-xs outline-none transition-colors " +
-  "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50";
-
-const chevron =
-  "pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground";
-
-export function LeadForm({ className }: { className?: string }) {
+  const copy = COPY[variant];
   const router = useRouter();
   const [pending, setPending] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
@@ -61,9 +74,9 @@ export function LeadForm({ className }: { className?: string }) {
       state: String(form.get("state") ?? ""),
       iAm: String(form.get("iAm") ?? ""),
       bestTime: String(form.get("bestTime") ?? ""),
+      variant,
       consentGiven: agreed,
       consentVersion: consent.version,
-      consentText: consent.text,
     };
 
     if (!payload.firstName)
@@ -83,7 +96,6 @@ export function LeadForm({ className }: { className?: string }) {
       const data = (await res.json().catch(() => null)) as {
         error?: string;
       } | null;
-
       if (!res.ok) {
         setError(data?.error ?? "That didn’t go through. Give it another try.");
         setPending(false);
@@ -102,32 +114,35 @@ export function LeadForm({ className }: { className?: string }) {
     <form
       onSubmit={onSubmit}
       noValidate
+      id="book"
       className={cn(
-        "rounded-2xl bg-card p-6 text-card-foreground shadow-xl shadow-black/10 sm:p-7",
+        "scroll-mt-24 rounded-2xl border border-border bg-card p-6 shadow-inner-glow sm:p-8",
         className
       )}
     >
-      <h2 className="font-display text-2xl tracking-tight">
-        Get your 15-minute check
-      </h2>
-      <p className="mt-1.5 text-[0.9375rem] text-muted-foreground">
-        I call you myself, at a time that works around your shift.
-      </p>
+      <h2 className="display-md">{copy.title}</h2>
+      <p className="body-sm mt-2 text-muted-foreground">{copy.sub}</p>
 
       <div className="mt-6 space-y-4">
-        <Field id="firstName" label="Your name">
-          <Input
+        <div className="space-y-1.5">
+          <label htmlFor="firstName" className="label block text-foreground/70">
+            Your name
+          </label>
+          <input
             id="firstName"
             name="firstName"
             autoComplete="given-name"
             placeholder="First name"
             required
-            className="h-11 text-[0.9375rem]"
+            className={field}
           />
-        </Field>
+        </div>
 
-        <Field id="phone" label="Phone">
-          <Input
+        <div className="space-y-1.5">
+          <label htmlFor="phone" className="label block text-foreground/70">
+            Phone
+          </label>
+          <input
             id="phone"
             name="phone"
             type="tel"
@@ -135,109 +150,84 @@ export function LeadForm({ className }: { className?: string }) {
             autoComplete="tel"
             placeholder="(956) 000-0000"
             required
-            className="h-11 text-[0.9375rem]"
+            className={field}
           />
-        </Field>
+        </div>
 
-        <Field id="state" label="State">
-          <div className="relative">
-            <select
-              id="state"
-              name="state"
-              defaultValue="TX"
-              className={selectClass}
-            >
-              <option value="TX">Texas</option>
-              <option value="OTHER">Another state</option>
-            </select>
-            <ChevronDown className={chevron} />
-          </div>
-        </Field>
+        <div className="space-y-1.5">
+          <label htmlFor="state" className="label block text-foreground/70">
+            State
+          </label>
+          <select id="state" name="state" defaultValue="TX" className={field}>
+            <option value="TX">Texas</option>
+            <option value="OTHER">Another state</option>
+          </select>
+        </div>
 
-        <Field id="iAm" label="I am">
-          <div className="relative">
-            <select id="iAm" name="iAm" className={selectClass}>
-              <option value="healthcare">A nurse or healthcare worker</option>
-              <option value="education">A teacher or school employee</option>
-              <option value="responder">A first responder</option>
-              <option value="retired">Retired</option>
-              <option value="other">Something else</option>
-            </select>
-            <ChevronDown className={chevron} />
-          </div>
-        </Field>
+        <div className="space-y-1.5">
+          <label htmlFor="iAm" className="label block text-foreground/70">
+            {copy.roleLabel}
+          </label>
+          <select id="iAm" name="iAm" className={field}>
+            {copy.role.map(([value, text]) => (
+              <option key={value} value={value}>
+                {text}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <Field id="bestTime" label="Best time to call">
-          <div className="relative">
-            <select id="bestTime" name="bestTime" className={selectClass}>
-              <option value="morning">Mornings, after my shift</option>
-              <option value="afternoon">Afternoons</option>
-              <option value="evening">Evenings</option>
-              <option value="weekend">Weekends</option>
-            </select>
-            <ChevronDown className={chevron} />
-          </div>
-        </Field>
+        <div className="space-y-1.5">
+          <label htmlFor="bestTime" className="label block text-foreground/70">
+            Best time to call
+          </label>
+          <select id="bestTime" name="bestTime" className={field}>
+            <option value="morning">Mornings, after my shift</option>
+            <option value="afternoon">Afternoons</option>
+            <option value="evening">Evenings</option>
+            <option value="weekend">Weekends</option>
+          </select>
+        </div>
 
         {/* TCPA consent: unchecked by default, never pre-selected. */}
-        <div className="flex gap-3 rounded-lg bg-muted/60 p-3">
-          <Checkbox
+        <label
+          htmlFor="consent"
+          className="flex cursor-pointer gap-3 rounded-[10px] bg-white/60 p-3.5"
+        >
+          <input
             id="consent"
+            type="checkbox"
             checked={agreed}
-            onCheckedChange={(v) => setAgreed(v === true)}
-            className="mt-0.5"
-            aria-describedby="consent-text"
+            onChange={(e) => setAgreed(e.target.checked)}
+            className="mt-0.5 size-4 shrink-0 accent-[var(--primary)]"
           />
-          <Label
-            htmlFor="consent"
-            id="consent-text"
-            className="text-[0.8125rem] leading-snug font-normal text-muted-foreground"
-          >
+          <span className="text-[13px] leading-snug text-muted-foreground">
             {consent.text}
-          </Label>
-        </div>
+          </span>
+        </label>
       </div>
 
       {error ? (
         <p
           role="alert"
           aria-live="polite"
-          className="mt-4 text-[0.875rem] text-destructive"
+          className="mt-4 text-[14px] text-destructive"
         >
           {error}
         </p>
       ) : null}
 
-      <Button
+      <button
         type="submit"
         disabled={pending}
-        className="mt-5 h-12 w-full rounded-xl text-[0.9375rem] font-semibold"
+        className="shadow-cta mt-5 h-12 w-full rounded-[10px] bg-primary text-[15px] font-medium tracking-[-0.02em] text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
       >
-        {pending ? "Sending…" : cta.primary}
-      </Button>
+        {pending ? "Sending…" : copy.submit}
+      </button>
 
-      <p className="mt-3 text-center text-[0.8125rem] text-muted-foreground">
-        No spam, no list. One call, from me.
+      <p className="mt-3 text-center text-[13px] text-muted-foreground">
+        {copy.foot}
       </p>
     </form>
-  );
-}
-
-function ChevronDown({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-      className={className}
-    >
-      <path
-        d="M4 6l4 4 4-4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }

@@ -15,9 +15,9 @@ export default function ThankYou() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        <section className="section-y bg-background">
+        <section className="section-pad bg-background">
           <div className="container-page max-w-2xl text-center">
-            <span className="mx-auto grid size-14 place-items-center rounded-full bg-gold text-gold-foreground">
+            <span className="mx-auto grid size-14 place-items-center rounded-full bg-primary text-primary-foreground">
               <Check className="size-7" strokeWidth={2.5} aria-hidden="true" />
             </span>
 
@@ -32,7 +32,7 @@ export default function ThankYou() {
             </p>
 
             <div className="mt-8 rounded-xl border border-border bg-card p-6 text-left">
-              <p className="eyebrow text-teal">What happens on the call</p>
+              <p className="label text-primary">What happens on the call</p>
               <ul className="mt-4 space-y-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
                 <li>
                   We look at what your coverage at work actually pays, and what
