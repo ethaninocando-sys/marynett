@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Crimson_Pro, Inter } from "next/font/google";
+import { Crimson_Pro, Inter, Lora, Instrument_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { agent } from "@/lib/site";
+import { DirectionSwitch } from "@/components/layout/direction-switch";
 
 /** Display face. The template runs it at Light (300) with -0.04em tracking. */
 const display = Crimson_Pro({
@@ -14,6 +15,20 @@ const display = Crimson_Pro({
 
 const body = Inter({
   variable: "--font-body",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+/** Direction B (Sevora): Lora display over Instrument Sans. Both on Google Fonts. */
+const loraDisplay = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  display: "swap",
+});
+
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
   display: "swap",
 });
@@ -55,9 +70,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${label.variable} h-full antialiased`}
+      className={`${display.variable} ${body.variable} ${label.variable} ${loraDisplay.variable} ${instrument.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        {/* Review-only A/B switch. Remove before launch. */}
+        <DirectionSwitch />
+      </body>
     </html>
   );
 }
