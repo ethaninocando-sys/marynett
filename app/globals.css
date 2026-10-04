@@ -55,20 +55,21 @@
   --primary-foreground: #ffffff;
   --secondary: #dfe8f2;        /* pale blue, plays the sage role    */
   --secondary-foreground: #0f2438;
-  --bone: #ecebe4;             /* rgb(236, 235, 228) section ground */
+  --bone: #eee9dd;             /* warmer section band               */
   --card: #f6f4ed;             /* rgb(246, 244, 237) card ground    */
   --card-foreground: #000000;
   --live: #0f2438;             /* status dot, navy not green        */
 
-  --background: #ffffff;
-  --foreground: #000000;
-  --muted: #f6f4ed;
-  --muted-foreground: rgba(0, 0, 0, 0.85);
+  /* Warm paper, warm ink. Navy is the only cool thing on the page. */
+  --background: #faf8f3;
+  --foreground: #1a1713;
+  --muted: #f3efe6;
+  --muted-foreground: #5a5248;
   --accent: #dfe8f2;
   --accent-foreground: #0f2438;
 
-  --border: rgba(0, 0, 0, 0.1);
-  --input: #ffffff;
+  --border: #e2dbcc;
+  --input: #fffdf8;
   --ring: #0f2438;
   --popover: #ffffff;
   --popover-foreground: #000000;
@@ -215,28 +216,29 @@
    ========================================================================== */
 
 .theme-sevora {
-  --font-display: var(--font-lora);
+  /* Sans for display too. Serif vs sans is the fastest difference to read. */
+  --font-display: var(--font-instrument);
   --font-body: var(--font-instrument);
   --font-label: var(--font-instrument);
 
-  --background: #f7f7f8;
-  --foreground: #121218;
+  --background: #f3f5f8;
+  --foreground: #10141a;
 
-  --primary: #121218;
+  --primary: #10141a;
   --primary-foreground: #ffffff;
   --secondary: #ffffff;
-  --secondary-foreground: #121218;
+  --secondary-foreground: #10141a;
 
   --bone: #ffffff;
   --card: #ffffff;
-  --card-foreground: #121218;
+  --card-foreground: #10141a;
 
-  --muted: #edeef1;
-  --muted-foreground: #61646b;
-  --accent: #edeef1;
-  --accent-foreground: #121218;
+  --muted: #e8ecf1;
+  --muted-foreground: #5b636e;
+  --accent: #e8ecf1;
+  --accent-foreground: #10141a;
 
-  --border: #e0e2e6;
+  --border: #dbe1e9;
   --input: #ffffff;
   --ring: #121218;
   --live: #121218;
@@ -251,21 +253,21 @@
 
 /* Lora runs heavier and tighter than Crimson Pro, at -0.02em not -0.04em. */
 .theme-sevora .display-xl {
-  font-weight: 500;
-  font-size: 40px;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: 38px;
+  letter-spacing: -0.035em;
   line-height: 1.05em;
 }
 @media (min-width: 768px) {
   .theme-sevora .display-xl {
-    font-size: 64px;
+    font-size: 60px;
     line-height: 64px;
   }
 }
 .theme-sevora .display-lg {
   font-weight: 600;
-  font-size: 32px;
-  letter-spacing: -0.02em;
+  font-size: 30px;
+  letter-spacing: -0.03em;
   line-height: 1.2em;
 }
 @media (min-width: 768px) {
@@ -276,8 +278,8 @@
 }
 .theme-sevora .display-md {
   font-weight: 600;
-  font-size: 26px;
-  letter-spacing: -0.02em;
+  font-size: 24px;
+  letter-spacing: -0.025em;
   line-height: 1.3em;
 }
 @media (min-width: 768px) {
