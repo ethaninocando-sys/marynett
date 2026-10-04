@@ -40,26 +40,27 @@ export function SevoraHeroPanel({
       >
         {/* Portrait. Hidden below lg, where the template stacks and centres. */}
         {image ? (
-          <div className="pointer-events-none absolute right-0 bottom-0 hidden h-[760px] w-[507px] lg:block">
+          <div className="pointer-events-none absolute right-12 bottom-0 hidden w-[420px] overflow-hidden rounded-t-2xl lg:block">
             {/*
-              The asset ships greyscale with its background already removed, so
-              no filter or edge treatment is needed here.
-            */}
-            {/*
+              Her real flyer photograph, which carries its own studio
+              background. It gets a frame rather than being floated on the
+              panel, because a rectangular crop reads as a photograph and a
+              badly keyed cutout reads as a mistake.
+
               Explicit intrinsic size rather than `fill`. With `fill` the
-              browser was picking a 240px srcset entry and stretching it to
-              549, which looked like mush. A `0px` branch in `sizes` makes it
+              browser was picking a 240px srcset entry and stretching it,
+              which looked like mush. A `0px` branch in `sizes` makes it
               worse: some browsers evaluate that before layout and take the
               smallest candidate in the set.
             */}
             <Image
               src={image}
               alt={imageAlt ?? ""}
-              width={934}
-              height={1400}
-              sizes="507px"
+              width={525}
+              height={635}
+              sizes="420px"
               quality={90}
-              className="h-full w-full object-contain object-bottom"
+              className="h-auto w-full object-cover"
               priority
             />
           </div>

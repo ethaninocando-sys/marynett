@@ -33,7 +33,7 @@ export default function DirectionBHome() {
       <main className="flex-1">
         <SevoraHeroPanel
           eyebrow="Registered nurse · Licensed Texas agent"
-          image="/marynett-hero.webp"
+          image="/marynett-bolivar.webp"
           imageAlt={`${agent.name}, registered nurse and licensed Texas insurance agent`}
           card={{
             label: "Next step",
