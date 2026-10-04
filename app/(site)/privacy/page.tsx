@@ -7,11 +7,11 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="shell pt-10 pb-16 md:pt-16 md:pb-24">
-      <p className="eyebrow">Privacy</p>
-      <h1 className="display mt-4">What I do with your information.</h1>
+    <section className="sv-container max-w-[800px]">
+      <span className="sv-badge">Privacy</span>
+      <h1 className="sv-display-sm mt-4">What I do with your information.</h1>
 
-      <div className="copy measure mt-8">
+      <div className="sv-card mt-10 grid gap-5 p-6 text-lg leading-7 md:p-10">
         <p>
           When you fill in a form on this site, I receive your first name, your
           phone number, the answers you chose and the best time to call. I do
@@ -31,11 +31,11 @@ export default function PrivacyPage() {
         <p>
           You can ask me to delete your details or stop contacting you at any
           time. Call or text{" "}
-          <a href={site.phoneHref} className="text-link whitespace-nowrap">
+          <a href={site.phoneHref} className="whitespace-nowrap underline">
             {site.phoneDisplay}
           </a>{" "}
           or email{" "}
-          <a href={`mailto:${site.email}`} className="text-link">
+          <a href={`mailto:${site.email}`} className="underline">
             {site.email}
           </a>
           .

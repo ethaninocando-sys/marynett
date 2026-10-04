@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Placeholder } from "@/components/Placeholder";
 
 type Variant = "coverage" | "recruit";
 
@@ -47,56 +46,49 @@ export function LeadForm({ variant }: { variant: Variant }) {
 
   if (status === "done") {
     return (
-      <div
-        id="book"
-        className="rounded-md border border-rule bg-card p-6 sm:p-8"
-        aria-live="polite"
-      >
-        <h2 className="h3">Thank you{firstName ? `, ${firstName}` : ""}.</h2>
-        <p className="mt-2 text-base text-muted">
+      <div id="book" className="sv-form-card p-6 sm:p-8" aria-live="polite">
+        <h2 className="sv-h3">Thank you{firstName ? `, ${firstName}` : ""}.</h2>
+        <p className="sv-body mt-2">
           I have your details. Pick a time below and I&rsquo;ll call you then.
         </p>
-        <Placeholder
-          className="mt-5 min-h-64"
-          label="Booking calendar"
-          note="Cal.com embed, limited to Marynett's off-shift hours"
-        />
+        <div className="mt-5 flex min-h-64 flex-col items-center justify-center gap-1 rounded-xl bg-[var(--sv-50)] p-6 text-center shadow-[inset_0_0_0_1px_var(--sv-200)]">
+          <span className="sv-h6">Booking calendar</span>
+          <span className="sv-sm">
+            Cal.com embed, limited to Marynett&rsquo;s off-shift hours
+          </span>
+        </div>
       </div>
     );
   }
 
   return (
-    <form
-      id="book"
-      onSubmit={onSubmit}
-      className="rounded-md border border-rule bg-card p-6 sm:p-8"
-    >
-      <h2 className="h3">{text.title}</h2>
-      <p className="mt-1.5 text-base text-muted">{text.intro}</p>
+    <form id="book" onSubmit={onSubmit} className="sv-form-card p-6 sm:p-8">
+      <h2 className="sv-h3">{text.title}</h2>
+      <p className="sv-body mt-1">{text.intro}</p>
 
       <div className="mt-6 grid gap-4">
         <div>
-          <label htmlFor={`${variant}-firstName`} className="field-label">
+          <label htmlFor={`${variant}-firstName`} className="sv-label">
             First name
           </label>
           <input
             id={`${variant}-firstName`}
             name="firstName"
-            className="field"
+            className="sv-field"
             autoComplete="given-name"
             required
           />
         </div>
 
         <div>
-          <label htmlFor={`${variant}-phone`} className="field-label">
+          <label htmlFor={`${variant}-phone`} className="sv-label">
             Phone
           </label>
           <input
             id={`${variant}-phone`}
             name="phone"
             type="tel"
-            className="field"
+            className="sv-field"
             autoComplete="tel"
             inputMode="tel"
             placeholder="(956) 000-0000"
@@ -109,13 +101,13 @@ export function LeadForm({ variant }: { variant: Variant }) {
         {variant === "coverage" ? (
           <>
             <div>
-              <label htmlFor="coverage-iAm" className="field-label">
+              <label htmlFor="coverage-iAm" className="sv-label">
                 I am
               </label>
               <select
                 id="coverage-iAm"
                 name="iAm"
-                className="field"
+                className="sv-field"
                 defaultValue=""
                 required
               >
@@ -129,13 +121,13 @@ export function LeadForm({ variant }: { variant: Variant }) {
               </select>
             </div>
             <div>
-              <label htmlFor="coverage-lookingFor" className="field-label">
+              <label htmlFor="coverage-lookingFor" className="sv-label">
                 I&rsquo;m looking for
               </label>
               <select
                 id="coverage-lookingFor"
                 name="lookingFor"
-                className="field"
+                className="sv-field"
                 defaultValue=""
                 required
               >
@@ -151,25 +143,25 @@ export function LeadForm({ variant }: { variant: Variant }) {
         ) : (
           <>
             <div>
-              <label htmlFor="recruit-occupation" className="field-label">
+              <label htmlFor="recruit-occupation" className="sv-label">
                 What do you do now?
               </label>
               <input
                 id="recruit-occupation"
                 name="occupation"
-                className="field"
+                className="sv-field"
                 autoComplete="organization-title"
                 required
               />
             </div>
             <div>
-              <label htmlFor="recruit-licensed" className="field-label">
+              <label htmlFor="recruit-licensed" className="sv-label">
                 Do you have a Texas insurance license?
               </label>
               <select
                 id="recruit-licensed"
                 name="licensed"
-                className="field"
+                className="sv-field"
                 defaultValue=""
                 required
               >
@@ -185,13 +177,13 @@ export function LeadForm({ variant }: { variant: Variant }) {
         )}
 
         <div>
-          <label htmlFor={`${variant}-bestTime`} className="field-label">
+          <label htmlFor={`${variant}-bestTime`} className="sv-label">
             Best time to call
           </label>
           <select
             id={`${variant}-bestTime`}
             name="bestTime"
-            className="field"
+            className="sv-field"
             defaultValue=""
             required
           >
@@ -218,7 +210,7 @@ export function LeadForm({ variant }: { variant: Variant }) {
 
       <button
         type="submit"
-        className="btn mt-6 w-full"
+        className="sv-btn sv-btn-primary mt-6 w-full"
         disabled={status === "sending"}
       >
         {status === "sending" ? "Sending…" : text.button}
@@ -230,7 +222,7 @@ export function LeadForm({ variant }: { variant: Variant }) {
         </p>
       ) : null}
 
-      <p className="fine mt-4">
+      <p className="sv-sm mt-4">
         By submitting, you agree that Marynett Bolivar may call, text or email
         you about your request. Consent is not a condition of any purchase. I
         don&rsquo;t sell or share your information.
