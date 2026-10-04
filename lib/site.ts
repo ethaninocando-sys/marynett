@@ -46,7 +46,7 @@ export const yearsLicensed = new Date().getFullYear() - agent.licensedSince;
  * `showConfirmMarks` outlines unverified facts; `isPrototype` keeps the
  * placeholders for missing assets visible.
  */
-export const showConfirmMarks = true;
+export const showConfirmMarks = false;
 export const isPrototype = true;
 
 /**

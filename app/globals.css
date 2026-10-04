@@ -8,7 +8,8 @@
    Marynett Bolivar
    Design system ported from the Archio Framer template, values read off the
    published build at resilient-years-695934.framer.app via computed styles.
-   Deep forest green on bone, Crimson Pro display over Inter, Satoshi labels.
+   Navy on bone, Crimson Pro display over Inter, Satoshi labels. Structure,
+   type and spacing are Archio's; the green family is swapped for navy.
    ========================================================================== */
 
 @theme inline {
@@ -50,25 +51,25 @@
 
 :root {
   /* --- Palette, exact from the published template --- */
-  --primary: #0e3a27;          /* rgb(14, 58, 39)    forest green   */
+  --primary: #0f2438;          /* navy, carried over from the first direction */
   --primary-foreground: #ffffff;
-  --secondary: #e6eecd;        /* rgb(230, 238, 205) pale sage      */
-  --secondary-foreground: #0e3a27;
+  --secondary: #dfe8f2;        /* pale blue, plays the sage role    */
+  --secondary-foreground: #0f2438;
   --bone: #ecebe4;             /* rgb(236, 235, 228) section ground */
   --card: #f6f4ed;             /* rgb(246, 244, 237) card ground    */
   --card-foreground: #000000;
-  --live: #31ee33;             /* rgb(49, 238, 51)   status dot     */
+  --live: #0f2438;             /* status dot, navy not green        */
 
   --background: #ffffff;
   --foreground: #000000;
   --muted: #f6f4ed;
   --muted-foreground: rgba(0, 0, 0, 0.85);
-  --accent: #e6eecd;
-  --accent-foreground: #0e3a27;
+  --accent: #dfe8f2;
+  --accent-foreground: #0f2438;
 
   --border: rgba(0, 0, 0, 0.1);
   --input: #ffffff;
-  --ring: #0e3a27;
+  --ring: #0f2438;
   --popover: #ffffff;
   --popover-foreground: #000000;
   --destructive: #b3261e;
@@ -80,12 +81,12 @@
     rgba(61, 61, 61, 0.72) 0px 0.602187px 1.08394px -1.25px,
     rgba(61, 61, 61, 0.64) 0px 2.28853px 4.11936px -2.5px,
     rgba(61, 61, 61, 0.25) 0px 10px 18px -3.75px,
-    rgba(22, 51, 32, 0.35) 0px 0.706592px 0.706592px -0.583333px,
-    rgba(22, 51, 32, 0.34) 0px 1.80656px 1.80656px -1.16667px,
-    rgba(22, 51, 32, 0.33) 0px 3.62176px 3.62176px -1.75px,
-    rgba(22, 51, 32, 0.3) 0px 6.8656px 6.8656px -2.33333px,
-    rgba(22, 51, 32, 0.26) 0px 13.6468px 13.6468px -2.91667px,
-    rgba(22, 51, 32, 0.15) 0px 30px 30px -3.5px;
+    rgba(15, 36, 56, 0.35) 0px 0.706592px 0.706592px -0.583333px,
+    rgba(15, 36, 56, 0.34) 0px 1.80656px 1.80656px -1.16667px,
+    rgba(15, 36, 56, 0.33) 0px 3.62176px 3.62176px -1.75px,
+    rgba(15, 36, 56, 0.3) 0px 6.8656px 6.8656px -2.33333px,
+    rgba(15, 36, 56, 0.26) 0px 13.6468px 13.6468px -2.91667px,
+    rgba(15, 36, 56, 0.15) 0px 30px 30px -3.5px;
 
   --shadow-inner-glow:
     rgba(255, 255, 255, 0.62) 3px 3px 47px 5px inset,
