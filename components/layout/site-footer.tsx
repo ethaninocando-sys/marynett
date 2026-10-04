@@ -69,9 +69,7 @@ export function SiteFooter() {
           <p>{generalDisclosure}</p>
           <p>{notGovernment}</p>
 
-          <p>
-            <sup>*</sup> {indexDisclosure}
-          </p>
+          <p>{indexDisclosure}</p>
 
           {footnotes.map((note) => (
             <p key={note.id}>

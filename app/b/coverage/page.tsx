@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const comparison: [string, string][] = [
-  ["Usually pays at death only", "Can include living benefits for serious illness*"],
+  ["Usually pays at death only", "Can include living benefits for serious illness"],
   ["Often tied to your employer", "Stays with you if you change jobs"],
   ["Rarely explained to you", "Explained by someone who works the same floors"],
 ];
@@ -62,7 +62,7 @@ export default function BCoverage() {
             />
             <p className="lede mx-auto mt-6 max-w-xl text-muted-foreground">
               Some policies can pay you while you&rsquo;re living if you&rsquo;re
-              diagnosed with a serious illness.<sup>*</sup> In fifteen minutes
+              diagnosed with a serious illness. In fifteen minutes
               I&rsquo;ll walk you through what you have now and what it would do.
             </p>
 
