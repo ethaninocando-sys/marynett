@@ -16,7 +16,7 @@ export function Proof() {
     <section
       className={
         // Until real quotes land this is a slim credibility band, not a full
-        // section — otherwise three stats float in a screen of empty space.
+        // section. Otherwise three stats float in a screen of empty space.
         hasQuotes
           ? "section-y bg-secondary/50"
           : "border-y border-border bg-secondary/50 py-12 sm:py-14"

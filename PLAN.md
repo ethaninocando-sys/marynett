@@ -229,6 +229,12 @@ No autodialer, ever (P&P 17(H)(vi)). Meta CAPI fires server-side from the same f
 - [x] `app/api/lead/route.ts` + consent artifact capture
 - [x] Responsive pass; form tested end-to-end on a 375px viewport
 
+**Voice pass (2026-09-30):** every em dash removed site-wide, contractions and
+typographic apostrophes normalized, British spellings corrected, and the stiffer copy
+rewritten in her voice. Re-swept for FEG risk language afterward: no "free"/"$0"/"lowest
+cost", no savings or bank framing, no market-participation claim on indexed products, no
+rates or illustrations.
+
 **Security note:** scaffolded on Next 16.2.4 (the version `e2-technologies` runs) and
 upgraded to **16.3.7**. 16.2.4 carries two *critical* unauthenticated RCE advisories —
 one in the Image Optimization API via AVIF — plus SSRF and middleware-bypass highs.

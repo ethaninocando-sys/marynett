@@ -66,11 +66,12 @@ export function LeadForm({ className }: { className?: string }) {
       consentText: consent.text,
     };
 
-    if (!payload.firstName) return setError("Please add your first name.");
+    if (!payload.firstName)
+      return setError("Add your first name so I know who I’m calling.");
     if (payload.phone.replace(/\D/g, "").length < 10)
-      return setError("Please add a phone number I can reach you on.");
+      return setError("I need a number I can actually reach you on.");
     if (!agreed)
-      return setError("Please tick the box so I know it's okay to call you.");
+      return setError("Check the box so I know it’s okay to call you.");
 
     setPending(true);
     try {
@@ -84,14 +85,14 @@ export function LeadForm({ className }: { className?: string }) {
       } | null;
 
       if (!res.ok) {
-        setError(data?.error ?? "Something went wrong. Please try again.");
+        setError(data?.error ?? "That didn’t go through. Give it another try.");
         setPending(false);
         return;
       }
       router.push("/thank-you");
     } catch {
       setError(
-        "I couldn't send that just now. Please try again, or call me directly."
+        "That didn’t send. Try again, or just call me and skip the form."
       );
       setPending(false);
     }
@@ -110,7 +111,7 @@ export function LeadForm({ className }: { className?: string }) {
         Get your 15-minute check
       </h2>
       <p className="mt-1.5 text-[0.9375rem] text-muted-foreground">
-        I call you personally, at a time that fits your shift.
+        I call you myself, at a time that works around your shift.
       </p>
 
       <div className="mt-6 space-y-4">
@@ -178,7 +179,7 @@ export function LeadForm({ className }: { className?: string }) {
           </div>
         </Field>
 
-        {/* TCPA consent — unchecked by default, never pre-ticked. */}
+        {/* TCPA consent: unchecked by default, never pre-selected. */}
         <div className="flex gap-3 rounded-lg bg-muted/60 p-3">
           <Checkbox
             id="consent"

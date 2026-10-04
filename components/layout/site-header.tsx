@@ -36,7 +36,7 @@ export function SiteHeader() {
               "h-10 rounded-lg px-3.5 text-[0.8125rem] font-semibold sm:px-4 sm:text-[0.875rem]"
             )}
           >
-            {/* The full label doesn't fit beside her name at 375px. */}
+            {/* The full label doesn’t fit beside her name at 375px. */}
             <span className="sm:hidden">Book a check</span>
             <span className="hidden sm:inline">{cta.header}</span>
           </a>

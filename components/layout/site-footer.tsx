@@ -21,7 +21,7 @@ export function SiteFooter() {
               Life Insurance · Living Benefits · Rio Grande Valley
             </p>
             <p className="mt-5 text-[0.9375rem] text-band-muted">
-              Serving {agent.serviceAreas.join(", ")} and the surrounding Valley.
+              I work {agent.serviceAreas.join(", ")} and the rest of the Valley.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export function SiteFooter() {
                 <span>Source: {note.source}</span>
               ) : (
                 <span className="font-semibold text-gold">
-                  [Source pending — supply the FEG published material before
+                  [Source pending. Supply the FEG published material before
                   publication.]
                 </span>
               )}

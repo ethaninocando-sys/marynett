@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { agent } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "You're booked",
+  title: "You’re booked",
   robots: { index: false, follow: false },
 };
 
@@ -26,8 +26,9 @@ export default function ThankYou() {
             </h1>
 
             <p className="mt-5 text-[1.0625rem] leading-relaxed text-muted-foreground">
-              I work nights, so I call in the window you picked. If you miss me,
-              I&rsquo;ll try once more rather than fill your phone up.
+              I work nights, so I&rsquo;ll call in the window you picked. If you
+              miss me I&rsquo;ll try once more. I&rsquo;m not going to fill up your
+              phone.
             </p>
 
             <div className="mt-8 rounded-xl border border-border bg-card p-6 text-left">
@@ -35,11 +36,11 @@ export default function ThankYou() {
               <ul className="mt-4 space-y-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
                 <li>
                   We look at what your coverage at work actually pays, and what
-                  happens to it if you leave.
+                  happens to it the day you leave.
                 </li>
                 <li>
-                  If there&rsquo;s a gap, I&rsquo;ll walk you through options. If
-                  there isn&rsquo;t, I&rsquo;ll tell you that.
+                  If there&rsquo;s a gap, I&rsquo;ll walk you through your options.
+                  If there isn&rsquo;t one, I&rsquo;ll say so.
                 </li>
                 <li>Fifteen minutes. You decide what happens next.</li>
               </ul>

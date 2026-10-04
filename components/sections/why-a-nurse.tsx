@@ -2,7 +2,7 @@ import Image from "next/image";
 import { agent, yearsLicensed } from "@/lib/site";
 
 /**
- * Marynett rewrites this in her own words before launch — it is her story and
+ * Marynett rewrites this in her own words before launch. It is her story and
  * it has to be hers. This is a draft placeholder for layout, reviewed by her
  * and by FEG compliance prior to publication (Agent Agreement 2(C)).
  */
@@ -42,14 +42,15 @@ export function WhyANurse() {
 
           <div className="mt-6 space-y-4 text-[1.0625rem] leading-relaxed text-band-muted">
             <p>
-              In {agent.licensedSince} a neighbor showed me a policy you
-              don&rsquo;t have to die to use, and a way to set money aside for
-              retirement that isn&rsquo;t exposed to the market. I got licensed
-              to bring it to the people I work with.
+              In {agent.licensedSince} a neighbor sat me down and showed me a
+              policy you don&rsquo;t have to die to use, and a retirement option
+              that wasn&rsquo;t riding on the market. I got licensed so I could
+              bring it to the people I work with.
             </p>
             <p>
-              {yearsLicensed} years later I still work the floor, so the call is
-              fifteen minutes and it fits around a shift.
+              {yearsLicensed} years later I&rsquo;m still on the floor. That&rsquo;s
+              why the call is fifteen minutes, and why I&rsquo;ll take it when your
+              shift ends instead of when it suits me.
             </p>
           </div>
         </div>

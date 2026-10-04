@@ -40,8 +40,9 @@ export function Story() {
             <div className="rounded-xl border border-teal/25 bg-teal/[0.06] p-5">
               <p className="eyebrow text-teal">The new way</p>
               <p className="mt-2.5 text-[0.9375rem] leading-relaxed">
-                Your own permanent, portable policy with living benefit riders
-                attached, explained by someone who works the same floors you do.
+                Your own policy. It stays with you when you change jobs, and it
+                can pay you while you&rsquo;re still here if one of the covered
+                illnesses hits.
               </p>
             </div>
           </div>
@@ -67,7 +68,7 @@ export function Story() {
             />
           </div>
           <figcaption className="mt-3 text-center text-[0.8125rem] text-muted-foreground lg:text-left">
-            {agent.name} — {agent.city}, {agent.state}
+            {agent.name}, {agent.city}, {agent.state}
           </figcaption>
         </figure>
       </div>

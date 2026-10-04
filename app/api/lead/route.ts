@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
  * Lead intake.
  *
  * The destination is not decided yet, so every sink is optional and the handler
- * degrades gracefully when its env vars are absent — same shape as
+ * degrades gracefully when its env vars are absent, same shape as
  * e2-technologies' contact route. Wiring the real destination is a .env change,
  * not a code change.
  *
@@ -60,25 +60,25 @@ export async function POST(req: NextRequest) {
 
     if (!firstName) {
       return Response.json(
-        { error: "Please add your first name." },
+        { error: "Add your first name so I know who I’m calling." },
         { status: 400 }
       );
     }
     if (digits.length < 10 || digits.length > 11) {
       return Response.json(
-        { error: "Please add a phone number I can reach you on." },
+        { error: "I need a number I can actually reach you on." },
         { status: 400 }
       );
     }
     if (body.consentGiven !== true) {
       return Response.json(
-        { error: "Please tick the box so I know it's okay to call you." },
+        { error: "Check the box so I know it’s okay to call you." },
         { status: 400 }
       );
     }
 
     /**
-     * She may only solicit where licensed. Out-of-area enquiries are stored so
+     * She may only solicit where licensed. Out-of-area inquiries are stored so
      * nobody is silently dropped, but flagged so they are never worked as leads.
      */
     const licensed = (agent.licensedStates as readonly string[]).includes(state);
@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
       i_am: body.iAm ?? null,
       best_time: body.bestTime ?? null,
       out_of_area: !licensed,
-      // Consent artifact — stored verbatim alongside the exact language shown.
+      // Consent artifact, stored verbatim alongside the exact language shown.
       consent_given: true,
       consent_version: body.consentVersion ?? consent.version,
       consent_text: consent.text,
@@ -113,8 +113,8 @@ export async function POST(req: NextRequest) {
     const from = process.env.LEAD_FROM_EMAIL;
     if (resend && to && from) {
       const subject = licensed
-        ? `New 15-minute check — ${firstName}`
-        : `Out-of-area enquiry (${state}) — ${firstName}`;
+        ? `New 15-minute check: ${firstName}`
+        : `Out-of-area inquiry (${state}): ${firstName}`;
       try {
         await resend.emails.send({
           from,
@@ -123,13 +123,13 @@ export async function POST(req: NextRequest) {
           text: [
             `Name:        ${firstName}`,
             `Phone:       ${phoneRaw}`,
-            `State:       ${state}${licensed ? "" : "  ← OUTSIDE LICENSED STATES — do not solicit"}`,
-            `They are:    ${record.i_am ?? "—"}`,
-            `Best time:   ${record.best_time ?? "—"}`,
+            `State:       ${state}${licensed ? "" : "  << OUTSIDE LICENSED STATES, do not solicit"}`,
+            `They are:    ${record.i_am ?? "not given"}`,
+            `Best time:   ${record.best_time ?? "not given"}`,
             ``,
             `Consent:     given ${record.consent_at} (v${record.consent_version})`,
             `Language:    ${consent.text}`,
-            `IP:          ${record.ip ?? "—"}`,
+            `IP:          ${record.ip ?? "not recorded"}`,
           ].join("\n"),
         });
       } catch (err) {
@@ -149,7 +149,7 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error("[lead] unexpected error:", err);
     return Response.json(
-      { error: "Something went wrong. Please try again." },
+      { error: "That didn’t go through. Give it another try." },
       { status: 500 }
     );
   }

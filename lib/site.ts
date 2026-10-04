@@ -1,6 +1,6 @@
 /**
  * Single source of truth for every fact on this site that carries regulatory
- * weight — license data, disclosures, consent language, statistics.
+ * weight: license data, disclosures, consent language, statistics.
  *
  * Compliance edits happen HERE, not in components. FEG requires written
  * approval before publication (Agent Agreement 2(C), Compliance Declarations
@@ -10,7 +10,7 @@
 export const agent = {
   /** Display name used in headings and branding. */
   name: "Marynett Bolivar",
-  /** Exact name on the Texas license — used in the disclosure footer. */
+  /** Exact name on the Texas license, used in the disclosure footer. */
   legalName: "Marynett Hijosa Bolivar",
   licenseType: "Texas General Lines Agent",
   licenseNumber: "2020634",
@@ -44,7 +44,7 @@ export const affiliation = {
 
 /**
  * TCPA consent. The FCC one-to-one rule was vacated 2025-01-24 (Insurance
- * Marketing Coalition v. FCC), so prior express written consent governs — but
+ * Marketing Coalition v. FCC), so prior express written consent governs, but
  * FEG P&P 17(H)(vi) bans autodialers for calls and SMS outright, and carriers
  * commonly require agent-specific consent by contract. Built to the stricter bar.
  *
@@ -72,12 +72,12 @@ export const footnotes = [
   {
     id: 1,
     claim: "About 4 in 10 of us will hear the word cancer in our lifetime.",
-    source: null as string | null, // PENDING — FEG published material
+    source: null as string | null, // PENDING: FEG published material
   },
   {
     id: 2,
     claim: "Years the market ends down: about 1 in 4.",
-    source: null as string | null, // PENDING — FEG published material
+    source: null as string | null, // PENDING: FEG published material
   },
 ] as const;
 
@@ -91,8 +91,8 @@ export const indexDisclosure =
   "Index-linked crediting is subject to caps, participation rates and policy " +
   "charges. A floor limits loss from index performance; it does not prevent " +
   "reduction of value from fees or charges. Indexed products do not participate " +
-  "directly in the stock market, and indexed illustrations are hypothetical — " +
-  "they do not represent past or future results.";
+  "directly in the stock market, and indexed illustrations are hypothetical. " +
+  "They do not represent past or future results.";
 
 export const generalDisclosure =
   "Life insurance and annuity products are issued by the insurance carrier. " +
@@ -111,14 +111,14 @@ export const notGovernment =
  * quotes. Fabricated testimonials are actionable under the FTC Rule on Consumer
  * Reviews and Testimonials, are deceptive advertising under NAIC Model 570, and
  * breach Agent Agreement 2(G)(i). The section renders only when real, consented
- * quotes exist here — so the page is honest today and complete the moment they land.
+ * quotes exist here, so the page is honest today and complete the moment they land.
  *
  * To publish: add entries with the client's actual words and written permission on
  * file. Attribution stays first-initial + city (FEG Social Media Policy bars client
  * identifying information). Never reference a claim payout.
  *
  * NOTE: the comp's third card ("the 401(k) I left at my old job… what we did with
- * it") cannot be used in any form — it implies advice on a qualified plan, which
+ * it") cannot be used in any form. It implies advice on a qualified plan, which
  * Compliance Declaration #18 prohibits absent a securities license.
  */
 export type Testimonial = {

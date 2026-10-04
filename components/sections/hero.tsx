@@ -6,15 +6,15 @@ import { agent, cta, yearsLicensed } from "@/lib/site";
 
 /**
  * Copy note: nothing here addresses the reader's age, health, family or
- * financial situation — Meta's Personal Attributes policy (4.3) treats implied
+ * financial situation. Meta's Personal Attributes policy (4.3) treats implied
  * knowledge of those as a violation, and it reads the landing page alongside
  * the ad. Every claim is about the product, not the person.
  */
 const points = [
-  "If you get seriously ill, money can come to you — not only to your family after.",
-  "A policy that goes with you when you leave the hospital.",
+  "Get seriously ill and the money can come to you, while you’re still here to use it.",
+  "The policy is yours, so it goes with you the day you leave the hospital.",
   // Compliance Dec #14: no suggestion of direct market participation.
-  "A floor that protects your value in a down index year.",
+  "When the index has a down year, there’s a floor under your value.",
 ];
 
 export function Hero() {
@@ -51,10 +51,10 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-[1.0625rem] leading-relaxed text-band-muted sm:text-lg">
-            And retirement options that aren&rsquo;t invested in the market.
-            I&rsquo;m Marynett, a nurse and a licensed Texas agent since{" "}
-            {agent.licensedSince}. Fifteen minutes and you&rsquo;ll know where
-            you stand.
+            And a retirement option that isn&rsquo;t riding on the market.
+            I&rsquo;m Marynett. I&rsquo;m a nurse, and I&rsquo;ve been a licensed
+            Texas agent since {agent.licensedSince}. Give me fifteen minutes and
+            you&rsquo;ll know where you stand.
           </p>
 
           <ul className="mt-8 space-y-3.5">
@@ -81,8 +81,8 @@ export function Hero() {
               {cta.primary}
             </a>
             <p className="mt-4 max-w-md text-[0.875rem] leading-relaxed text-band-muted">
-              No obligation. No exam to talk. If what you have is fine, I&rsquo;ll
-              tell you that too.
+              No obligation, and you don&rsquo;t need an exam just to talk. If what
+              you&rsquo;ve got is fine, I&rsquo;ll tell you that.
             </p>
           </div>
         </div>
@@ -101,7 +101,7 @@ function TrustBar() {
   const items = [
     { lead: `${yearsLicensed} years`, rest: "licensed in Texas" },
     { lead: "12-hour nights,", rest: "same as you" },
-    { lead: "Independent agent,", rest: "multiple carriers" },
+    { lead: "Independent agent,", rest: "life and health licensed" },
     { lead: null, rest: agent.serviceAreas.join(" · ") },
   ];
 
