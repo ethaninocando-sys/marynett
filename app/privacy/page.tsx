@@ -72,7 +72,7 @@ export default function Privacy() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        <section className="section-y bg-background">
+        <section className="section-pad bg-background">
           <div className="container-page max-w-2xl">
             <h1 className="text-[2rem] leading-[1.1] font-semibold tracking-[-0.02em] sm:text-[2.5rem]">
               Privacy policy

@@ -27,7 +27,7 @@ function Field({
     <div className="space-y-1.5">
       <Label
         htmlFor={id}
-        className="eyebrow text-foreground/70"
+        className="label text-foreground/70"
       >
         {label}
       </Label>

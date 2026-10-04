@@ -5,102 +5,91 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ==========================================================================
-   Marynett Bolivar — Rio Grande Valley life insurance
-   Warm off-white ground, deep navy bands, one warm gold for action.
-   Teal is carried over from her existing printed material as a quiet accent.
+   Marynett Bolivar
+   Design system ported from the Archio Framer template, values read off the
+   published build at resilient-years-695934.framer.app via computed styles.
+   Deep forest green on bone, Crimson Pro display over Inter, Satoshi labels.
    ========================================================================== */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Display serif for headlines, geometric sans for everything else. */
-  --font-sans: var(--font-body);
   --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-label: var(--font-label);
   --font-heading: var(--font-display);
 
-  /* Dark bands: hero, "why a nurse", footer. */
-  --color-band: var(--band);
-  --color-band-foreground: var(--band-foreground);
-  --color-band-muted: var(--band-muted);
-  --color-band-border: var(--band-border);
-
-  /* Single action colour. */
-  --color-gold: var(--gold);
-  --color-gold-hover: var(--gold-hover);
-  --color-gold-foreground: var(--gold-foreground);
-
-  --color-teal: var(--teal);
-
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-bone: var(--bone);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-destructive: var(--destructive);
+  --color-live: var(--live);
 
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 36px;
+  --radius-3xl: 78px;
+  --radius-pill: 1000px;
 }
 
 :root {
-  --background: #fafaf7;
-  --foreground: #15181c;
-
-  --card: #ffffff;
-  --card-foreground: #15181c;
-  --popover: #ffffff;
-  --popover-foreground: #15181c;
-
-  /* Navy — solid buttons on light ground. */
-  --primary: #0f2438;
+  /* --- Palette, exact from the published template --- */
+  --primary: #0e3a27;          /* rgb(14, 58, 39)    forest green   */
   --primary-foreground: #ffffff;
+  --secondary: #e6eecd;        /* rgb(230, 238, 205) pale sage      */
+  --secondary-foreground: #0e3a27;
+  --bone: #ecebe4;             /* rgb(236, 235, 228) section ground */
+  --card: #f6f4ed;             /* rgb(246, 244, 237) card ground    */
+  --card-foreground: #000000;
+  --live: #31ee33;             /* rgb(49, 238, 51)   status dot     */
 
-  --secondary: #f1f1ec;
-  --secondary-foreground: #23272d;
+  --background: #ffffff;
+  --foreground: #000000;
+  --muted: #f6f4ed;
+  --muted-foreground: rgba(0, 0, 0, 0.85);
+  --accent: #e6eecd;
+  --accent-foreground: #0e3a27;
 
-  --muted: #f1f1ec;
-  /* 7.1:1 on the page ground. No grey-on-grey. */
-  --muted-foreground: #545c66;
-
-  --accent: #f1f1ec;
-  --accent-foreground: #23272d;
-
+  --border: rgba(0, 0, 0, 0.1);
+  --input: #ffffff;
+  --ring: #0e3a27;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
   --destructive: #b3261e;
 
-  --border: #e4e3dc;
-  --input: #ffffff;
-  --ring: #0f2438;
+  --radius: 10px;
 
-  /* Dark bands */
-  --band: #0d1e30;
-  --band-foreground: #ffffff;
-  --band-muted: #b4c2d1;
-  --band-border: #23384e;
+  /* --- Signature shadows, copied verbatim --- */
+  --shadow-cta:
+    rgba(61, 61, 61, 0.72) 0px 0.602187px 1.08394px -1.25px,
+    rgba(61, 61, 61, 0.64) 0px 2.28853px 4.11936px -2.5px,
+    rgba(61, 61, 61, 0.25) 0px 10px 18px -3.75px,
+    rgba(22, 51, 32, 0.35) 0px 0.706592px 0.706592px -0.583333px,
+    rgba(22, 51, 32, 0.34) 0px 1.80656px 1.80656px -1.16667px,
+    rgba(22, 51, 32, 0.33) 0px 3.62176px 3.62176px -1.75px,
+    rgba(22, 51, 32, 0.3) 0px 6.8656px 6.8656px -2.33333px,
+    rgba(22, 51, 32, 0.26) 0px 13.6468px 13.6468px -2.91667px,
+    rgba(22, 51, 32, 0.15) 0px 30px 30px -3.5px;
 
-  /* Action */
-  --gold: #e5a84b;
-  --gold-hover: #d59635;
-  --gold-foreground: #1a1206;
-
-  /* Carried from her printed material */
-  --teal: #1a4a4f;
-
-  --radius: 0.625rem;
+  --shadow-inner-glow:
+    rgba(255, 255, 255, 0.62) 3px 3px 47px 5px inset,
+    rgba(217, 217, 217, 0.15) -3px -3px 15px 5px inset;
 }
 
 @layer base {
@@ -121,22 +110,98 @@
       scroll-behavior: auto;
     }
   }
-  /* Headlines carry the serif. */
-  h1, h2, h3 {
-    @apply font-display;
-    letter-spacing: -0.015em;
+}
+
+/* --------------------------------------------------------------------------
+   Type scale. Display sizes and tracking are the template's: -0.04em on
+   Crimson Pro, -0.02em on Inter. Phone values come from the 390px breakpoint.
+   -------------------------------------------------------------------------- */
+
+@utility display-xl {
+  @apply font-display font-light;
+  font-size: 54px;
+  line-height: 1em;
+  letter-spacing: -0.04em;
+  @variant md {
+    font-size: 70px;
   }
 }
 
-@utility eyebrow {
-  @apply text-[0.6875rem] font-semibold uppercase tracking-[0.14em];
+@utility display-lg {
+  @apply font-display font-light;
+  font-size: 40px;
+  line-height: 1em;
+  letter-spacing: -0.04em;
+  @variant md {
+    font-size: 54px;
+  }
 }
 
-/* Section rhythm — one place to retune vertical space across the page. */
-@utility section-y {
-  @apply py-16 sm:py-20 lg:py-28;
+@utility display-md {
+  @apply font-display font-light;
+  font-size: 32px;
+  line-height: 1.1em;
+  letter-spacing: -0.04em;
+  @variant md {
+    font-size: 38px;
+  }
+}
+
+@utility heading-sm {
+  @apply font-sans font-medium;
+  font-size: 24px;
+  line-height: 1.5em;
+  letter-spacing: -0.01em;
+}
+
+@utility lede {
+  @apply font-sans;
+  font-size: 18px;
+  line-height: 1.5em;
+  letter-spacing: -0.02em;
+}
+
+@utility body-sm {
+  @apply font-sans;
+  font-size: 15px;
+  line-height: 1.6em;
+  letter-spacing: -0.02em;
+}
+
+/* Satoshi Medium, 0.8px tracking. The template's eyebrow/label voice. */
+@utility label {
+  @apply font-label font-medium uppercase;
+  font-size: 14px;
+  line-height: 1.2em;
+  letter-spacing: 0.8px;
+}
+
+/* --------------------------------------------------------------------------
+   Layout. Sections alternate white and bone with 100px/50px padding on
+   desktop, 80px/18px on phones. Containers cap at 1200, text measures at 840.
+   -------------------------------------------------------------------------- */
+
+@utility section-pad {
+  padding: 80px 18px;
+  @variant md {
+    padding: 100px 50px;
+  }
 }
 
 @utility container-page {
-  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  @apply mx-auto w-full;
+  max-width: 1200px;
+}
+
+@utility measure {
+  @apply mx-auto w-full;
+  max-width: 840px;
+}
+
+@utility shadow-cta {
+  box-shadow: var(--shadow-cta);
+}
+
+@utility shadow-inner-glow {
+  box-shadow: var(--shadow-inner-glow);
 }

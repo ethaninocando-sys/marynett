@@ -7,78 +7,66 @@ import {
   indexDisclosure,
   notGovernment,
 } from "@/lib/site";
+import { Container, Section } from "@/components/archio/section";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-band-border bg-band text-band-foreground">
-      <div className="container-page py-14 sm:py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr]">
+    <Section tone="bone" className="pb-[140px]">
+      <Container>
+        <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
-            <p className="font-display text-xl font-semibold tracking-tight">
-              {agent.name}
+            <p className="font-display text-[26px] leading-none font-light tracking-[-0.04em]">
+              {agent.name}, {agent.credentials}
             </p>
-            <p className="eyebrow mt-2 text-band-muted">
-              Life Insurance · Living Benefits · Rio Grande Valley
-            </p>
-            <p className="mt-5 text-[0.9375rem] text-band-muted">
+            <p className="body-sm mt-4 max-w-xs text-muted-foreground">
               I work {agent.serviceAreas.join(", ")} and the rest of the Valley.
             </p>
           </div>
 
           <div>
-            <p className="eyebrow text-gold">Get in touch</p>
-            <ul className="mt-4 space-y-2 text-[0.9375rem]">
+            <p className="label text-primary">Get in touch</p>
+            <ul className="mt-4 space-y-2 text-[15px] tracking-[-0.02em]">
               <li>
-                <a
-                  href={agent.phoneHref}
-                  className="rounded-sm hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-                >
+                <a href={agent.phoneHref} className="hover:text-primary">
                   {agent.phoneDisplay}
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${agent.email}`}
-                  className="rounded-sm break-all hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  className="break-all hover:text-primary"
                 >
                   {agent.email}
-                </a>
-              </li>
-              <li>
-                <a href="#book" className="rounded-sm hover:text-gold">
-                  Book a 15-minute check
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="eyebrow text-gold">Licensing</p>
-            <ul className="mt-4 space-y-1.5 text-[0.9375rem] text-band-muted">
-              <li className="text-band-foreground">{agent.legalName}</li>
+            <p className="label text-primary">Licensing</p>
+            <ul className="body-sm mt-4 space-y-1.5 text-muted-foreground">
+              <li className="text-foreground">{agent.legalName}</li>
               <li>
                 {agent.licenseType} · License #{agent.licenseNumber}
               </li>
               <li>NPN {agent.npn}</li>
-              <li>{agent.qualification}</li>
-              <li>
-                {agent.city}, {agent.state}
-              </li>
+              <li>Licensed in Texas only</li>
             </ul>
           </div>
         </div>
 
         {/* ------------------------------------------------------------------
-            Required disclosures. FEG P&P 17(F) and Agent Agreement 4(J) require
-            the independent-agent phrase wherever the FEG name appears; the
-            Social Media Policy requires "FEG Insurance Services" on material
-            that solicits insurance sales.
+            Required disclosures. P&P 17(F) and Agent Agreement 4(J) require the
+            independent-agent phrase wherever the FEG name appears; the Social
+            Media Policy requires "FEG Insurance Services" on material that
+            solicits insurance sales.
         ------------------------------------------------------------------ */}
-        <div className="mt-12 space-y-4 border-t border-band-border pt-8 text-[0.8125rem] leading-relaxed text-band-muted">
-          <p className="font-semibold text-band-foreground">
+        <div className="mt-14 space-y-4 border-t border-border pt-8 text-[13px] leading-relaxed text-muted-foreground">
+          <p className="font-medium text-foreground">
             {affiliation.independence} · {affiliation.name}
           </p>
 
+          <p>{generalDisclosure}</p>
           <p>{notGovernment}</p>
 
           <p>
@@ -91,7 +79,7 @@ export function SiteFooter() {
               {note.source ? (
                 <span>Source: {note.source}</span>
               ) : (
-                <span className="font-semibold text-gold">
+                <span className="font-medium text-primary">
                   [Source pending. Supply the FEG published material before
                   publication.]
                 </span>
@@ -99,24 +87,20 @@ export function SiteFooter() {
             </p>
           ))}
 
-          <p>{generalDisclosure}</p>
-
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-3">
             <Link
               href="/privacy"
-              className="rounded-sm underline underline-offset-4 hover:text-gold"
+              className="underline underline-offset-4 hover:text-primary"
             >
               Privacy policy
             </Link>
-            <span className="text-band-border" aria-hidden="true">
-              |
-            </span>
+            <span aria-hidden="true">|</span>
             <span>
               &copy; {new Date().getFullYear()} {agent.legalName}
             </span>
           </div>
         </div>
-      </div>
-    </footer>
+      </Container>
+    </Section>
   );
 }

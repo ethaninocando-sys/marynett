@@ -1,44 +1,40 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { agent, cta } from "@/lib/site";
+import { agent } from "@/lib/site";
 
+/**
+ * Archio's top bar: wordmark left, status and contact right. The template put
+ * a green dot and "available for work" here; the equivalent honest signal for
+ * a licensed agent is her credential, not availability.
+ */
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
-      <div className="container-page flex h-16 items-center justify-between gap-4 sm:h-[4.5rem]">
-        <Link href="/" className="min-w-0 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
-          <span className="block font-display text-[1.0625rem] leading-tight font-semibold tracking-tight whitespace-nowrap sm:text-xl">
-            {agent.name}
-          </span>
-          <span className="eyebrow hidden text-muted-foreground sm:block">
-            Life Insurance · Living Benefits · Rio Grande Valley
+    <header className="bg-background">
+      <div className="container-page flex items-center justify-between gap-4 px-[18px] py-5 md:px-[50px]">
+        <Link
+          href="/"
+          className="font-display text-[26px] leading-none font-light tracking-[-0.04em] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+        >
+          {agent.name}
+          <span className="body-sm ml-2 align-middle text-muted-foreground">
+            {agent.credentials}
           </span>
         </Link>
 
-        <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-5">
+          <span className="label hidden items-center gap-2 text-muted-foreground sm:flex">
+            <span className="size-2 rounded-pill bg-live" aria-hidden="true" />
+            Licensed Texas agent
+          </span>
           <a
             href={agent.phoneHref}
-            className="flex items-center gap-2 rounded-lg px-1 py-1 text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            className="flex items-center gap-2 rounded-[10px] text-[15px] font-medium tracking-[-0.02em] transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
-            <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
-              <Phone className="size-3.5" aria-hidden="true" />
-            </span>
+            <Phone className="size-4" aria-hidden="true" />
             <span className="hidden sm:inline">{agent.phoneDisplay}</span>
-            <span className="sr-only sm:hidden">Call {agent.phoneDisplay}</span>
-          </a>
-
-          <a
-            href="#book"
-            className={cn(
-              buttonVariants(),
-              "h-10 rounded-lg px-3.5 text-[0.8125rem] font-semibold sm:px-4 sm:text-[0.875rem]"
-            )}
-          >
-            {/* The full label doesn’t fit beside her name at 375px. */}
-            <span className="sm:hidden">Book a check</span>
-            <span className="hidden sm:inline">{cta.header}</span>
+            <span className="sr-only sm:hidden">
+              Call {agent.phoneDisplay}
+            </span>
           </a>
         </div>
       </div>
