@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Container, Eyebrow, Section } from "@/components/archio/section";
 import { BgShapes } from "@/components/archio/bg-shapes";
 import { Cta } from "@/components/archio/cta";
+import { PickOne } from "@/components/archio/pick-one";
 import { Confirm } from "@/components/ui/confirm";
 import { Placeholder } from "@/components/ui/placeholder";
 import { agent } from "@/lib/site";
@@ -16,20 +16,6 @@ import { agent } from "@/lib/site";
  * the consumer campaign.
  */
 
-const doors = [
-  {
-    eyebrow: "For families",
-    title: "Protect my family",
-    body: "See what your coverage does, and what it doesn't.",
-    href: "/coverage",
-  },
-  {
-    eyebrow: "For nurses and teachers",
-    title: "Work with me",
-    body: "How I got licensed, and what I teach.",
-    href: "/work-with-me",
-  },
-];
 
 const videos = [
   "What does life insurance through work actually cover?",
@@ -76,31 +62,7 @@ export default function Home() {
           </Container>
         </Section>
 
-        {/* Two doors */}
-        <Section tone="bone">
-          <Container className="grid gap-5 md:grid-cols-2">
-            {doors.map((door) => (
-              <a
-                key={door.href}
-                href={door.href}
-                className="group block rounded-lg border border-border bg-card p-7 transition-colors hover:border-primary sm:p-9"
-              >
-                <Eyebrow>{door.eyebrow}</Eyebrow>
-                <h2 className="display-md mt-3">{door.title}</h2>
-                <p className="body-sm mt-3 text-muted-foreground">
-                  {door.body}
-                </p>
-                <p className="mt-6 flex items-center gap-2 text-[15px] font-medium transition-colors group-hover:text-primary">
-                  Go
-                  <ArrowRight
-                    className="size-4 transition-transform group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </p>
-              </a>
-            ))}
-          </Container>
-        </Section>
+        <PickOne />
 
         {/* Why a nurse does this */}
         <Section tone="white">

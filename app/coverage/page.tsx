@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Container, Eyebrow, Section } from "@/components/archio/section";
 import { BgShapes } from "@/components/archio/bg-shapes";
 import { Cta } from "@/components/archio/cta";
+import { ComparisonTable } from "@/components/archio/comparison-table";
 import { LeadForm } from "@/components/forms/lead-form";
 import { Placeholder } from "@/components/ui/placeholder";
 import { agent, testimonials } from "@/lib/site";
@@ -20,11 +21,6 @@ const points = [
   "Straight answers from a nurse. No pressure either way",
 ];
 
-const comparison: [string, string][] = [
-  ["Usually pays at death only", "Can include living benefits for serious illness"],
-  ["Often tied to your employer", "Stays with you if you change jobs"],
-  ["Rarely explained to you", "Explained by someone who works the same floors"],
-];
 
 const steps: [string, string][] = [
   ["You pick a time.", "I call you."],
@@ -147,30 +143,9 @@ export default function CoveragePage() {
               </div>
             </div>
 
-            <table className="mt-12 w-full max-w-3xl border-collapse text-left">
-              <thead>
-                <tr className="border-b border-foreground align-bottom">
-                  <th scope="col" className="label w-1/2 py-3 pr-5 text-muted-foreground">
-                    Coverage through work
-                  </th>
-                  <th scope="col" className="label w-1/2 py-3 pl-5 text-primary">
-                    Coverage you own
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparison.map(([work, own]) => (
-                  <tr key={work} className="border-b border-border align-top">
-                    <td className="body-sm py-4 pr-5 text-muted-foreground">
-                      {work}
-                    </td>
-                    <td className="py-4 pl-5 text-[15px] font-medium tracking-[-0.02em]">
-                      {own}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="mt-12">
+              <ComparisonTable />
+            </div>
 
             <Cta href="#book" className="mt-10">
               See the difference
