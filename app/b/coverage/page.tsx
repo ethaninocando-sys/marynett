@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { Container, Section } from "@/components/archio/section";
+import { Container, Eyebrow, Section } from "@/components/archio/section";
+import { BgShapes } from "@/components/archio/bg-shapes";
 import { Cta } from "@/components/archio/cta";
-import { AnimatedHeading } from "@/components/motion/animated-heading";
+import { ComparisonTable } from "@/components/archio/comparison-table";
 import { LeadForm } from "@/components/forms/lead-form";
 import { Placeholder } from "@/components/ui/placeholder";
 import { agent, testimonials } from "@/lib/site";
@@ -14,11 +15,12 @@ export const metadata: Metadata = {
     "A 15-minute check of what your coverage does today, with a registered nurse and licensed Texas agent.",
 };
 
-const comparison: [string, string][] = [
-  ["Usually pays at death only", "Can include living benefits for serious illness"],
-  ["Often tied to your employer", "Stays with you if you change jobs"],
-  ["Rarely explained to you", "Explained by someone who works the same floors"],
+const points = [
+  "What your coverage at work actually does, and what happens to it if you leave",
+  "How living benefits work, and who qualifies",
+  "Straight answers from a nurse. No pressure either way",
 ];
+
 
 const steps: [string, string][] = [
   ["You pick a time.", "I call you."],
@@ -26,139 +28,143 @@ const steps: [string, string][] = [
   ["I show you the gaps, if there are any.", "You decide what to do next."],
 ];
 
-const faqs: [string, string][] = [
-  ["How do you get paid?", "Not by you. The insurance company pays me a commission if you buy a policy, and it’s already built into the price. I’ll show you the number on the call."],
-  ["I already have insurance at work.", "Bring it. Most of them pay at death only and end when the job does. We’ll check yours."],
-  ["Do I need a medical exam?", "Depends on the policy and the company. A lot of them skip it now. We’ll find out on the call."],
-  ["Will you pressure me?", "No. It’s a fifteen-minute conversation. If you’re fine as you are, I’ll say so."],
-  ["Do you give tax or investment advice?", "No. For tax questions, including moving retirement accounts, please talk to a tax professional."],
-];
-
 /**
- * Concrete beats evocative here. The buyer's stated fear is being lied to, so
- * each stat is something they could go and verify: her tenure, her actual
- * license number on the Texas DOI lookup, and exactly what the call costs them
- * in time.
+ * "How do you get paid?" is answered as a commission disclosure, never as
+ * "free" — FEG Compliance Declaration #23 bars an agent from presenting their
+ * services as free or their products as lowest cost.
  */
-const stats: [string, string][] = [
-  [`${agent.nurseYears} years`, "A nurse, still working the floor"],
-  [`Since ${agent.licensedSince}`, `Texas license #${agent.licenseNumber}`],
-  ["15 minutes", "One call. No second appointment."],
+const faqs: [string, string][] = [
+  [
+    "How do you get paid?",
+    "Not by you. The insurance company pays me a commission if you buy a policy, and it’s already built into the price. I’ll show you the number on the call.",
+  ],
+  [
+    "I already have insurance at work.",
+    "Bring it. Most of them pay at death only and end when the job does. We’ll check yours.",
+  ],
+  [
+    "Do I need a medical exam?",
+    "Depends on the policy and the company. A lot of them skip it now. We’ll find out on the call.",
+  ],
+  [
+    "Will you pressure me?",
+    "No. It’s a fifteen-minute conversation. If you’re fine as you are, I’ll say so.",
+  ],
+  [
+    "Do you give tax or investment advice?",
+    "No. For tax questions, including moving retirement accounts, please talk to a tax professional.",
+  ],
 ];
 
-export default function BCoverage() {
+export default function CoveragePage() {
   return (
     <>
       <SiteHeader />
       <main className="flex-1">
-        <Section tone="white" className="bg-background pt-10 text-center">
-          <Container className="max-w-3xl">
-            <p className="label text-muted-foreground">
-              Registered nurse · Licensed Texas agent since {agent.licensedSince}
-            </p>
-            <AnimatedHeading
-              className="display-xl mt-6 text-balance"
-              text="Life insurance you don't have to die to use."
-            />
-            <p className="lede mx-auto mt-6 max-w-xl text-muted-foreground">
-              Some policies can pay you while you&rsquo;re living if you&rsquo;re
-              diagnosed with a serious illness. In fifteen minutes
-              I&rsquo;ll walk you through what you have now and what it would do.
-            </p>
-
-            <dl className="mt-12 grid grid-cols-3 gap-6 border-y border-border py-8">
-              {stats.map(([value, label]) => (
-                <div key={label}>
-                  <dt className="font-display text-[26px] leading-none font-semibold tracking-[-0.02em] md:text-[32px]">
-                    {value}
-                  </dt>
-                  <dd className="label mt-2 text-muted-foreground">{label}</dd>
-                </div>
-              ))}
-            </dl>
-          </Container>
-
-          <Container className="mt-12 max-w-xl text-left">
-            <LeadForm variant="coverage" className="rounded-2xl" />
-            <p className="body-sm mt-4 text-center text-muted-foreground">
-              If your coverage is already fine, I&rsquo;ll tell you so.
-            </p>
-          </Container>
-        </Section>
-
-        <Section tone="white" className="bg-background">
-          <Container className="max-w-3xl text-center">
-            <p className="label text-muted-foreground">
-              The question nobody at work asks
-            </p>
-            <AnimatedHeading
-              as="h2"
-              className="display-lg mt-4 text-balance"
-              text="If you got sick tomorrow and couldn't work, who pays the bills?"
-            />
-            <div className="lede mx-auto mt-6 max-w-xl space-y-4 text-left text-muted-foreground">
-              <p>
-                Many people I work with have life insurance through their job and
-                believe they&rsquo;re covered. That coverage usually pays if you
-                die. It&rsquo;s often tied to the job.
+        {/* Hero */}
+        <Section tone="white" className="pt-5 pb-0">
+          <Container className="grid items-start gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
+            <div>
+              <Eyebrow>
+                Registered nurse. Licensed agent since {agent.licensedSince}
+              </Eyebrow>
+              <h1 className="display-xl mt-5 text-balance">
+                Life insurance you don&rsquo;t have to die to use.
+              </h1>
+              <p className="lede mt-6 max-w-xl text-muted-foreground">
+                Some policies can pay you while you&rsquo;re living if
+                you&rsquo;re diagnosed with a serious illness. In fifteen
+                minutes I&rsquo;ll walk you through what you have now and what it
+                would do.
               </p>
-              <p>
-                And most people have never been shown what it does if they survive
-                a heart attack, a stroke or cancer and can&rsquo;t work for a year.
-              </p>
-              <p>
-                About 4 in 10 of us will hear the word cancer in our lifetime.
-                The bills don&rsquo;t know that.
-              </p>
+
+              <ul className="mt-8 max-w-xl space-y-3.5">
+                {points.map((point) => (
+                  <li key={point} className="flex gap-3.5">
+                    <span
+                      aria-hidden="true"
+                      className="mt-[0.7em] h-px w-5 shrink-0 bg-primary"
+                    />
+                    <span className="text-[15px] leading-relaxed tracking-[-0.02em]">
+                      {point}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </Container>
 
-          <Container className="mt-12 max-w-3xl">
-            <div className="overflow-hidden rounded-2xl border border-border bg-card">
-              <table className="w-full border-collapse text-left">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th scope="col" className="label w-1/2 p-5 text-muted-foreground">
-                      Coverage through work
-                    </th>
-                    <th scope="col" className="label w-1/2 p-5">
-                      Coverage you own
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map(([work, own]) => (
-                    <tr key={work} className="border-b border-border last:border-0 align-top">
-                      <td className="body-sm p-5 text-muted-foreground">{work}</td>
-                      <td className="p-5 text-[16px] font-medium tracking-[-0.02em]">
-                        {own}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-8 text-center">
-              <Cta href="#book" className="rounded-full">
-                See the difference
-              </Cta>
+            <div>
+              <LeadForm variant="coverage" />
+              <p className="body-sm mt-4 text-muted-foreground">
+                If your coverage is already fine, I&rsquo;ll tell you so.
+              </p>
             </div>
           </Container>
         </Section>
 
-        <Section tone="white" className="bg-background">
-          <Container className="max-w-4xl text-center">
-            <h2 className="display-lg text-balance">How the 15 minutes works</h2>
-            <ol className="mt-10 grid gap-4 md:grid-cols-3">
+        {/* Trust strip */}
+        <div className="border-y border-border bg-bone">
+          <ul className="container-page grid gap-x-8 gap-y-2 px-[18px] py-6 text-[15px] font-medium tracking-[-0.02em] sm:grid-cols-2 lg:grid-cols-4 md:px-[50px]">
+            <li>{agent.nurseYears} years a nurse</li>
+            <li>Texas license #{agent.licenseNumber}</li>
+            <li>
+              {agent.city}, {agent.state}
+            </li>
+            <li>Calls around your shift</li>
+          </ul>
+        </div>
+
+        {/* The question + comparison */}
+        <Section tone="bone">
+          <BgShapes position="right" />
+          <Container>
+            <div className="max-w-2xl">
+              <Eyebrow>The question nobody at work asks</Eyebrow>
+              <h2 className="display-lg mt-4 text-balance">
+                If you got sick tomorrow and couldn&rsquo;t work, who pays the
+                bills?
+              </h2>
+              <div className="lede mt-6 space-y-4 text-muted-foreground">
+                <p>
+                  Many people I work with have life insurance through their job
+                  and believe they&rsquo;re covered. That coverage usually pays
+                  if you die. It&rsquo;s often tied to the job.
+                </p>
+                <p>
+                  And most people have never been shown what it does if they
+                  survive a heart attack, a stroke or cancer and can&rsquo;t
+                  work for a year.
+                </p>
+                <p>
+                  About 4 in 10 of us will hear the word cancer in our lifetime.
+                  The bills don&rsquo;t know that.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <ComparisonTable />
+            </div>
+
+            <Cta href="#book" className="mt-10">
+              See the difference
+            </Cta>
+          </Container>
+        </Section>
+
+        {/* How the 15 minutes works */}
+        <Section tone="white">
+          <Container>
+            <h2 className="display-lg max-w-2xl text-balance">
+              How the 15 minutes works
+            </h2>
+            <ol className="mt-10 grid gap-8 md:grid-cols-3">
               {steps.map(([title, detail], i) => (
-                <li
-                  key={title}
-                  className="rounded-2xl border border-border bg-card p-6 text-left"
-                >
-                  <p className="font-display text-[28px] leading-none font-semibold text-muted-foreground">
-                    {String(i + 1).padStart(2, "0")}
+                <li key={title} className="border-t border-foreground pt-5">
+                  <p className="font-display text-[2rem] leading-none font-light text-primary">
+                    {i + 1}
                   </p>
-                  <p className="mt-4 text-[16px] font-medium tracking-[-0.02em]">
+                  <p className="mt-4 text-[15px] font-medium tracking-[-0.02em]">
                     {title}
                   </p>
                   {detail ? (
@@ -170,12 +176,30 @@ export default function BCoverage() {
           </Container>
         </Section>
 
-        <Section tone="white" className="bg-background">
-          <Container className="max-w-3xl text-center">
-            <p className="label text-muted-foreground">What people say</p>
-            {testimonials.length > 0 ? null : (
+        {/* Proof — stays empty until there are real, consented quotes */}
+        <Section tone="bone">
+          <Container>
+            <Eyebrow>What people say</Eyebrow>
+            {testimonials.length > 0 ? (
+              <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {testimonials.map((t) => (
+                  <li
+                    key={`${t.initial}-${t.city}`}
+                    className="rounded-lg border border-border bg-card p-6"
+                  >
+                    <blockquote className="font-display text-[18px] leading-relaxed">
+                      &ldquo;{t.quote}&rdquo;
+                    </blockquote>
+                    <p className="body-sm mt-4 font-medium">
+                      {t.initial}, {t.city}
+                      <span className="text-muted-foreground"> · {t.role}</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
               <Placeholder
-                className="mt-6 min-h-40 rounded-2xl"
+                className="mt-6 min-h-40"
                 label="Client stories"
                 note="Hidden at launch. Added only with real quotes, written permission and FEG approval."
               />
@@ -183,28 +207,29 @@ export default function BCoverage() {
           </Container>
         </Section>
 
-        <Section tone="white" className="bg-background">
+        {/* FAQ */}
+        <Section tone="white">
           <Container className="max-w-3xl">
-            <h2 className="display-lg text-center text-balance">
+            <Eyebrow>Questions people ask</Eyebrow>
+            <h2 className="display-lg mt-4 text-balance">
               The ones that come up every time
             </h2>
-            <dl className="mt-10 space-y-3">
+            <dl className="mt-10">
               {faqs.map(([q, a]) => (
-                <div key={q} className="rounded-2xl border border-border bg-card p-6">
-                  <dt className="text-[17px] font-medium tracking-[-0.02em]">{q}</dt>
-                  <dd className="body-sm mt-2 text-muted-foreground">{a}</dd>
+                <div key={q} className="border-b border-border py-6 first:border-t">
+                  <dt className="text-[17px] font-medium tracking-[-0.02em]">
+                    {q}
+                  </dt>
+                  <dd className="body-sm mt-2 max-w-2xl text-muted-foreground">
+                    {a}
+                  </dd>
                 </div>
               ))}
             </dl>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <Cta href="#book" className="rounded-full">
-                Let’s talk
-              </Cta>
-              <Cta
-                href={agent.phoneHref}
-                variant="secondary"
-                className="rounded-full border border-border"
-              >
+
+            <div className="mt-12 flex flex-wrap gap-3">
+              <Cta href="#book">Let’s talk</Cta>
+              <Cta href={agent.phoneHref} variant="secondary">
                 Or call {agent.phoneDisplay}
               </Cta>
             </div>

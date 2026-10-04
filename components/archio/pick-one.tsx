@@ -61,7 +61,7 @@ export function PickOne() {
 
         <div className="grid gap-5 lg:grid-cols-2">
           <Door
-            href="/coverage"
+            href="/b/coverage"
             eyebrow="For families"
             title="Protect my family"
             body="See what your coverage actually does."
@@ -99,7 +99,7 @@ export function PickOne() {
           </Door>
 
           <Door
-            href="/work-with-me"
+            href="/b/work-with-me"
             eyebrow="For nurses and teachers"
             title="Work with me"
             body="How I got licensed, and how you can."

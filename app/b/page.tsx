@@ -1,132 +1,129 @@
+import Image from "next/image";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { Container, Section } from "@/components/archio/section";
-import { SevoraHeroPanel } from "@/components/sevora/hero-panel";
-import { PickOne } from "@/components/sevora/pick-one";
+import { Container, Eyebrow, Section } from "@/components/archio/section";
+import { BgShapes } from "@/components/archio/bg-shapes";
 import { Cta } from "@/components/archio/cta";
-import { AnimatedHeading } from "@/components/motion/animated-heading";
+import { PickOne } from "@/components/archio/pick-one";
+import { Confirm } from "@/components/ui/confirm";
+import { Placeholder } from "@/components/ui/placeholder";
 import { agent } from "@/lib/site";
 
 /**
- * Direction B splitter, in Sevora's shape: centred hero, two-tone animated
- * headline, a stats row under the fold line, then white cards on grey.
- * Same copy as Direction A so the comparison is about design, not words.
+ * The splitter. Two audiences live under one roof but never share a funnel:
+ * families go to /coverage, prospective agents to /work-with-me. Meta ads point
+ * at the sub-pages, never here, so the Employment Special Ad Category stays off
+ * the consumer campaign.
  */
 
-/**
- * Concrete beats evocative here. The buyer's stated fear is being lied to, so
- * each stat is something they could go and verify: her tenure, her actual
- * license number on the Texas DOI lookup, and exactly what the call costs them
- * in time.
- */
-const stats: [string, string][] = [
-  [`${agent.nurseYears} years`, "A nurse, still working the floor"],
-  [`Since ${agent.licensedSince}`, `Texas license #${agent.licenseNumber}`],
-  ["15 minutes", "One call. No second appointment."],
+
+const videos = [
+  "What does life insurance through work actually cover?",
+  "What are living benefits?",
+  "What is an IUL?",
+  "What should I ask before I retire?",
 ];
 
-
-export default function DirectionBHome() {
+export default function Home() {
   return (
     <>
       <SiteHeader />
       <main className="flex-1">
-        <SevoraHeroPanel
-          eyebrow="Registered nurse · Licensed Texas agent"
-          image="/marynett-hero.webp"
-          imageAlt={`${agent.name}, registered nurse and licensed Texas insurance agent`}
-          card={{
-            label: "Next step",
-            title: "Let’s talk",
-            body: "Tell me what you have. I'll tell you where you stand.",
-            href: "/b/coverage",
-          }}
-        >
-          <AnimatedHeading
-            className="display-xl text-balance"
-            text={`${agent.nurseYearsWord} years at the bedside taught me what families aren't ready for.`}
-          />
+        <Section tone="white" className="pt-5 pb-[80px] md:pb-[100px]">
+          <Container className="grid items-center gap-10 md:grid-cols-[1.35fr_1fr] md:gap-16">
+            <div>
+              <Eyebrow>Registered nurse · Licensed Texas agent</Eyebrow>
+              <h1 className="display-xl mt-5 text-balance">
+                <Confirm>{agent.nurseYearsWord}</Confirm> years at the bedside
+                taught me what families aren&rsquo;t ready for.
+              </h1>
+              <p className="lede measure mt-6 ml-0 max-w-xl text-muted-foreground">
+                I&rsquo;m Marynett. Thirty-two years a nurse, licensed agent
+                since <Confirm>{agent.licensedSince}</Confirm>. Most families
+                only find out what their coverage does when they need it. I get
+                to them first.
+              </p>
+            </div>
 
-          <p className="lede mt-6 text-muted-foreground">
-            I&rsquo;m Marynett. Thirty-two years a nurse, licensed agent since{" "}
-            {agent.licensedSince}. Most families only find out what their
-            coverage does when they need it. I get to them first.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-            <Cta href="/b/coverage" className="rounded-full">
-              Protect my family
-            </Cta>
-            <Cta
-              href="/b/work-with-me"
-              variant="secondary"
-              className="rounded-full border border-border"
-            >
-              Work with me
-            </Cta>
-          </div>
-
-          <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8">
-            {stats.map(([value, label]) => (
-              <div key={label}>
-                <dt className="font-display text-[22px] leading-none font-semibold tracking-[-0.02em] md:text-[26px]">
-                  {value}
-                </dt>
-                <dd className="label mt-2 text-[13px] text-muted-foreground">
-                  {label}
-                </dd>
+            <figure className="mx-auto w-full max-w-sm md:max-w-none">
+              <div className="overflow-hidden rounded-xl bg-card shadow-inner-glow">
+                <Image
+                  src="/marynett-bolivar.webp"
+                  alt={`${agent.name}, registered nurse and licensed Texas insurance agent`}
+                  width={525}
+                  height={635}
+                  sizes="(min-width: 768px) 24rem, 90vw"
+                  className="h-auto w-full object-cover"
+                  priority
+                />
               </div>
-            ))}
-          </dl>
-        </SevoraHeroPanel>
+            </figure>
+          </Container>
+        </Section>
 
         <PickOne />
 
         {/* Why a nurse does this */}
-        <Section tone="white" className="bg-background">
-          <Container className="max-w-3xl">
-            <div>
-              <p className="label text-muted-foreground">
-                Why a nurse does this
+        <Section tone="white">
+          <BgShapes position="right" />
+          <Container>
+            <Eyebrow>Why a nurse does this</Eyebrow>
+            <h2 className="display-lg measure mt-4 text-balance">
+              Most families had coverage. Few knew what it actually did.
+            </h2>
+            <div className="measure lede mt-6 space-y-4 text-muted-foreground">
+              <p>
+                I&rsquo;ve worked <Confirm>12-hour night shifts</Confirm> for
+                most of my career. I&rsquo;ve sat with families on the worst day
+                of their lives, and I&rsquo;ve watched the second shock arrive
+                later: the bills.
               </p>
-              <AnimatedHeading
-                as="h2"
-                className="display-lg mt-4 text-balance"
-                text="Most families had coverage. Few knew what it actually did."
-              />
-              <div className="lede mt-6 space-y-4 text-muted-foreground">
-                <p>
-                  I&rsquo;ve worked 12-hour night shifts for most of my career.
-                  I&rsquo;ve sat with families on the worst day of their lives,
-                  and I&rsquo;ve watched the second shock arrive later: the
-                  bills.
-                </p>
-                <p>
-                  I got licensed so I could explain it in plain words, one
-                  family at a time.
-                </p>
-              </div>
+              <p>
+                I got licensed so I could explain it in plain words, one family
+                at a time.
+              </p>
             </div>
+          </Container>
+        </Section>
 
+        {/* Learn in 60 seconds */}
+        <Section tone="bone">
+          <Container>
+            <Eyebrow>Learn in 60 seconds</Eyebrow>
+            <h2 className="display-lg measure mt-4 text-balance">
+              Short answers to the questions I hear most.
+            </h2>
+            <ul className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+              {videos.map((title) => (
+                <li key={title}>
+                  <Placeholder
+                    className="aspect-[9/16]"
+                    label="Video"
+                    note="Not filmed yet"
+                  />
+                  <p className="mt-3 text-[15px] leading-snug font-medium tracking-[-0.02em]">
+                    {title}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </Container>
         </Section>
 
         {/* Closing */}
-        <Section tone="white" className="bg-background">
-          <Container className="sv-card-dark rounded-2xl px-8 py-16 text-center text-white">
+        <Section tone="white">
+          <Container className="text-center">
             <h2 className="display-lg text-balance">
               Not sure which door is yours?
             </h2>
-            <p className="lede mx-auto mt-4 max-w-md text-white/70">
+            <p className="lede mt-4 text-muted-foreground">
               Call or text me and I&rsquo;ll point you the right way.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href={agent.phoneHref}
-                className="rounded-full bg-white px-6 py-3 text-[15px] font-medium text-[#0e2536] transition-opacity hover:opacity-90"
-              >
-                {agent.phoneDisplay}
-              </a>
+              <Cta href={agent.phoneHref}>{agent.phoneDisplay}</Cta>
+              <Cta href="/b/coverage" variant="secondary">
+                See what my coverage does
+              </Cta>
             </div>
           </Container>
         </Section>

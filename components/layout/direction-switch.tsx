@@ -8,8 +8,10 @@ import { cn } from "@/lib/utils";
  * Floating A/B switch. Maps the current page to its opposite-direction twin so
  * you land on the same content, not back at the home page.
  *
- *   A (Archio)  /            /coverage            /work-with-me
- *   B (Sevora)  /b           /b/coverage          /b/work-with-me
+ *   A (Sevora)  /            /coverage            /work-with-me
+ *   B (Archio)  /b           /b/coverage          /b/work-with-me
+ *
+ * Sevora is the default direction, so it owns the root routes.
  *
  * Review furniture, not part of the site. Remove before launch.
  */
@@ -35,20 +37,20 @@ export function DirectionSwitch() {
           aria-current={!isB ? "page" : undefined}
           className={cn(
             item,
-            !isB ? "bg-[#0f2438] text-white" : "text-black/60 hover:text-black"
+            !isB ? "bg-[#121218] text-white" : "text-black/60 hover:text-black"
           )}
         >
-          A · Archio
+          A · Sevora
         </Link>
         <Link
           href={bHref}
           aria-current={isB ? "page" : undefined}
           className={cn(
             item,
-            isB ? "bg-[#121218] text-white" : "text-black/60 hover:text-black"
+            isB ? "bg-[#0f2438] text-white" : "text-black/60 hover:text-black"
           )}
         >
-          B · Sevora
+          B · Archio
         </Link>
       </div>
     </div>
