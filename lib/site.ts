@@ -88,17 +88,15 @@ export const consent = {
  * requires accuracy. Agent Agreement 2(I) limits Sales Tools to claims FEG
  * publishes, so these cite FEG material.
  *
+ * Rendered as plain sentences in the footer rather than numbered footnotes.
+ * Superscripts in body copy read as clutter, and substantiation does not
+ * require one: the claim and its source just have to be findable on the page.
+ *
  * `source` stays null until the FEG document is supplied.
  */
 export const footnotes = [
   {
-    id: 1,
     claim: "About 4 in 10 of us will hear the word cancer in our lifetime.",
-    source: null as string | null, // PENDING: FEG published material
-  },
-  {
-    id: 2,
-    claim: "Years the market ends down: about 1 in 4.",
     source: null as string | null, // PENDING: FEG published material
   },
 ] as const;

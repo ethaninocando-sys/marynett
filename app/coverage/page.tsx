@@ -142,7 +142,7 @@ export default function CoveragePage() {
                 </p>
                 <p>
                   About 4 in 10 of us will hear the word cancer in our lifetime.
-                  <sup>1</sup> The bills don&rsquo;t know that.
+                  The bills don&rsquo;t know that.
                 </p>
               </div>
             </div>

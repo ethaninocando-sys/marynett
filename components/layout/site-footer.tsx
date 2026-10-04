@@ -72,8 +72,8 @@ export function SiteFooter() {
           <p>{indexDisclosure}</p>
 
           {footnotes.map((note) => (
-            <p key={note.id}>
-              <sup>{note.id}</sup> {note.claim}{" "}
+            <p key={note.claim}>
+              {note.claim}{" "}
               {note.source ? (
                 <span>Source: {note.source}</span>
               ) : (
