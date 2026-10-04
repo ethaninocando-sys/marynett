@@ -8,14 +8,14 @@ const bestTimes = ["Morning", "Afternoon", "Evening", "Weekend"];
 
 const copy = {
   coverage: {
-    title: "Get your 15-minute check",
-    intro: "I call you personally, at a time that fits your shift.",
-    button: "Book my 15-minute check",
+    title: "Book the call",
+    intro: "I call you.",
+    button: "Book my call",
   },
   recruit: {
-    title: "Book a conversation",
-    intro: "I call you personally. Ask me anything.",
-    button: "Book a conversation",
+    title: "Ask me",
+    intro: "I call you. Ask anything.",
+    button: "Let’s talk",
   },
 };
 
@@ -47,10 +47,8 @@ export function LeadForm({ variant }: { variant: Variant }) {
   if (status === "done") {
     return (
       <div id="book" className="sv-form-card p-6 sm:p-8" aria-live="polite">
-        <h2 className="sv-h3">Thank you{firstName ? `, ${firstName}` : ""}.</h2>
-        <p className="sv-body mt-2">
-          I have your details. Pick a time below and I&rsquo;ll call you then.
-        </p>
+        <h2 className="sv-h3">Got it{firstName ? `, ${firstName}` : ""}.</h2>
+        <p className="sv-body mt-2">Choose your appointment time.</p>
         <div className="mt-5 flex min-h-64 flex-col items-center justify-center gap-1 rounded-xl bg-[var(--sv-50)] p-6 text-center shadow-[inset_0_0_0_1px_var(--sv-200)]">
           <span className="sv-h6">Booking calendar</span>
           <span className="sv-sm">
@@ -101,26 +99,6 @@ export function LeadForm({ variant }: { variant: Variant }) {
         {variant === "coverage" ? (
           <>
             <div>
-              <label htmlFor="coverage-iAm" className="sv-label">
-                I am
-              </label>
-              <select
-                id="coverage-iAm"
-                name="iAm"
-                className="sv-field"
-                defaultValue=""
-                required
-              >
-                <option value="" disabled>
-                  Choose one
-                </option>
-                <option>A nurse or healthcare worker</option>
-                <option>A teacher or school employee</option>
-                <option>Within 10 years of retiring</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div>
               <label htmlFor="coverage-lookingFor" className="sv-label">
                 I&rsquo;m looking for
               </label>
@@ -142,18 +120,6 @@ export function LeadForm({ variant }: { variant: Variant }) {
           </>
         ) : (
           <>
-            <div>
-              <label htmlFor="recruit-occupation" className="sv-label">
-                What do you do now?
-              </label>
-              <input
-                id="recruit-occupation"
-                name="occupation"
-                className="sv-field"
-                autoComplete="organization-title"
-                required
-              />
-            </div>
             <div>
               <label htmlFor="recruit-licensed" className="sv-label">
                 Do you have a Texas insurance license?
@@ -218,7 +184,7 @@ export function LeadForm({ variant }: { variant: Variant }) {
 
       {status === "error" ? (
         <p className="mt-3 text-base text-red-800" role="alert">
-          That didn&rsquo;t go through. Please try again, or call me directly.
+          That didn&rsquo;t go through. Try again, or call me.
         </p>
       ) : null}
 

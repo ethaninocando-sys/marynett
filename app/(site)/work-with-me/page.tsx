@@ -9,27 +9,21 @@ import { Words } from "@/components/sevora/Words";
 export const metadata: Metadata = {
   title: "Work with me",
   description:
-    "How a registered nurse got her Texas insurance license, and what she teaches the people she mentors.",
+    "How a registered nurse got her Texas insurance license, and what she teaches new agents.",
 };
 
 const points = [
-  "How getting licensed in Texas works, step by step",
-  "What I actually do with a family, from first call to policy",
-  "What the licensing process takes",
+  "How Texas licensing works",
+  "What an agent does, first call to policy",
+  "What it costs to start",
 ];
 
 const learning = [
-  {
-    icon: MessageSquareText,
-    text: "To explain coverage in plain words, the way you already explain things to patients or students",
-  },
-  {
-    icon: Users,
-    text: "To sit down with a family and find what’s missing",
-  },
+  { icon: MessageSquareText, text: "Explain coverage in plain words." },
+  { icon: Users, text: "Sit with a family and find what’s missing." },
   {
     icon: BadgeCheck,
-    text: "To do it properly: licensed, trained and by the rules",
+    text: "Do it by the rules: licensed and trained first.",
   },
 ];
 
@@ -43,7 +37,7 @@ export default function WorkWithMePage() {
             <Reveal>
               <span className="sv-badge">
                 <span className="sv-dot" />
-                For nurses, teachers and people who like helping people
+                Any background. Texas license required.
               </span>
             </Reveal>
             <h1 className="sv-display-sm">
@@ -57,11 +51,9 @@ export default function WorkWithMePage() {
             </h1>
             <Reveal delay={450}>
               <p className="sv-lg max-w-[500px]">
-                I got my Texas insurance license in{" "}
-                <Confirm>{site.licensedSince}</Confirm> and learned to help
-                families understand their protection. If you&rsquo;re curious
-                how that works alongside a full-time career, I&rsquo;ll show you
-                what I did.
+                <Confirm>I came to this from nursing, not finance.</Confirm> I
+                got my Texas license in <Confirm>{site.licensedSince}</Confirm>.
+                Want to know what it takes? Ask me.
               </p>
             </Reveal>
           </div>
@@ -90,14 +82,15 @@ export default function WorkWithMePage() {
         </div>
       </section>
 
-      {/* What you'd be learning */}
+      {/* What you'd learn */}
       <section className="sv-container flex flex-col gap-12 md:gap-16">
         <Reveal>
-          <div className="sv-head">
-            <div className="sv-head-stack">
-              <span className="sv-badge mx-auto">Mentorship</span>
-              <h2 className="sv-h2">What you&rsquo;d be learning</h2>
-            </div>
+          <div className="sv-head max-w-[640px]">
+            <h2 className="sv-h2">What you&rsquo;d learn</h2>
+            <p className="sv-lg">
+              Agents sit down with families and help them choose life insurance
+              and annuities from the companies they are appointed with.
+            </p>
           </div>
         </Reveal>
         <div className="grid gap-2 md:grid-cols-3">
@@ -121,29 +114,21 @@ export default function WorkWithMePage() {
       <section className="sv-container grid gap-12 lg:grid-cols-2 lg:gap-24">
         <div className="lg:sticky lg:top-[164px] lg:self-start">
           <Reveal>
-            <div className="flex max-w-[480px] flex-col gap-2.5">
-              <span className="sv-badge">Before we talk</span>
-              <h2 className="sv-h2">What this is, plainly</h2>
-            </div>
+            <h2 className="sv-h2">What this is, plainly</h2>
           </Reveal>
         </div>
         <div className="grid gap-2">
           {[
+            <>Not a job. No salary. You&rsquo;d be an independent agent.</>,
             <>
-              This is not a job, a salary or a position. You would be an
-              independent agent.
+              License first. No license, no talking to clients about products.
             </>,
             <>
-              You need a state insurance license before you can talk to clients
-              about products.
+              Commission only, paid when a client puts a policy in place. No pay
+              for recruiting. No income guarantee.
             </>,
             <>
-              Agents are paid commissions only when a client puts a policy in
-              place. Nobody is paid for bringing in other agents, and there is
-              no guarantee of income.
-            </>,
-            <>
-              There are costs to get started, such as state licensing{" "}
+              It costs money to start: state licensing{" "}
               <Confirm>and FEG&rsquo;s one-time $125 enrollment fee</Confirm>.
             </>,
           ].map((item, index) => (
@@ -156,21 +141,31 @@ export default function WorkWithMePage() {
               </div>
             </Reveal>
           ))}
+          <p className="sv-sm px-1 pt-2">
+            See the{" "}
+            <a
+              href="https://id.freedomequitygroup.com/"
+              className="underline underline-offset-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              FEG Income Disclosure Statement
+            </a>
+            .
+          </p>
         </div>
       </section>
 
-      {/* Who I work well with */}
+      {/* Who does well */}
       <section className="sv-container">
         <Reveal>
           <div className="sv-head max-w-[640px]">
-            <div className="sv-head-stack">
-              <span className="sv-badge mx-auto">Who I work well with</span>
-              <p className="sv-h2">
-                People who are patient, honest and good at explaining things.
-              </p>
-            </div>
+            <h2 className="sv-h2">
+              Anyone willing to get licensed can do this.
+            </h2>
             <p className="sv-lg">
-              Most of the people I mentor are nurses and teachers.
+              It suits people who are patient, honest and good at explaining
+              things.
             </p>
           </div>
         </Reveal>
@@ -180,11 +175,9 @@ export default function WorkWithMePage() {
       <section className="sv-container pt-0 md:pt-0">
         <Reveal>
           <div className="sv-card-dark flex flex-col items-center gap-3 rounded-3xl px-6 py-16 text-center md:py-20">
-            <h2 className="sv-h2 max-w-xl">
-              Have a conversation first. Decide after.
-            </h2>
+            <h2 className="sv-h2 max-w-xl">Talk first. Decide after.</h2>
             <a href="#book" className="sv-btn sv-btn-light mt-4">
-              Book a conversation
+              Let&rsquo;s talk
             </a>
           </div>
         </Reveal>

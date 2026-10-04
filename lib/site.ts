@@ -15,4 +15,4 @@ export const site = {
 
 // Prototype switches. Set both to false at launch.
 export const showConfirmMarks = true;
-export const isPrototype = true;
+export const isPrototype = false;

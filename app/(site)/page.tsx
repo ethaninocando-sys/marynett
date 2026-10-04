@@ -1,25 +1,31 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Play } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Handshake,
+  Play,
+  ShieldCheck,
+} from "lucide-react";
 import { site } from "@/lib/site";
 import { Confirm } from "@/components/Confirm";
 import { CountUp } from "@/components/sevora/CountUp";
 import { Reveal } from "@/components/sevora/Reveal";
 import { Words } from "@/components/sevora/Words";
 
-const audiences = [
-  "Nurses",
-  "Healthcare workers",
-  "Teachers",
-  "School employees",
-  "Families",
-  "Near retirement",
+const topics = [
+  "Living benefits",
+  "Work coverage",
+  "Family protection",
+  "Retirement questions",
+  "Getting licensed in Texas",
+  "Plain answers",
 ];
 
 const videos = [
-  "What does life insurance through work actually cover?",
+  "What does my work policy cover?",
   "What are living benefits?",
   "What is an IUL?",
-  "What should I ask before I retire?",
+  "What to ask before you retire",
 ];
 
 export default function HomePage() {
@@ -34,33 +40,40 @@ export default function HomePage() {
                 <Reveal>
                   <span className="sv-badge">
                     <span className="sv-dot" />
-                    Registered nurse &middot; Licensed Texas agent
+                    RN &middot; Licensed Texas agent
                   </span>
                 </Reveal>
                 <h1 className="sv-display-sm">
                   <Confirm>{site.nurseYears}</Confirm>{" "}
-                  <Words text="years at the bedside taught me" start={1} />
+                  <Words text="years at the bedside." start={1} />
                   <Words
-                    text="what families aren’t ready for."
-                    start={7}
+                    text="I’ve seen what families aren’t ready for."
+                    start={5}
                     muted
                   />
                 </h1>
                 <Reveal delay={450}>
                   <p className="sv-lg max-w-[520px]">
-                    I&rsquo;m Marynett, a registered nurse and a licensed Texas
-                    insurance agent since{" "}
-                    <Confirm>{site.licensedSince}</Confirm>. I help families
-                    understand their protection before they need it, and I teach
-                    others to do the same.
+                    Marynett Bolivar is a registered nurse and a licensed Texas
+                    insurance agent. She explains coverage in plain words and
+                    trains new agents to do the same.
                   </p>
                 </Reveal>
               </div>
-              <Reveal delay={550} className="flex flex-col gap-2 sm:flex-row">
+              <Reveal
+                delay={550}
+                className="grid max-w-[440px] gap-2 sm:grid-cols-2"
+              >
                 <Link href="/coverage" className="sv-btn sv-btn-primary">
+                  <ShieldCheck
+                    size={18}
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                  />
                   Protect my family
                 </Link>
-                <Link href="/work-with-me" className="sv-btn sv-btn-secondary">
+                <Link href="/work-with-me" className="sv-btn sv-btn-primary">
+                  <Handshake size={18} strokeWidth={1.75} aria-hidden="true" />
                   Work with me
                 </Link>
               </Reveal>
@@ -75,20 +88,20 @@ export default function HomePage() {
                     </Confirm>
                     <span className="text-[36px] tracking-[-0.02em]">yr</span>
                   </dd>
-                  <dt className="sv-body">Registered nurse</dt>
+                  <dt className="sv-body">Nurse</dt>
                 </div>
                 <div>
                   <dd className="font-serif text-[32px] leading-[48px] font-semibold">
                     <Confirm>{site.licensedSince}</Confirm>
                   </dd>
-                  <dt className="sv-body">Licensed in Texas since</dt>
+                  <dt className="sv-body">Licensed</dt>
                 </div>
                 <div>
                   <dd className="font-serif text-[32px] leading-[48px] font-semibold">
                     <CountUp value={15} />
                     <span className="text-[36px] tracking-[-0.02em]">min</span>
                   </dd>
-                  <dt className="sv-body">First conversation</dt>
+                  <dt className="sv-body">First call</dt>
                 </div>
               </dl>
             </Reveal>
@@ -110,17 +123,9 @@ export default function HomePage() {
           >
             <Link
               href="/coverage#book"
-              className="sv-glass flex items-end gap-8 px-8 pt-7 pb-8 max-[1199px]:bg-[rgba(14,37,54,0.62)]"
+              className="sv-glass flex items-center gap-8 px-8 py-7 max-[1199px]:bg-[rgba(14,37,54,0.62)]"
             >
-              <span className="flex flex-1 flex-col gap-1">
-                <span className="text-sm leading-5 text-white/70">
-                  Start here
-                </span>
-                <span className="sv-h5">Get your 15-minute check</span>
-                <span className="hidden text-sm leading-5 min-[1200px]:block">
-                  I call you personally, at a time that fits your shift.
-                </span>
-              </span>
+              <span className="sv-h5 flex-1">Let&rsquo;s connect</span>
               <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-white text-[var(--sv-900)]">
                 <ArrowUpRight size={24} strokeWidth={1.75} />
               </span>
@@ -130,14 +135,14 @@ export default function HomePage() {
 
         <div className="sv-ticker mt-12" aria-hidden="true">
           <div className="sv-ticker-track">
-            {[...audiences, ...audiences, ...audiences, ...audiences].map(
-              (audience, index) => (
+            {[...topics, ...topics, ...topics, ...topics].map(
+              (topic, index) => (
                 <span
-                  key={`${audience}-${index}`}
+                  key={`${topic}-${index}`}
                   className="flex items-center gap-3 text-xl leading-7 font-semibold tracking-[-0.03em] text-[var(--sv-600)]"
                 >
                   <span className="sv-dot" />
-                  {audience}
+                  {topic}
                 </span>
               ),
             )}
@@ -149,10 +154,7 @@ export default function HomePage() {
       <section className="sv-container flex flex-col gap-12 md:gap-16">
         <Reveal>
           <div className="sv-head">
-            <div className="sv-head-stack">
-              <span className="sv-badge mx-auto">Start here</span>
-              <h2 className="sv-h2">Which door is yours?</h2>
-            </div>
+            <h2 className="sv-h2">Pick one.</h2>
           </div>
         </Reveal>
 
@@ -185,13 +187,10 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex flex-col gap-2 p-8">
-                <p className="sv-sm">For families</p>
                 <h3 className="sv-h3">Protect my family</h3>
-                <p className="sv-lg">
-                  See what your coverage does and doesn&rsquo;t do.
-                </p>
+                <p className="sv-lg">See what your coverage actually does.</p>
                 <p className="mt-4 flex items-center gap-2 font-medium">
-                  Start here
+                  Go
                   <ArrowRight
                     size={18}
                     className="transition-transform group-hover:translate-x-1"
@@ -209,8 +208,8 @@ export default function HomePage() {
               <div className="relative flex h-[230px] flex-col justify-end gap-2 overflow-hidden px-8 pt-8">
                 {[
                   "Get licensed in Texas",
-                  "Learn to explain coverage in plain words",
-                  "Sit down with a family",
+                  "Learn to explain coverage",
+                  "Sit with a family",
                 ].map((step, index) => (
                   <p
                     key={step}
@@ -225,13 +224,10 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="flex flex-col gap-2 p-8">
-                <p className="sv-sm">For nurses and teachers</p>
                 <h3 className="sv-h3">Work with me</h3>
-                <p className="sv-lg">
-                  Learn how I got licensed and what I teach.
-                </p>
+                <p className="sv-lg">How I got licensed, and how you can.</p>
                 <p className="mt-4 flex items-center gap-2 font-medium">
-                  Start here
+                  Go
                   <ArrowRight
                     size={18}
                     className="transition-transform group-hover:translate-x-1"
@@ -251,17 +247,11 @@ export default function HomePage() {
       {/* Her story */}
       <section className="sv-container flex flex-col gap-12 md:gap-16">
         <Reveal>
-          <div className="sv-head-split">
-            <div className="flex max-w-[460px] flex-col gap-2">
-              <span className="sv-badge">Why a nurse does this</span>
-              <h2 className="sv-h2">
-                Most families had coverage. Few knew what it actually did.
-              </h2>
-            </div>
-            <p className="sv-lg max-w-[480px]">
-              I got licensed so I could explain it in plain words, one family at
-              a time.
-            </p>
+          <div className="flex max-w-[520px] flex-col gap-2">
+            <span className="sv-badge">Why a nurse</span>
+            <h2 className="sv-h2">
+              Most families had coverage. Few knew what it did.
+            </h2>
           </div>
         </Reveal>
 
@@ -277,19 +267,14 @@ export default function HomePage() {
             </div>
             <div className="sv-card flex min-h-[296px] flex-col justify-between gap-10 p-6">
               <p className="sv-lg text-[var(--sv-900)]">
-                I&rsquo;ve worked <Confirm>12-hour night shifts</Confirm> for
-                most of my career.
+                Night shifts, most of my career.
               </p>
               <p>
                 <span className="sv-number block">
-                  <Confirm>
-                    <CountUp value={32} />
-                  </Confirm>
-                  <span className="text-[36px]"> yr</span>
+                  <Confirm>12</Confirm>
+                  <span className="text-[36px]"> hr</span>
                 </span>
-                <span className="mt-1 block text-[var(--sv-500)]">
-                  Registered nurse
-                </span>
+                <span className="mt-1 block text-[var(--sv-500)]">Shifts</span>
               </p>
             </div>
           </Reveal>
@@ -297,41 +282,33 @@ export default function HomePage() {
           <Reveal delay={100} className="grid gap-2 lg:grid-rows-[1fr_auto]">
             <div className="sv-card flex min-h-[316px] flex-col justify-between gap-10 p-6">
               <p className="sv-lg text-[var(--sv-900)]">
-                I help families understand their protection before they need it,
-                and I teach others to do the same.
+                I got licensed to explain it in plain words.
               </p>
               <p>
                 <span className="sv-number block">
-                  <Confirm>{site.licensedSince}</Confirm>
+                  <Confirm>
+                    <CountUp value={22} />
+                  </Confirm>
+                  <span className="text-[36px]"> yr</span>
                 </span>
                 <span className="mt-1 block text-[var(--sv-500)]">
-                  Licensed in Texas since
+                  Nursing before the license
                 </span>
               </p>
             </div>
             <div className="sv-card flex items-center gap-2 px-6 py-5">
               <span className="sv-dot" />
-              <span className="sv-h6">Calls around your shift</span>
+              <span className="sv-h6">By appointment.</span>
             </div>
           </Reveal>
 
           <Reveal delay={200}>
             <div className="sv-card-dark flex h-full min-h-[388px] flex-col justify-between gap-10 p-6">
-              <p className="max-w-[380px] text-lg leading-7 text-white/85">
-                I&rsquo;ve sat with families on the worst day of their lives,
-                and I&rsquo;ve watched the second shock arrive later: the bills.
+              <p className="max-w-[380px] font-serif text-[28px] leading-[1.25] tracking-[-0.02em]">
+                I&rsquo;ve sat with families on their worst day. Then the bills
+                came.
               </p>
-              <p className="flex items-end gap-3">
-                <span className="sv-number">
-                  <CountUp value={15} />
-                </span>
-                <span className="pb-2">
-                  <span className="block text-lg font-medium">minutes</span>
-                  <span className="block text-white/60">
-                    First conversation
-                  </span>
-                </span>
-              </p>
+              <p className="text-white/60">&mdash; Marynett</p>
             </div>
           </Reveal>
         </div>
@@ -342,10 +319,8 @@ export default function HomePage() {
         <Reveal>
           <div className="sv-head">
             <div className="sv-head-stack">
-              <span className="sv-badge mx-auto">Learn in 60 seconds</span>
-              <h2 className="sv-h2">
-                Short answers to the questions I hear most.
-              </h2>
+              <span className="sv-badge mx-auto">60 seconds each</span>
+              <h2 className="sv-h2">What people ask me.</h2>
             </div>
           </div>
         </Reveal>
@@ -358,7 +333,7 @@ export default function HomePage() {
                 </span>
                 <div className="flex flex-col gap-2">
                   <h3 className="sv-h5">{title}</h3>
-                  <p className="sv-sm">Video coming soon</p>
+                  <p className="sv-sm">Soon</p>
                 </div>
               </article>
             </Reveal>
@@ -370,8 +345,7 @@ export default function HomePage() {
       <section className="sv-container pt-0 md:pt-0">
         <Reveal>
           <div className="sv-card-dark flex flex-col items-center gap-3 rounded-3xl px-6 py-16 text-center md:py-20">
-            <h2 className="sv-h2">Not sure which door is yours?</h2>
-            <p className="text-lg leading-7 text-white/70">Call or text me.</p>
+            <h2 className="sv-h2">Not sure? Call or text.</h2>
             <a href={site.phoneHref} className="sv-btn sv-btn-light mt-4">
               {site.phoneDisplay}
             </a>

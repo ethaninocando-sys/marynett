@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 // True once the element has scrolled into view. Stays true afterwards.
-// Uses a plain scroll check so it also works where IntersectionObserver
-// callbacks are throttled.
+// Uses both a scroll check and an IntersectionObserver, because either one
+// alone can miss an element when the page jumps a long way at once.
 export function useInView<T extends HTMLElement>(offset = 0.9) {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
@@ -19,9 +19,14 @@ export function useInView<T extends HTMLElement>(offset = 0.9) {
       }
     };
     check();
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setInView(true);
+    });
+    observer.observe(el);
     window.addEventListener("scroll", check, { passive: true });
     window.addEventListener("resize", check);
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", check);
       window.removeEventListener("resize", check);
     };

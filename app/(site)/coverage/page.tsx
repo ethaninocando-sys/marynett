@@ -19,50 +19,43 @@ import { Words } from "@/components/sevora/Words";
 export const metadata: Metadata = {
   title: "Life insurance you don't have to die to use",
   description:
-    "A 15-minute check of what your coverage does today, with a registered nurse and licensed Texas agent.",
+    "A 15-minute call about what your coverage does today, with a registered nurse and licensed Texas agent.",
 };
 
 const points = [
   {
     icon: Briefcase,
-    text: "Understand what your coverage through work does, and what happens to it if you leave",
+    text: "What your work policy does, and what happens if you leave.",
   },
   {
     icon: HeartPulse,
-    text: "Learn how living benefits work and who qualifies*",
+    text: "Living benefits: how they work, who qualifies.*",
   },
   {
     icon: MessageCircle,
-    text: "Get plain answers from a nurse, with no pressure",
+    text: "Straight answers from a nurse.",
   },
 ];
 
 const comparison = [
-  [
-    "Usually pays at death only",
-    "Can include living benefits for serious illness*",
-  ],
+  ["Usually pays at death only", "Can include living benefits*"],
   ["Often tied to your employer", "Stays with you if you change jobs"],
-  [
-    "Rarely explained to you",
-    "Explained by someone who has worked the same floors",
-  ],
+  ["Rarely explained", "Explained by a working nurse"],
 ];
 
 const steps = [
   {
     icon: <CalendarClock size={20} strokeWidth={1.75} />,
-    title: "You pick a time.",
-    text: "I call you.",
+    title: "Book an appointment.",
   },
   {
     icon: <FileSearch size={20} strokeWidth={1.75} />,
-    title: "We look at what you have today.",
+    title: "We look at what you have.",
   },
   {
     icon: <ListChecks size={20} strokeWidth={1.75} />,
-    title: "I show you the gaps, if there are any.",
-    text: "You decide what to do next.",
+    title: "I show you the gaps, if any.",
+    text: "You decide.",
   },
 ];
 
@@ -70,27 +63,25 @@ const faqs = [
   {
     question: "How do you get paid?",
     answer:
-      "The call comes with no obligation. I’m an appointed insurance agent, so if you choose to buy a policy, the insurance company pays me a commission.",
+      "By commission. If you buy a policy, the insurance company pays me. The call carries no obligation.",
   },
   {
-    question: "I already have insurance at work.",
+    question: "I have insurance at work.",
     answer:
-      "Good. Bring what you have. We’ll look at what it pays and what happens to it if you leave.",
+      "Good. Bring it. We’ll see what it pays and what happens when you leave.",
   },
   {
     question: "Do I need a medical exam?",
-    answer:
-      "It depends on the policy and the insurance company. We’ll find out together.",
+    answer: "Depends on the policy and the company. We’ll find out.",
   },
   {
     question: "Will you pressure me?",
-    answer:
-      "No. It’s a fifteen-minute conversation. If you’re fine as you are, I’ll say so.",
+    answer: "No. If you’re covered, I’ll say so.",
   },
   {
-    question: "Do you give tax or investment advice?",
+    question: "Tax or investment advice?",
     answer:
-      "No. For tax questions, including moving retirement accounts, please talk to a tax professional.",
+      "No. Ask a tax professional, especially before moving retirement accounts.",
   },
 ];
 
@@ -104,10 +95,7 @@ export default function CoveragePage() {
             <Reveal>
               <span className="sv-badge">
                 <span className="sv-dot" />
-                <span>
-                  Registered nurse &middot; Licensed Texas agent since{" "}
-                  <Confirm>{site.licensedSince}</Confirm>
-                </span>
+                RN &middot; Licensed Texas agent
               </span>
             </Reveal>
             <h1 className="sv-display-sm">
@@ -116,10 +104,9 @@ export default function CoveragePage() {
             </h1>
             <Reveal delay={450}>
               <p className="sv-lg max-w-[500px]">
-                Some policies can pay you while you&rsquo;re living if
-                you&rsquo;re diagnosed with a serious illness.* In fifteen
-                minutes I&rsquo;ll walk you through what you have now and what
-                it would do.
+                Some policies can pay you while you&rsquo;re living, if
+                you&rsquo;re diagnosed with a qualifying serious illness.*
+                Fifteen minutes and you&rsquo;ll know what yours does.
               </p>
             </Reveal>
           </div>
@@ -131,8 +118,8 @@ export default function CoveragePage() {
           >
             <LeadForm variant="coverage" />
             <p className="sv-sm mt-4 px-1">
-              No obligation. No exam to talk. If what you have is fine,
-              I&rsquo;ll tell you that too.
+              No obligation. No exam to talk. If you&rsquo;re covered,
+              I&rsquo;ll say so.
             </p>
           </Reveal>
 
@@ -148,34 +135,31 @@ export default function CoveragePage() {
                   </Confirm>
                   <span className="text-[36px] tracking-[-0.02em]">yr</span>
                 </dd>
-                <dt className="sv-body">Registered nurse</dt>
+                <dt className="sv-body">Nurse</dt>
               </div>
               <div>
                 <dd className="font-serif text-[32px] leading-[48px] font-semibold">
                   <Confirm>{site.licensedSince}</Confirm>
                 </dd>
-                <dt className="sv-body">Licensed in Texas since</dt>
+                <dt className="sv-body">Licensed</dt>
               </div>
               <div>
                 <dd className="font-serif text-[32px] leading-[48px] font-semibold">
                   <CountUp value={15} />
                   <span className="text-[36px] tracking-[-0.02em]">min</span>
                 </dd>
-                <dt className="sv-body">Calls around your shift</dt>
+                <dt className="sv-body">By phone</dt>
               </div>
             </dl>
           </Reveal>
         </div>
       </section>
 
-      {/* What the call covers */}
+      {/* On the call */}
       <section className="sv-container flex flex-col gap-12 md:gap-16">
         <Reveal>
           <div className="sv-head">
-            <div className="sv-head-stack">
-              <span className="sv-badge mx-auto">The 15-minute check</span>
-              <h2 className="sv-h2">What we cover in 15 minutes</h2>
-            </div>
+            <h2 className="sv-h2">On the call</h2>
           </div>
         </Reveal>
         <div className="grid gap-2 md:grid-cols-3">
@@ -200,16 +184,15 @@ export default function CoveragePage() {
         <Reveal>
           <div className="sv-head-split">
             <div className="flex max-w-[460px] flex-col gap-2">
-              <span className="sv-badge">The question nobody at work asks</span>
+              <span className="sv-badge">Nobody asks this at work</span>
               <h2 className="sv-h2">
                 If you got sick tomorrow and couldn&rsquo;t work, who pays the
                 bills?
               </h2>
             </div>
             <p className="sv-lg max-w-[480px]">
-              Many people I work with have life insurance through their job and
-              believe they&rsquo;re covered. That coverage usually pays if you
-              die. It&rsquo;s often tied to the job.
+              Most people&rsquo;s life insurance comes through work. It usually
+              pays at death, and it&rsquo;s often tied to the job.
             </p>
           </div>
         </Reveal>
@@ -221,9 +204,9 @@ export default function CoveragePage() {
                 <HeartPulse size={24} strokeWidth={1.5} />
               </span>
               <p className="sv-lg text-[var(--sv-900)]">
-                And most people have never been shown what it does if they
-                survive a heart attack, a stroke or cancer and can&rsquo;t work
-                for a year.
+                People survive heart attacks, strokes and cancer, then spend a
+                year out of work. Few have been shown what their policy does
+                then.
               </p>
             </div>
           </Reveal>
@@ -263,7 +246,7 @@ export default function CoveragePage() {
 
         <Reveal className="flex justify-center">
           <a href="#book" className="sv-btn sv-btn-primary">
-            Check what mine covers
+            Check mine
           </a>
         </Reveal>
       </section>
@@ -272,10 +255,7 @@ export default function CoveragePage() {
       <section className="sv-container grid gap-12 lg:grid-cols-2 lg:gap-24">
         <div className="lg:sticky lg:top-[164px] lg:self-start">
           <Reveal>
-            <div className="flex max-w-[480px] flex-col gap-2.5">
-              <span className="sv-badge">Process</span>
-              <h2 className="sv-h2">How the 15 minutes works</h2>
-            </div>
+            <h2 className="sv-h2">How it works</h2>
           </Reveal>
         </div>
         <Process steps={steps} />
@@ -285,7 +265,7 @@ export default function CoveragePage() {
       <section className="sv-container flex flex-col gap-12 md:gap-16">
         <Reveal>
           <div className="sv-head">
-            <h2 className="sv-h2">Questions people ask</h2>
+            <h2 className="sv-h2">Straight answers</h2>
           </div>
         </Reveal>
         <Reveal>
@@ -297,11 +277,9 @@ export default function CoveragePage() {
       <section className="sv-container pt-0 md:pt-0">
         <Reveal>
           <div className="sv-card-dark flex flex-col items-center gap-3 rounded-3xl px-6 py-16 text-center md:py-20">
-            <h2 className="sv-h2 max-w-xl">
-              Fifteen minutes, and you&rsquo;ll know where you stand.
-            </h2>
+            <h2 className="sv-h2 max-w-xl">Fifteen minutes. Then you know.</h2>
             <a href="#book" className="sv-btn sv-btn-light mt-4">
-              Book my 15-minute check
+              Book my call
             </a>
           </div>
         </Reveal>
