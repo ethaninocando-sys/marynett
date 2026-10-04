@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { Container, Section } from "@/components/archio/section";
 import { Cta } from "@/components/archio/cta";
 import { AnimatedHeading } from "@/components/motion/animated-heading";
-import { agent, yearsLicensed } from "@/lib/site";
+import { agent } from "@/lib/site";
 
 /**
  * Direction B splitter, in Sevora's shape: centred hero, two-tone animated
@@ -13,10 +13,16 @@ import { agent, yearsLicensed } from "@/lib/site";
  * Same copy as Direction A so the comparison is about design, not words.
  */
 
+/**
+ * Concrete beats evocative here. The buyer's stated fear is being lied to, so
+ * each stat is something they could go and verify: her tenure, her actual
+ * license number on the Texas DOI lookup, and exactly what the call costs them
+ * in time.
+ */
 const stats: [string, string][] = [
-  [`${agent.nurseYears}yr`, "At the bedside"],
-  [`${yearsLicensed}yr`, "Licensed in Texas"],
-  ["15 min", "That's the whole call"],
+  [`${agent.nurseYears} years`, "A nurse, still working the floor"],
+  [`Since ${agent.licensedSince}`, `Texas license #${agent.licenseNumber}`],
+  ["15 minutes", "One call. No second appointment."],
 ];
 
 const doors = [

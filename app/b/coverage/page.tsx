@@ -6,7 +6,7 @@ import { Cta } from "@/components/archio/cta";
 import { AnimatedHeading } from "@/components/motion/animated-heading";
 import { LeadForm } from "@/components/forms/lead-form";
 import { Placeholder } from "@/components/ui/placeholder";
-import { agent, testimonials, yearsLicensed } from "@/lib/site";
+import { agent, testimonials } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Life insurance you don't have to die to use",
@@ -34,10 +34,16 @@ const faqs: [string, string][] = [
   ["Do you give tax or investment advice?", "No. For tax questions, including moving retirement accounts, please talk to a tax professional."],
 ];
 
+/**
+ * Concrete beats evocative here. The buyer's stated fear is being lied to, so
+ * each stat is something they could go and verify: her tenure, her actual
+ * license number on the Texas DOI lookup, and exactly what the call costs them
+ * in time.
+ */
 const stats: [string, string][] = [
-  [`${agent.nurseYears}yr`, "At the bedside"],
-  [`${yearsLicensed}yr`, "Licensed in Texas"],
-  ["15 min", "That's the whole call"],
+  [`${agent.nurseYears} years`, "A nurse, still working the floor"],
+  [`Since ${agent.licensedSince}`, `Texas license #${agent.licenseNumber}`],
+  ["15 minutes", "One call. No second appointment."],
 ];
 
 export default function BCoverage() {
