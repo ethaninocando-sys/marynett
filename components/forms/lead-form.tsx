@@ -31,7 +31,7 @@ const COPY = {
   },
   recruit: {
     title: "Let’s get in contact",
-    sub: "I’ll tell you how I got licensed and what the work is.",
+    sub: "How the licensing works, and what the job really involves.",
     submit: "Send",
     foot: "No obligation either way.",
     roleLabel: "I am",
@@ -82,7 +82,7 @@ export function LeadForm({
     if (!payload.firstName)
       return setError("Add your first name so I know who I’m calling.");
     if (payload.phone.replace(/\D/g, "").length < 10)
-      return setError("I need a number I can actually reach you on.");
+      return setError("I need a number I can reach you on.");
     if (!agreed)
       return setError("Check the box so I know it’s okay to call you.");
 

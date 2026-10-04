@@ -11,15 +11,15 @@ import { livingBenefitsNote } from "@/lib/site";
  */
 
 const workRows = [
-  "Coverage through work",
-  "Usually pays at death only",
-  "Often tied to your employer",
+  "Through work",
+  "Pays if you die",
+  "Ends with the job",
 ];
 
 const ownRows = [
-  "Coverage you own",
-  "Can include living benefits*",
-  "Stays with you if you change jobs",
+  "A policy you own",
+  "Follows you out",
+  "Can pay if you're seriously ill*",
 ];
 
 const steps = [
@@ -70,7 +70,7 @@ export function PickOne() {
           <Door
             href="/coverage"
             title="Protect my family"
-            body="See what your coverage actually does."
+            body="See where your coverage stops."
           >
             {/* Work coverage, receding behind the policy she sells. */}
             <div className="absolute inset-x-0 top-6 bottom-6 left-0 w-[62%] rounded-xl bg-muted/70 px-5">

@@ -18,7 +18,7 @@ import { agent } from "@/lib/site";
 
 
 const videos = [
-  "What does life insurance through work actually cover?",
+  "What does life insurance through work cover?",
   "What are living benefits?",
   "What is an IUL?",
   "What should I ask before I retire?",
@@ -69,7 +69,7 @@ export default function Home() {
           <Container>
             <Eyebrow>Why a nurse does this</Eyebrow>
             <h2 className="display-lg measure mt-4 text-balance">
-              Most families had coverage. Few knew what it actually did.
+              Most families had a policy. Few knew what it covered.
             </h2>
             <div className="measure lede mt-6 space-y-4 text-muted-foreground">
               <p>
@@ -79,8 +79,7 @@ export default function Home() {
                 later: the bills.
               </p>
               <p>
-                I got licensed so I could explain it in plain words, one family
-                at a time.
+                That&rsquo;s why I took the exam. Now I explain it in plain words, one family at a time.
               </p>
             </div>
           </Container>
@@ -117,7 +116,7 @@ export default function Home() {
               Not sure which door is yours?
             </h2>
             <p className="lede mt-4 text-muted-foreground">
-              Call or text me and I&rsquo;ll point you the right way.
+              Call or text. One question usually sorts it.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Cta href={agent.phoneHref}>{agent.phoneDisplay}</Cta>

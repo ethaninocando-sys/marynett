@@ -62,8 +62,7 @@ export default function BWorkWithMe() {
             <p className="lede mx-auto mt-6 max-w-xl text-muted-foreground">
               I got my Texas insurance license in {agent.licensedSince} and
               learned to help families understand their protection. If
-              you&rsquo;re curious how that works alongside a full-time career,
-              I&rsquo;ll show you what I did.
+              you&rsquo;re wondering how that fits around a full-time job, ask me. I did it on night shifts.
             </p>
           </Container>
 

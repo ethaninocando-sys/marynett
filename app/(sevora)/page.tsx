@@ -92,7 +92,7 @@ export default function DirectionBHome() {
               <AnimatedHeading
                 as="h2"
                 className="display-lg mt-4 text-balance"
-                text="Most families had coverage. Few knew what it actually did."
+                text="Most families had a policy. Few knew what it covered."
               />
               <div className="lede mt-6 space-y-4 text-muted-foreground">
                 <p>
@@ -102,8 +102,7 @@ export default function DirectionBHome() {
                   bills.
                 </p>
                 <p>
-                  I got licensed so I could explain it in plain words, one
-                  family at a time.
+                  That&rsquo;s why I took the exam. Now I explain it in plain words, one family at a time.
                 </p>
               </div>
             </div>
@@ -118,7 +117,7 @@ export default function DirectionBHome() {
               Not sure which door is yours?
             </h2>
             <p className="lede mx-auto mt-4 max-w-md text-white/70">
-              Call or text me and I&rsquo;ll point you the right way.
+              Call or text. One question usually sorts it.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a

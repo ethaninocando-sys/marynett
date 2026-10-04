@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const points = [
-  "What your coverage at work actually does, and what happens to it if you leave",
+  "What your coverage at work does, and what happens to it if you leave",
   "How living benefits work, and who qualifies",
   "Straight answers from a nurse. No pressure either way",
 ];
@@ -25,7 +25,7 @@ const points = [
 const steps: [string, string][] = [
   ["You pick a time.", "I call you."],
   ["We look at what you have today.", ""],
-  ["I show you the gaps, if there are any.", "You decide what to do next."],
+  ["Gaps turn up, or they don't.", "Either way, you decide what happens next."],
 ];
 
 /**
@@ -36,11 +36,11 @@ const steps: [string, string][] = [
 const faqs: [string, string][] = [
   [
     "How do you get paid?",
-    "Not by you. The insurance company pays me a commission if you buy a policy, and it’s already built into the price. I’ll show you the number on the call.",
+    "Not by you. The insurance company pays me a commission if you buy a policy, and it’s already built into the price. Ask on the call and you’ll get the number.",
   ],
   [
     "I already have insurance at work.",
-    "Bring it. Most of them pay at death only and end when the job does. We’ll check yours.",
+    "Bring it. Group plans usually stop the day the job does. We’ll look at yours.",
   ],
   [
     "Do I need a medical exam?",
@@ -73,9 +73,7 @@ export default function CoveragePage() {
               </h1>
               <p className="lede mt-6 max-w-xl text-muted-foreground">
                 Some policies can pay you while you&rsquo;re living if
-                you&rsquo;re diagnosed with a serious illness. In fifteen
-                minutes I&rsquo;ll walk you through what you have now and what it
-                would do.
+                you&rsquo;re diagnosed with a serious illness. One call is enough to find out what yours does.
               </p>
 
               <ul className="mt-8 max-w-xl space-y-3.5">
@@ -96,7 +94,7 @@ export default function CoveragePage() {
             <div>
               <LeadForm variant="coverage" />
               <p className="body-sm mt-4 text-muted-foreground">
-                If your coverage is already fine, I&rsquo;ll tell you so.
+                Some people hang up with nothing to change. That&rsquo;s a fine result.
               </p>
             </div>
           </Container>
@@ -126,9 +124,7 @@ export default function CoveragePage() {
               </h2>
               <div className="lede mt-6 space-y-4 text-muted-foreground">
                 <p>
-                  Many people I work with have life insurance through their job
-                  and believe they&rsquo;re covered. That coverage usually pays
-                  if you die. It&rsquo;s often tied to the job.
+                  Most people I sit with have a policy through work and assume that&rsquo;s handled. It pays if you die. It stops when the job stops.
                 </p>
                 <p>
                   And most people have never been shown what it does if they

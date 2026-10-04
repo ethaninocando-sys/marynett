@@ -10,8 +10,8 @@ import { livingBenefitsNote } from "@/lib/site";
 
 const compare: [string, boolean, boolean][] = [
   ["Pays if you die", true, true],
-  ["Pays if you survive a serious illness*", false, true],
-  ["Stays with you when you leave", false, true],
+  ["Can pay if you're seriously ill*", false, true],
+  ["Still yours if you quit", false, true],
 ];
 
 const steps = [
@@ -64,7 +64,7 @@ export function PickOne() {
             href="/b/coverage"
             eyebrow="For families"
             title="Protect my family"
-            body="See what your coverage actually does."
+            body="See where your coverage stops."
           >
             {/* A reduced version of the table on the coverage page. */}
             <div className="overflow-hidden rounded-lg border border-border">

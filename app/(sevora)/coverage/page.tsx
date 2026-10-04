@@ -23,12 +23,12 @@ const comparison: [string, string][] = [
 const steps: [string, string][] = [
   ["You pick a time.", "I call you."],
   ["We look at what you have today.", ""],
-  ["I show you the gaps, if there are any.", "You decide what to do next."],
+  ["Gaps turn up, or they don't.", "Either way, you decide what happens next."],
 ];
 
 const faqs: [string, string][] = [
-  ["How do you get paid?", "Not by you. The insurance company pays me a commission if you buy a policy, and it’s already built into the price. I’ll show you the number on the call."],
-  ["I already have insurance at work.", "Bring it. Most of them pay at death only and end when the job does. We’ll check yours."],
+  ["How do you get paid?", "Not by you. The insurance company pays me a commission if you buy a policy, and it’s already built into the price. Ask on the call and you’ll get the number."],
+  ["I already have insurance at work.", "Bring it. Group plans usually stop the day the job does. We’ll look at yours."],
   ["Do I need a medical exam?", "Depends on the policy and the company. A lot of them skip it now. We’ll find out on the call."],
   ["Will you pressure me?", "No. It’s a fifteen-minute conversation. If you’re fine as you are, I’ll say so."],
   ["Do you give tax or investment advice?", "No. For tax questions, including moving retirement accounts, please talk to a tax professional."],
@@ -62,8 +62,7 @@ export default function BCoverage() {
             />
             <p className="lede mx-auto mt-6 max-w-xl text-muted-foreground">
               Some policies can pay you while you&rsquo;re living if you&rsquo;re
-              diagnosed with a serious illness. In fifteen minutes
-              I&rsquo;ll walk you through what you have now and what it would do.
+              diagnosed with a serious illness. One call is enough to find out what yours does.
             </p>
 
             <dl className="mt-12 grid grid-cols-3 gap-6 border-y border-border py-8">
@@ -81,7 +80,7 @@ export default function BCoverage() {
           <Container className="mt-12 max-w-xl text-left">
             <LeadForm variant="coverage" className="rounded-2xl" />
             <p className="body-sm mt-4 text-center text-muted-foreground">
-              If your coverage is already fine, I&rsquo;ll tell you so.
+              Some people hang up with nothing to change. That&rsquo;s a fine result.
             </p>
           </Container>
         </Section>
@@ -98,9 +97,7 @@ export default function BCoverage() {
             />
             <div className="lede mx-auto mt-6 max-w-xl space-y-4 text-left text-muted-foreground">
               <p>
-                Many people I work with have life insurance through their job and
-                believe they&rsquo;re covered. That coverage usually pays if you
-                die. It&rsquo;s often tied to the job.
+                Most people I sit with have a policy through work and assume that&rsquo;s handled. It pays if you die. It stops when the job stops.
               </p>
               <p>
                 And most people have never been shown what it does if they survive
