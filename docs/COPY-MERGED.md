@@ -123,8 +123,8 @@ RN for 32 years ⚠️ · Licensed in Texas since 2015 · Edinburg, TX · Calls 
 > And most people have never been shown what it does if they survive a heart attack, a
 > stroke or cancer and can't work for a year.
 
-> About 4 in 10 of us will hear the word cancer in our lifetime.¹ Most of us will survive
-> it. The bills don't know that. *(K)* ⛔ source pending
+> About 4 in 10 of us will hear the word cancer in our lifetime.¹ The bills don't know
+> that. *(K)* ⛔ source pending
 
 ### Comparison table *(E's device)*
 
