@@ -75,8 +75,8 @@ export default function BCoverage() {
           <Container className="mt-12 max-w-xl text-left">
             <LeadForm variant="coverage" className="rounded-2xl" />
             <p className="body-sm mt-4 text-center text-muted-foreground">
-              No obligation. No exam to talk. If what you have is fine, I&rsquo;ll
-              tell you that too.
+              No obligation, and no medical exam just to talk. If your coverage
+              is already fine, I&rsquo;ll tell you so.
             </p>
           </Container>
         </Section>

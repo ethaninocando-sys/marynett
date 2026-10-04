@@ -101,8 +101,8 @@ export default function CoveragePage() {
             <div>
               <LeadForm variant="coverage" />
               <p className="body-sm mt-4 text-muted-foreground">
-                No obligation. No exam to talk. If what you have is fine,
-                I&rsquo;ll tell you that too.
+                No obligation, and no medical exam just to talk. If your
+                coverage is already fine, I&rsquo;ll tell you so.
               </p>
             </div>
           </Container>

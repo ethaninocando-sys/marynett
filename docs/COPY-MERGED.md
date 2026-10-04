@@ -108,8 +108,7 @@ illness.\* In fifteen minutes I'll walk you through what you have now and what i
 2. Learn how living benefits work and who qualifies\*
 3. Get plain answers from a nurse, with no pressure
 
-**Form microcopy:** No obligation. No exam to talk. If what you have is fine, I'll tell you
-that too. *(K/E)*
+**Form microcopy:** No obligation, and no medical exam just to talk. If your coverage is already fine, I’ll tell you so. *(K/E)*
 
 ### Trust bar
 RN for 32 years ⚠️ · Licensed in Texas since 2015 · Edinburg, TX · Calls around your shift
