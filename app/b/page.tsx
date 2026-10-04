@@ -48,10 +48,9 @@ export default function DirectionBHome() {
           />
 
           <p className="lede mt-6 text-muted-foreground">
-            I&rsquo;m Marynett, a registered nurse and a licensed Texas
-            insurance agent since {agent.licensedSince}. I help families
-            understand their protection before they need it, and I teach others
-            to do the same.
+            I&rsquo;m Marynett. Thirty-two years a nurse, licensed agent since{" "}
+            {agent.licensedSince}. Most families only find out what their
+            coverage does when they need it. I get to them first.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">

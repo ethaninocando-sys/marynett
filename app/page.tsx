@@ -38,11 +38,10 @@ export default function Home() {
                 taught me what families aren&rsquo;t ready for.
               </h1>
               <p className="lede measure mt-6 ml-0 max-w-xl text-muted-foreground">
-                I&rsquo;m Marynett, a registered nurse and a licensed Texas
-                insurance agent since{" "}
-                <Confirm>{agent.licensedSince}</Confirm>. I help families
-                understand their protection before they need it, and I teach
-                others to do the same.
+                I&rsquo;m Marynett. Thirty-two years a nurse, licensed agent
+                since <Confirm>{agent.licensedSince}</Confirm>. Most families
+                only find out what their coverage does when they need it. I get
+                to them first.
               </p>
             </div>
 

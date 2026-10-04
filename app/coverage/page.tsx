@@ -36,11 +36,11 @@ const steps: [string, string][] = [
 const faqs: [string, string][] = [
   [
     "How do you get paid?",
-    "The call comes with no obligation. I’m an appointed insurance agent, so if you buy a policy the insurance company pays me a commission that’s built into it. I’ll walk you through how that works on the call so nothing catches you off guard.",
+    "Not by you. The insurance company pays me a commission if you buy a policy, and it’s already built into the price. I’ll show you the number on the call.",
   ],
   [
     "I already have insurance at work.",
-    "Good, bring it. We’ll look at what it actually pays if you get sick, and what happens to it the day you leave.",
+    "Bring it. Most of them pay at death only and end when the job does. We’ll check yours.",
   ],
   [
     "Do I need a medical exam?",
@@ -66,8 +66,7 @@ export default function CoveragePage() {
           <Container className="grid items-start gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
             <div>
               <Eyebrow>
-                Registered nurse · Licensed Texas agent since{" "}
-                {agent.licensedSince}
+                Registered nurse. Licensed agent since {agent.licensedSince}
               </Eyebrow>
               <h1 className="display-xl mt-5 text-balance">
                 Life insurance you don&rsquo;t have to die to use.
@@ -106,8 +105,8 @@ export default function CoveragePage() {
         {/* Trust strip */}
         <div className="border-y border-border bg-bone">
           <ul className="container-page grid gap-x-8 gap-y-2 px-[18px] py-6 text-[15px] font-medium tracking-[-0.02em] sm:grid-cols-2 lg:grid-cols-4 md:px-[50px]">
-            <li>RN for {agent.nurseYears} years</li>
-            <li>Licensed in Texas since {agent.licensedSince}</li>
+            <li>{agent.nurseYears} years a nurse</li>
+            <li>Texas license #{agent.licenseNumber}</li>
             <li>
               {agent.city}, {agent.state}
             </li>
