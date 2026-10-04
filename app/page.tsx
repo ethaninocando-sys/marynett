@@ -48,7 +48,7 @@ export default function Home() {
             <div>
               <Eyebrow>Registered nurse · Licensed Texas agent</Eyebrow>
               <h1 className="display-xl mt-5 text-balance">
-                <Confirm>{agent.nurseYears}</Confirm> years at the bedside
+                <Confirm>{agent.nurseYearsWord}</Confirm> years at the bedside
                 taught me what families aren&rsquo;t ready for.
               </h1>
               <p className="lede measure mt-6 ml-0 max-w-xl text-muted-foreground">

@@ -52,8 +52,8 @@ export default function BCoverage() {
             </p>
             <AnimatedHeading
               className="display-xl mt-6 text-balance"
-              text="Life insurance you"
-              muted="don't have to die to use."
+              lead="Life insurance you"
+              text="don't have to die to use."
             />
             <p className="lede mx-auto mt-6 max-w-xl text-muted-foreground">
               Some policies can pay you while you&rsquo;re living if you&rsquo;re
@@ -90,8 +90,8 @@ export default function BCoverage() {
             <AnimatedHeading
               as="h2"
               className="display-lg mt-4 text-balance"
-              text="If you got sick tomorrow and couldn't work,"
-              muted="who pays the bills?"
+              lead="If you got sick tomorrow and couldn't work,"
+              text="who pays the bills?"
             />
             <div className="lede mx-auto mt-6 max-w-xl space-y-4 text-left text-muted-foreground">
               <p>

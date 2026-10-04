@@ -72,7 +72,8 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} ${label.variable} ${loraDisplay.variable} ${instrument.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      {/* pb leaves room for the review-only direction switch at the bottom. */}
+      <body className="flex min-h-full flex-col pb-20">
         {children}
         {/* Review-only A/B switch. Remove before launch. */}
         <DirectionSwitch />

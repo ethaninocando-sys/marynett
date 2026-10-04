@@ -25,8 +25,13 @@ export const agent = {
    */
   licensedSince: 2015,
   licenseExpires: "2027-12-31",
-  /** From Ethan's build. Unverified — Marynett confirms both. */
+  /**
+   * From Ethan's build. Unverified — Marynett confirms both.
+   * The word form is for headlines: "Thirty-two years at the bedside" sits
+   * better in a serif than "32 years" does. The numeral is for stat tiles.
+   */
   nurseYears: 32,
+  nurseYearsWord: "Thirty-two",
   nurseYearsBeforeLicense: 22,
   city: "Edinburg",
   state: "TX",

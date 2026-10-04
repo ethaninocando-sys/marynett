@@ -12,18 +12,22 @@ import { cn } from "@/lib/utils";
  * heading out letter by letter. The CSS honours prefers-reduced-motion.
  */
 export function AnimatedHeading({
+  lead,
   text,
-  muted,
   as: Tag = "h1",
   className,
 }: {
+  /**
+   * Optional opening phrase in the muted tone. Sevora greys a trailing word,
+   * but on a headline whose payoff lands at the end, greying the end buries
+   * the point. The setup gets muted here and the payoff stays full strength.
+   */
+  lead?: string;
   text: string;
-  /** Trailing phrase rendered in the muted tone, as Sevora does with "faster". */
-  muted?: string;
   as?: "h1" | "h2";
   className?: string;
 }) {
-  const full = muted ? `${text} ${muted}` : text;
+  const full = lead ? `${lead} ${text}` : text;
   let index = 0;
 
   const renderWords = (value: string, tone?: "muted") => {
@@ -54,13 +58,13 @@ export function AnimatedHeading({
   return (
     <Tag className={className} aria-label={full}>
       <span aria-hidden="true">
-        {renderWords(text)}
-        {muted ? (
+        {lead ? (
           <>
-            <span aria-hidden="true"> </span>
-            {renderWords(muted, "muted")}
+            {renderWords(lead, "muted")}
+            <span> </span>
           </>
         ) : null}
+        {renderWords(text)}
       </span>
     </Tag>
   );
