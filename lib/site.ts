@@ -122,6 +122,16 @@ export const generalDisclosure =
   "market. Guarantees depend on the claims-paying ability of the issuing " +
   "insurance company.";
 
+/**
+ * Living benefits qualifier, adopted from Ethan's build. More specific than
+ * the general disclosure, and it adds the material point that exercising a
+ * rider reduces the death benefit.
+ */
+export const livingBenefitsNote =
+  "*Living benefits are provided through policy riders. Availability, " +
+  "qualifying conditions and limits vary by insurance company and state. " +
+  "Using them reduces the death benefit.";
+
 export const notGovernment =
   "Not affiliated with or endorsed by any government agency.";
 

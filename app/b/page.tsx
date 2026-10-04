@@ -1,8 +1,8 @@
-import { ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { Container, Section } from "@/components/archio/section";
 import { SevoraHeroPanel } from "@/components/sevora/hero-panel";
+import { PickOne } from "@/components/sevora/pick-one";
 import { Cta } from "@/components/archio/cta";
 import { AnimatedHeading } from "@/components/motion/animated-heading";
 import { agent } from "@/lib/site";
@@ -25,20 +25,6 @@ const stats: [string, string][] = [
   ["15 minutes", "One call. No second appointment."],
 ];
 
-const doors = [
-  {
-    eyebrow: "For families",
-    title: "Protect my family",
-    body: "See what your coverage does, and what it doesn't.",
-    href: "/b/coverage",
-  },
-  {
-    eyebrow: "For nurses and teachers",
-    title: "Work with me",
-    body: "How I got licensed, and what I teach.",
-    href: "/b/work-with-me",
-  },
-];
 
 export default function DirectionBHome() {
   return (
@@ -95,30 +81,7 @@ export default function DirectionBHome() {
           </dl>
         </SevoraHeroPanel>
 
-        {/* Two doors */}
-        <Section tone="white" className="bg-background pt-0">
-          <Container className="grid gap-4 md:grid-cols-2">
-            {doors.map((door) => (
-              <a
-                key={door.href}
-                href={door.href}
-                className="group block rounded-2xl border border-border bg-card p-8 transition-shadow hover:shadow-md"
-              >
-                <p className="label text-muted-foreground">{door.eyebrow}</p>
-                <h2 className="display-md mt-3 flex items-center gap-2">
-                  {door.title}
-                  <ArrowUpRight
-                    className="size-6 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    aria-hidden="true"
-                  />
-                </h2>
-                <p className="body-sm mt-3 text-muted-foreground">
-                  {door.body}
-                </p>
-              </a>
-            ))}
-          </Container>
-        </Section>
+        <PickOne />
 
         {/* Why a nurse does this */}
         <Section tone="white" className="bg-background">
