@@ -37,6 +37,8 @@ function getResend(): Resend | null {
 }
 
 type LeadBody = {
+  /** Which funnel the lead came from. Keeps selling and recruiting separate. */
+  variant?: "coverage" | "recruit";
   firstName?: string;
   phone?: string;
   state?: string;
@@ -84,6 +86,7 @@ export async function POST(req: NextRequest) {
     const licensed = (agent.licensedStates as readonly string[]).includes(state);
 
     const record = {
+      variant: body.variant === "recruit" ? "recruit" : "coverage",
       first_name: firstName,
       phone: digits,
       state,
@@ -112,15 +115,18 @@ export async function POST(req: NextRequest) {
     const to = process.env.LEAD_NOTIFY_EMAIL;
     const from = process.env.LEAD_FROM_EMAIL;
     if (resend && to && from) {
+      const kind =
+        record.variant === "recruit" ? "Licensing question" : "15-minute check";
       const subject = licensed
-        ? `New 15-minute check: ${firstName}`
-        : `Out-of-area inquiry (${state}): ${firstName}`;
+        ? `New ${kind}: ${firstName}`
+        : `Out-of-area ${kind} (${state}): ${firstName}`;
       try {
         await resend.emails.send({
           from,
           to,
           subject,
           text: [
+            `Funnel:      ${record.variant}`,
             `Name:        ${firstName}`,
             `Phone:       ${phoneRaw}`,
             `State:       ${state}${licensed ? "" : "  << OUTSIDE LICENSED STATES, do not solicit"}`,

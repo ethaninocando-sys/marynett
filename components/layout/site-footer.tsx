@@ -11,7 +11,7 @@ import { Container, Section } from "@/components/archio/section";
 
 export function SiteFooter() {
   return (
-    <Section tone="bone" className="pb-[140px]">
+    <Section tone="bone" className="border-t border-border pb-[140px]">
       <Container>
         <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
