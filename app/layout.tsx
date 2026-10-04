@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   description:
     "Life insurance you don't have to die to use. I'm Marynett, a nurse and a " +
     "licensed Texas agent working McAllen, Edinburg, Mission and Pharr. " +
-    "Give me fifteen minutes and you'll know where you stand.",
+    "In fifteen minutes you'll know what your policy pays and what it doesn't.",
   openGraph: {
     title: `${agent.name}, RN | Independent Agent`,
     description:

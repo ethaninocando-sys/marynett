@@ -38,7 +38,7 @@ export default function DirectionBHome() {
           card={{
             label: "Next step",
             title: "Let’s talk",
-            body: "Tell me what you have. I'll tell you where you stand.",
+            body: "I'll tell you what your policy pays and what it doesn't.",
             href: "/coverage",
           }}
         >
