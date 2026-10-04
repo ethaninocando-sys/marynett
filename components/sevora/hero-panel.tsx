@@ -40,11 +40,10 @@ export function SevoraHeroPanel({
       >
         {/* Portrait. Hidden below lg, where the template stacks and centres. */}
         {image ? (
-          <div className="pointer-events-none absolute right-0 bottom-0 hidden h-[700px] w-[549px] lg:block">
+          <div className="pointer-events-none absolute right-0 bottom-0 hidden h-[760px] w-[507px] lg:block">
             {/*
-              Desaturated to match the template, whose hero portrait is black
-              and white. It also neutralises the blue glass backdrop in her
-              source photo, which fought the grey panel.
+              The asset ships greyscale with its background already removed, so
+              no filter or edge treatment is needed here.
             */}
             {/*
               Explicit intrinsic size rather than `fill`. With `fill` the
@@ -56,17 +55,12 @@ export function SevoraHeroPanel({
             <Image
               src={image}
               alt={imageAlt ?? ""}
-              width={549}
-              height={700}
-              sizes="549px"
+              width={934}
+              height={1400}
+              sizes="507px"
               quality={90}
-              className="h-full w-full object-cover object-top grayscale contrast-[1.05]"
+              className="h-full w-full object-contain object-bottom"
               priority
-            />
-            {/* Softens the straight edge where the photo meets the copy. */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-muted to-transparent"
             />
           </div>
         ) : null}

@@ -63,7 +63,7 @@ export default function Home() {
             <figure className="mx-auto w-full max-w-sm md:max-w-none">
               <div className="overflow-hidden rounded-xl bg-card shadow-inner-glow">
                 <Image
-                  src="/marynett-bolivar.webp"
+                  src="/marynett-hero.webp"
                   alt={`${agent.name}, registered nurse and licensed Texas insurance agent`}
                   width={525}
                   height={635}
