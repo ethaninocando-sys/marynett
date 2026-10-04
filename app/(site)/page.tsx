@@ -44,13 +44,8 @@ export default function HomePage() {
                   </span>
                 </Reveal>
                 <h1 className="sv-display-sm">
-                  <Confirm>{site.nurseYears}</Confirm>{" "}
-                  <Words text="years at the bedside." start={1} />
-                  <Words
-                    text="I’ve seen what families aren’t ready for."
-                    start={5}
-                    muted
-                  />
+                  <Words text="Decades At The Bedside" />
+                  <Words text="Taught Me What Families Miss" start={4} muted />
                 </h1>
                 <Reveal delay={450}>
                   <p className="sv-lg max-w-[520px]">
