@@ -40,7 +40,7 @@ const plainly: [string, string][] = [
   ],
   [
     "You need a state insurance license first.",
-    "Until you have one, you cannot talk to clients about products.",
+    "Until you have one, you can’t talk to clients about products.",
   ],
   [
     "Nobody is paid for bringing in other agents.",
@@ -54,8 +54,8 @@ const plainly: [string, string][] = [
 
 const learning = [
   "To explain coverage in plain words, the way you already explain things to patients or students",
-  "To sit down with a family and find what is missing",
-  "To do it properly: licensed, trained and by the rules",
+  "To sit down with a family and find what’s missing",
+  "To do it properly, which means licensed and trained before you sit with anyone",
 ];
 
 export default function WorkWithMePage() {
@@ -106,7 +106,7 @@ export default function WorkWithMePage() {
           <Container>
             <Eyebrow>What this is, plainly</Eyebrow>
             <h2 className="display-lg mt-4 max-w-2xl text-balance">
-              Before you spend any time on this, here is the honest version.
+              Before you spend any time on this, here’s the honest version.
             </h2>
 
             <dl className="mt-10 max-w-3xl">
@@ -161,7 +161,7 @@ export default function WorkWithMePage() {
           <Container>
             <Eyebrow>Who I work well with</Eyebrow>
             <h2 className="display-lg mt-4 max-w-2xl text-balance">
-              People who are patient, honest and good at explaining things.
+              People who are patient and good at explaining things.
             </h2>
             <p className="lede mt-4 max-w-xl text-muted-foreground">
               Most of the people I mentor are nurses and teachers. They already

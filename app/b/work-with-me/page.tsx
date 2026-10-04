@@ -27,7 +27,7 @@ const plainly: [string, string][] = [
   ],
   [
     "You need a state insurance license first.",
-    "Until you have one, you cannot talk to clients about products.",
+    "Until you have one, you can’t talk to clients about products.",
   ],
   [
     "Nobody is paid for bringing in other agents.",
@@ -41,8 +41,8 @@ const plainly: [string, string][] = [
 
 const learning = [
   "To explain coverage in plain words, the way you already explain things to patients or students",
-  "To sit down with a family and find what is missing",
-  "To do it properly: licensed, trained and by the rules",
+  "To sit down with a family and find what’s missing",
+  "To do it properly, which means licensed and trained before you sit with anyone",
 ];
 
 export default function BWorkWithMe() {
@@ -81,7 +81,7 @@ export default function BWorkWithMe() {
             <AnimatedHeading
               as="h2"
               className="display-lg mt-4 text-center text-balance"
-              text="Before you spend any time on this, here is the honest version."
+              text="Before you spend any time on this, here’s the honest version."
             />
             <dl className="mt-10 space-y-3">
               {plainly.map(([title, body]) => (
@@ -133,7 +133,7 @@ export default function BWorkWithMe() {
         <Section tone="white" className="bg-background">
           <Container className="rounded-2xl bg-primary px-8 py-16 text-center text-primary-foreground">
             <h2 className="display-lg text-balance">
-              People who are patient, honest and good at explaining things.
+              People who are patient and good at explaining things.
             </h2>
             <p className="lede mx-auto mt-4 max-w-md text-white/70">
               Most of the people I mentor are nurses and teachers. They already

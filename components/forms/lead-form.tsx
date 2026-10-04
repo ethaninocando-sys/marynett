@@ -31,9 +31,9 @@ const COPY = {
   },
   recruit: {
     title: "Ask me what it takes",
-    sub: "I will walk you through how I got licensed and what the work actually looks like.",
+    sub: "I’ll walk you through how I got licensed and what the work actually looks like.",
     submit: "Start the conversation",
-    foot: "No pressure, and no obligation to go further.",
+    foot: "No pressure. You can stop after the call.",
     roleLabel: "I am",
     role: [
       ["nurse", "A nurse"],

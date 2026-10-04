@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const comparison: [string, string][] = [
   ["Usually pays at death only", "Can include living benefits for serious illness*"],
   ["Often tied to your employer", "Stays with you if you change jobs"],
-  ["Rarely explained to you", "Explained by someone who has worked the same floors"],
+  ["Rarely explained to you", "Explained by someone who works the same floors"],
 ];
 
 const steps: [string, string][] = [
@@ -27,10 +27,10 @@ const steps: [string, string][] = [
 ];
 
 const faqs: [string, string][] = [
-  ["How do you get paid?", "The call comes with no obligation. I am an appointed insurance agent, so if you choose to buy a policy, the insurance company pays me a commission that is built into it. I will walk you through how that works on the call so nothing catches you off guard."],
-  ["I already have insurance at work.", "Good, bring it. We will look at what it actually pays if you get sick, and what happens to it the day you leave."],
-  ["Do I need a medical exam?", "Depends on the policy and the company. A lot of them skip it now. We will find out on the call."],
-  ["Will you pressure me?", "No. It is a fifteen-minute conversation. If you are fine as you are, I will say so."],
+  ["How do you get paid?", "The call comes with no obligation. I’m an appointed insurance agent, so if you buy a policy the insurance company pays me a commission that’s built into it. I’ll walk you through how that works on the call so nothing catches you off guard."],
+  ["I already have insurance at work.", "Good, bring it. We’ll look at what it actually pays if you get sick, and what happens to it the day you leave."],
+  ["Do I need a medical exam?", "Depends on the policy and the company. A lot of them skip it now. We’ll find out on the call."],
+  ["Will you pressure me?", "No. It’s a fifteen-minute conversation. If you’re fine as you are, I’ll say so."],
   ["Do you give tax or investment advice?", "No. For tax questions, including moving retirement accounts, please talk to a tax professional."],
 ];
 

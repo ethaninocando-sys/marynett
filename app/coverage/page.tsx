@@ -6,7 +6,7 @@ import { BgShapes } from "@/components/archio/bg-shapes";
 import { Cta } from "@/components/archio/cta";
 import { LeadForm } from "@/components/forms/lead-form";
 import { Placeholder } from "@/components/ui/placeholder";
-import { agent, testimonials, yearsLicensed } from "@/lib/site";
+import { agent, testimonials } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Life insurance you don't have to die to use",
@@ -15,15 +15,15 @@ export const metadata: Metadata = {
 };
 
 const points = [
-  "Understand what your coverage through work does, and what happens to it if you leave",
-  "Learn how living benefits work and who qualifies*",
-  "Get plain answers from a nurse, with no pressure",
+  "What your coverage at work actually does, and what happens to it if you leave",
+  "How living benefits work, and who qualifies*",
+  "Straight answers from a nurse. No pressure either way",
 ];
 
 const comparison: [string, string][] = [
   ["Usually pays at death only", "Can include living benefits for serious illness*"],
   ["Often tied to your employer", "Stays with you if you change jobs"],
-  ["Rarely explained to you", "Explained by someone who has worked the same floors"],
+  ["Rarely explained to you", "Explained by someone who works the same floors"],
 ];
 
 const steps: [string, string][] = [
@@ -40,19 +40,19 @@ const steps: [string, string][] = [
 const faqs: [string, string][] = [
   [
     "How do you get paid?",
-    "The call comes with no obligation. I am an appointed insurance agent, so if you choose to buy a policy, the insurance company pays me a commission that is built into it. I will walk you through how that works on the call so nothing catches you off guard.",
+    "The call comes with no obligation. I’m an appointed insurance agent, so if you buy a policy the insurance company pays me a commission that’s built into it. I’ll walk you through how that works on the call so nothing catches you off guard.",
   ],
   [
     "I already have insurance at work.",
-    "Good, bring it. We will look at what it actually pays if you get sick, and what happens to it the day you leave.",
+    "Good, bring it. We’ll look at what it actually pays if you get sick, and what happens to it the day you leave.",
   ],
   [
     "Do I need a medical exam?",
-    "Depends on the policy and the company. A lot of them skip it now. We will find out on the call.",
+    "Depends on the policy and the company. A lot of them skip it now. We’ll find out on the call.",
   ],
   [
     "Will you pressure me?",
-    "No. It is a fifteen-minute conversation. If you are fine as you are, I will say so.",
+    "No. It’s a fifteen-minute conversation. If you’re fine as you are, I’ll say so.",
   ],
   [
     "Do you give tax or investment advice?",
@@ -112,7 +112,7 @@ export default function CoveragePage() {
         <div className="border-y border-border bg-bone">
           <ul className="container-page grid gap-x-8 gap-y-2 px-[18px] py-6 text-[15px] font-medium tracking-[-0.02em] sm:grid-cols-2 lg:grid-cols-4 md:px-[50px]">
             <li>RN for {agent.nurseYears} years</li>
-            <li>Licensed in Texas {yearsLicensed} years</li>
+            <li>Licensed in Texas since {agent.licensedSince}</li>
             <li>
               {agent.city}, {agent.state}
             </li>
