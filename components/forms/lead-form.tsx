@@ -19,7 +19,7 @@ const COPY = {
     title: "Get your 15-minute check",
     sub: "I call you myself, at a time that works around your shift.",
     submit: "Book my 15-minute check",
-    foot: "No spam, no list. One call, from me.",
+    foot: "This goes to me. Not a call center, not a lead list.",
     roleLabel: "I am",
     role: [
       ["family", "Someone my family depends on"],
