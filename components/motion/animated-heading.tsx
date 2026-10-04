@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 /**
  * Sevora's hero reveal, rebuilt from measurements of the live template.
  *
@@ -12,38 +10,28 @@ import { cn } from "@/lib/utils";
  * heading out letter by letter. The CSS honours prefers-reduced-motion.
  */
 export function AnimatedHeading({
-  lead,
   text,
   as: Tag = "h1",
   className,
 }: {
-  /**
-   * Optional opening phrase in the muted tone. Sevora greys a trailing word,
-   * but on a headline whose payoff lands at the end, greying the end buries
-   * the point. The setup gets muted here and the payoff stays full strength.
-   */
-  lead?: string;
   text: string;
   as?: "h1" | "h2";
   className?: string;
 }) {
-  const full = lead ? `${lead} ${text}` : text;
+  const full = text;
   let index = 0;
 
-  const renderWords = (value: string, tone?: "muted") => {
+  const renderWords = (value: string) => {
     const words = value.split(" ");
     return words.map((word, w) => (
       // The space sits OUTSIDE the nowrap span. Inside it there is no break
       // opportunity and long headings overflow their container.
-      <span key={`${tone ?? "base"}-${w}`}>
+      <span key={w}>
         <span style={{ whiteSpace: "nowrap" }}>
           {[...word].map((char, c) => (
             <span
               key={c}
-              className={cn(
-                "char-reveal",
-                tone === "muted" && "text-muted-foreground"
-              )}
+              className="char-reveal"
               style={{ "--char-index": index++ } as React.CSSProperties}
             >
               {char}
@@ -57,15 +45,7 @@ export function AnimatedHeading({
 
   return (
     <Tag className={className} aria-label={full}>
-      <span aria-hidden="true">
-        {lead ? (
-          <>
-            {renderWords(lead, "muted")}
-            <span> </span>
-          </>
-        ) : null}
-        {renderWords(text)}
-      </span>
+      <span aria-hidden="true">{renderWords(text)}</span>
     </Tag>
   );
 }

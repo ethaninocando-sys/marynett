@@ -48,8 +48,7 @@ export default function DirectionBHome() {
 
             <AnimatedHeading
               className="display-xl mt-6 text-balance"
-              lead={`${agent.nurseYearsWord} years at the bedside taught me`}
-              text="what families aren't ready for."
+              text={`${agent.nurseYearsWord} years at the bedside taught me what families aren't ready for.`}
             />
 
             <p className="lede mx-auto mt-6 max-w-xl text-muted-foreground">
@@ -120,8 +119,7 @@ export default function DirectionBHome() {
               <AnimatedHeading
                 as="h2"
                 className="display-lg mt-4 text-balance"
-                lead="Most families had coverage."
-                text="Few knew what it actually did."
+                text="Most families had coverage. Few knew what it actually did."
               />
               <div className="lede mt-6 space-y-4 text-muted-foreground">
                 <p>

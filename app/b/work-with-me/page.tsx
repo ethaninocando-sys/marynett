@@ -57,8 +57,7 @@ export default function BWorkWithMe() {
             </p>
             <AnimatedHeading
               className="display-xl mt-6 text-balance"
-              lead={`I was a nurse for ${agent.nurseYearsBeforeLicense} years before anyone explained this to me.`}
-              text="Now I teach it."
+              text={`I was a nurse for ${agent.nurseYearsBeforeLicense} years before anyone explained this to me. Now I teach it.`}
             />
             <p className="lede mx-auto mt-6 max-w-xl text-muted-foreground">
               I got my Texas insurance license in {agent.licensedSince} and
@@ -82,8 +81,7 @@ export default function BWorkWithMe() {
             <AnimatedHeading
               as="h2"
               className="display-lg mt-4 text-center text-balance"
-              lead="Before you spend any time on this,"
-              text="here is the honest version."
+              text="Before you spend any time on this, here is the honest version."
             />
             <dl className="mt-10 space-y-3">
               {plainly.map(([title, body]) => (
