@@ -39,8 +39,8 @@ export default function HomePage() {
               <div className="flex flex-col gap-4">
                 <Reveal>
                   <span className="sv-badge">
-                    <span className="sv-dot" />
-                    RN &middot; Licensed Texas agent
+                    <span className="sv-dot sv-dot-live" />
+                    Available
                   </span>
                 </Reveal>
                 <h1 className="sv-display-sm">
@@ -65,11 +65,11 @@ export default function HomePage() {
                     strokeWidth={1.75}
                     aria-hidden="true"
                   />
-                  Protect my family
+                  Protect My Family
                 </Link>
                 <Link href="/work-with-me" className="sv-btn sv-btn-primary">
                   <Handshake size={18} strokeWidth={1.75} aria-hidden="true" />
-                  Work with me
+                  Work With Me
                 </Link>
               </Reveal>
             </div>
@@ -90,13 +90,6 @@ export default function HomePage() {
                     <Confirm>{site.licensedSince}</Confirm>
                   </dd>
                   <dt className="sv-body">Licensed</dt>
-                </div>
-                <div>
-                  <dd className="font-serif text-[32px] leading-[48px] font-semibold">
-                    <CountUp value={15} />
-                    <span className="text-[36px] tracking-[-0.02em]">min</span>
-                  </dd>
-                  <dt className="sv-body">First call</dt>
                 </div>
               </dl>
             </Reveal>
@@ -120,7 +113,7 @@ export default function HomePage() {
               href="/coverage#book"
               className="sv-glass flex items-center gap-8 px-8 py-7 max-[1199px]:bg-[rgba(14,37,54,0.62)]"
             >
-              <span className="sv-h5 flex-1">Let&rsquo;s connect</span>
+              <span className="sv-h5 flex-1">Let&rsquo;s Connect</span>
               <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-white text-[var(--sv-900)]">
                 <ArrowUpRight size={24} strokeWidth={1.75} />
               </span>
@@ -149,7 +142,7 @@ export default function HomePage() {
       <section className="sv-container flex flex-col gap-12 md:gap-16">
         <Reveal>
           <div className="sv-head">
-            <h2 className="sv-h2">Pick one.</h2>
+            <h2 className="sv-h2">Discover</h2>
           </div>
         </Reveal>
 
@@ -182,9 +175,9 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex flex-col gap-2 p-8">
-                <h3 className="sv-h3">Protect my family</h3>
+                <h3 className="sv-h3">Protect My Family</h3>
                 <p className="sv-lg">See what your coverage actually does.</p>
-                <p className="mt-4 flex items-center gap-2 font-medium">
+                <p className="mt-4 flex items-center gap-2 font-bold underline underline-offset-4">
                   Go
                   <ArrowRight
                     size={18}
@@ -219,9 +212,9 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="flex flex-col gap-2 p-8">
-                <h3 className="sv-h3">Work with me</h3>
+                <h3 className="sv-h3">Work With Me</h3>
                 <p className="sv-lg">How I got licensed, and how you can.</p>
-                <p className="mt-4 flex items-center gap-2 font-medium">
+                <p className="mt-4 flex items-center gap-2 font-bold underline underline-offset-4">
                   Go
                   <ArrowRight
                     size={18}
@@ -242,71 +235,35 @@ export default function HomePage() {
       {/* Her story */}
       <section className="sv-container flex flex-col gap-12 md:gap-16">
         <Reveal>
-          <div className="flex max-w-[520px] flex-col gap-2">
-            <span className="sv-badge">Why a nurse</span>
-            <h2 className="sv-h2">
-              Most families had coverage. Few knew what it did.
-            </h2>
+          <div className="sv-head">
+            <h2 className="sv-h2">The Gap</h2>
           </div>
         </Reveal>
 
-        <div className="grid gap-2 lg:grid-cols-[338fr_338fr_461fr]">
-          <Reveal className="grid gap-2 lg:grid-rows-[auto_1fr]">
-            <div className="sv-card flex items-center gap-3 p-6">
-              <span className="sv-tile sv-tile-dark size-9 rounded-full font-serif text-sm font-semibold">
-                MB
-              </span>
-              <span className="sv-h6">
-                {site.name}, {site.credentials}
-              </span>
-            </div>
-            <div className="sv-card flex min-h-[296px] flex-col justify-between gap-10 p-6">
-              <p className="sv-lg text-[var(--sv-900)]">
-                Night shifts, most of my career.
+        <Reveal>
+          <div className="sv-card-dark mx-auto flex max-w-[860px] flex-col gap-6 rounded-3xl p-8 md:p-14">
+            <div className="flex max-w-[640px] flex-col gap-5 font-serif text-2xl leading-[1.35] tracking-[-0.02em] md:text-[28px]">
+              <p>
+                <Confirm>Night shift</Confirm> taught me what a family really
+                worries about.
               </p>
               <p>
-                <span className="sv-number block">
-                  <Confirm>12</Confirm>
-                  <span className="text-[36px]"> hr</span>
-                </span>
-                <span className="mt-1 block text-[var(--sv-500)]">Shifts</span>
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={100} className="grid gap-2 lg:grid-rows-[1fr_auto]">
-            <div className="sv-card flex min-h-[316px] flex-col justify-between gap-10 p-6">
-              <p className="sv-lg text-[var(--sv-900)]">
-                I got licensed to explain it in plain words.
+                It wasn&rsquo;t only the diagnosis. It was what came after: who
+                covers the rent, who stays home, how long the money lasts.
               </p>
               <p>
-                <span className="sv-number block">
-                  <Confirm>
-                    <CountUp value={22} />
-                  </Confirm>
-                  <span className="text-[36px]"> yr</span>
-                </span>
-                <span className="mt-1 block text-[var(--sv-500)]">
-                  Nursing before the license
-                </span>
+                Most of those families had life insurance. Few knew when it
+                paid, or that it paid at all.
+              </p>
+              <p>
+                I got licensed to answer that question before it&rsquo;s asked.
               </p>
             </div>
-            <div className="sv-card flex items-center gap-2 px-6 py-5">
-              <span className="sv-dot" />
-              <span className="sv-h6">By appointment.</span>
-            </div>
-          </Reveal>
-
-          <Reveal delay={200}>
-            <div className="sv-card-dark flex h-full min-h-[388px] flex-col justify-between gap-10 p-6">
-              <p className="max-w-[380px] font-serif text-[28px] leading-[1.25] tracking-[-0.02em]">
-                I&rsquo;ve sat with families on their worst day. Then the bills
-                came.
-              </p>
-              <p className="text-white/60">&mdash; Marynett</p>
-            </div>
-          </Reveal>
-        </div>
+            <p className="text-white/60">
+              &mdash; {site.name}, {site.credentials}
+            </p>
+          </div>
+        </Reveal>
       </section>
 
       {/* Videos */}
@@ -314,8 +271,7 @@ export default function HomePage() {
         <Reveal>
           <div className="sv-head">
             <div className="sv-head-stack">
-              <span className="sv-badge mx-auto">60 seconds each</span>
-              <h2 className="sv-h2">What people ask me.</h2>
+              <h2 className="sv-h2">What People Ask Me</h2>
             </div>
           </div>
         </Reveal>
@@ -341,9 +297,9 @@ export default function HomePage() {
         <Reveal>
           <div className="sv-card-dark flex flex-col items-center gap-3 rounded-3xl px-6 py-16 text-center md:py-20">
             <h2 className="sv-h2">Not sure? Call or text.</h2>
-            <a href={site.phoneHref} className="sv-btn sv-btn-light mt-4">
-              {site.phoneDisplay}
-            </a>
+            <Link href="/coverage#book" className="sv-btn sv-btn-light mt-4">
+              Contact Me
+            </Link>
           </div>
         </Reveal>
       </section>

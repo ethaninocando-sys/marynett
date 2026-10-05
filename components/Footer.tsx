@@ -24,7 +24,7 @@ export function Footer() {
                   {site.name}, {site.credentials}
                 </p>
                 <p className="sv-body">
-                  An Independent FEG Agent &middot; FEG Insurance Services
+                  Independent agent
                   <br />
                   Texas insurance license #
                   <Confirm>{site.licenseNumber}</Confirm> &middot; Licensed in

@@ -10,12 +10,12 @@ const links = [
 
 function Brand() {
   return (
-    <Link href="/" className="flex items-center gap-2.5">
-      <span className="sv-tile sv-tile-dark size-8 rounded-lg font-serif text-sm font-semibold">
-        MB
+    <Link href="/" className="block">
+      <span className="block text-lg leading-6 font-semibold tracking-[-0.03em] whitespace-nowrap">
+        {site.name}
       </span>
-      <span className="text-lg leading-7 font-semibold tracking-[-0.03em] whitespace-nowrap">
-        {site.name}, {site.credentials}
+      <span className="sv-sm block leading-4 whitespace-nowrap">
+        {site.credentials} &middot; Independent Agent
       </span>
     </Link>
   );

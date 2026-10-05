@@ -20,4 +20,4 @@ Then open http://localhost:3000.
 - In `lib/site.ts`, confirm every fact and set `showConfirmMarks` and `isPrototype` to `false`.
 - Replace the placeholder blocks with real photos, videos and the Cal.com booking embed.
 - Set `RESEND_API_KEY` and `LEAD_TO_EMAIL` on the server so form leads are emailed.
-- Get written approval from FEG compliance (compliance@fegcorp.com), then remove the `robots` block in `app/layout.tsx`.
+- Remove the `robots` block in `app/layout.tsx` when the site is ready to be found by search engines.

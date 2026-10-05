@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   description:
     "A registered nurse and licensed Texas insurance agent who helps families understand their protection before they need it.",
-  // Keep search engines out until FEG compliance approves the site.
+  // Keep search engines out until the site is ready to launch.
   robots: { index: false, follow: false },
 };
 

@@ -128,8 +128,7 @@ export default function WorkWithMePage() {
               for recruiting. No income guarantee.
             </>,
             <>
-              It costs money to start: state licensing{" "}
-              <Confirm>and FEG&rsquo;s one-time $125 enrollment fee</Confirm>.
+              It costs money to start: state licensing and an enrollment fee.
             </>,
           ].map((item, index) => (
             <Reveal key={index} delay={index * 80}>
@@ -141,18 +140,6 @@ export default function WorkWithMePage() {
               </div>
             </Reveal>
           ))}
-          <p className="sv-sm px-1 pt-2">
-            See the{" "}
-            <a
-              href="https://id.freedomequitygroup.com/"
-              className="underline underline-offset-2"
-              target="_blank"
-              rel="noreferrer"
-            >
-              FEG Income Disclosure Statement
-            </a>
-            .
-          </p>
         </div>
       </section>
 

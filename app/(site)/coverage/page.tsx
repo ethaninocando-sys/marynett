@@ -143,13 +143,6 @@ export default function CoveragePage() {
                 </dd>
                 <dt className="sv-body">Licensed</dt>
               </div>
-              <div>
-                <dd className="font-serif text-[32px] leading-[48px] font-semibold">
-                  <CountUp value={15} />
-                  <span className="text-[36px] tracking-[-0.02em]">min</span>
-                </dd>
-                <dt className="sv-body">By phone</dt>
-              </div>
             </dl>
           </Reveal>
         </div>

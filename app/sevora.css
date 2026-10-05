@@ -727,3 +727,29 @@
   border-radius: 999px;
   background: var(--sv-accent);
 }
+
+/* Slow green pulse for the availability indicator. */
+.sv-dot-live {
+  background: #bde9a4;
+}
+
+.sv-dot-live::after {
+  background: #3da31a;
+  animation: sv-live 2.4s ease-in-out infinite;
+}
+
+@keyframes sv-live {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-dot-live::after {
+    animation: none;
+  }
+}
