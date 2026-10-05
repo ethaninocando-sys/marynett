@@ -6,11 +6,9 @@
 const labels: Record<string, string> = {
   firstName: "First name",
   phone: "Phone",
-  iAm: "I am",
+  email: "Email",
   lookingFor: "Looking for",
-  occupation: "Occupation",
-  licensed: "Texas license",
-  bestTime: "Best time to call",
+  lookingForOther: "Looking for (details)",
 };
 
 export async function POST(request: Request) {
@@ -26,7 +24,8 @@ export async function POST(request: Request) {
 
   const firstName = String(body.firstName ?? "").trim();
   const phoneDigits = String(body.phone ?? "").replace(/\D/g, "");
-  if (!firstName || phoneDigits.length < 10) {
+  const email = String(body.email ?? "").trim();
+  if (!firstName || phoneDigits.length < 10 || !/^\S+@\S+\.\S+$/.test(email)) {
     return Response.json({ ok: false }, { status: 400 });
   }
 
@@ -54,6 +53,7 @@ export async function POST(request: Request) {
       from,
       to,
       subject: `New ${kind.toLowerCase()} lead: ${firstName}`,
+      reply_to: email,
       text: [`Type: ${kind}`, ...lines].join("\n"),
     }),
   });

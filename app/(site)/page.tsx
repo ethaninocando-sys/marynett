@@ -296,9 +296,9 @@ export default function HomePage() {
       <section className="sv-container pt-0 md:pt-0">
         <Reveal>
           <div className="sv-card-dark flex flex-col items-center gap-3 rounded-3xl px-6 py-16 text-center md:py-20">
-            <h2 className="sv-h2">Not sure? Call or text.</h2>
+            <h2 className="sv-h2">Let&rsquo;s Connect</h2>
             <Link href="/coverage#book" className="sv-btn sv-btn-light mt-4">
-              Contact Me
+              Contact
             </Link>
           </div>
         </Reveal>

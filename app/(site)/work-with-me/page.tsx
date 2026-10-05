@@ -110,39 +110,6 @@ export default function WorkWithMePage() {
         </div>
       </section>
 
-      {/* What this is, plainly */}
-      <section className="sv-container grid gap-12 lg:grid-cols-2 lg:gap-24">
-        <div className="lg:sticky lg:top-[164px] lg:self-start">
-          <Reveal>
-            <h2 className="sv-h2">What this is, plainly</h2>
-          </Reveal>
-        </div>
-        <div className="grid gap-2">
-          {[
-            <>Not a job. No salary. You&rsquo;d be an independent agent.</>,
-            <>
-              License first. No license, no talking to clients about products.
-            </>,
-            <>
-              Commission only, paid when a client puts a policy in place. No pay
-              for recruiting. No income guarantee.
-            </>,
-            <>
-              It costs money to start: state licensing and an enrollment fee.
-            </>,
-          ].map((item, index) => (
-            <Reveal key={index} delay={index * 80}>
-              <div className="sv-card flex items-start gap-5 p-6">
-                <span className="sv-tile size-10 shrink-0 rounded-full text-base font-medium">
-                  {index + 1}
-                </span>
-                <p className="pt-1.5 text-lg leading-7">{item}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* Who does well */}
       <section className="sv-container">
         <Reveal>
@@ -162,9 +129,9 @@ export default function WorkWithMePage() {
       <section className="sv-container pt-0 md:pt-0">
         <Reveal>
           <div className="sv-card-dark flex flex-col items-center gap-3 rounded-3xl px-6 py-16 text-center md:py-20">
-            <h2 className="sv-h2 max-w-xl">Talk first. Decide after.</h2>
+            <h2 className="sv-h2 max-w-xl">Let&rsquo;s Connect</h2>
             <a href="#book" className="sv-btn sv-btn-light mt-4">
-              Let&rsquo;s talk
+              Contact
             </a>
           </div>
         </Reveal>

@@ -4,18 +4,16 @@ import { useState } from "react";
 
 type Variant = "coverage" | "recruit";
 
-const bestTimes = ["Morning", "Afternoon", "Evening", "Weekend"];
-
 const copy = {
   coverage: {
-    title: "Book the call",
-    intro: "I call you.",
-    button: "Book my call",
+    title: "Let’s Connect",
+    intro: "See If There’s A Fit",
+    button: "Send",
   },
   recruit: {
-    title: "Ask me",
-    intro: "I call you. Ask anything.",
-    button: "Let’s talk",
+    title: "Let’s Connect",
+    intro: "See If There’s A Fit",
+    button: "Send",
   },
 };
 
@@ -24,6 +22,7 @@ export function LeadForm({ variant }: { variant: Variant }) {
     "idle",
   );
   const [firstName, setFirstName] = useState("");
+  const [lookingFor, setLookingFor] = useState("");
   const text = copy[variant];
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -48,13 +47,9 @@ export function LeadForm({ variant }: { variant: Variant }) {
     return (
       <div id="book" className="sv-form-card p-6 sm:p-8" aria-live="polite">
         <h2 className="sv-h3">Got it{firstName ? `, ${firstName}` : ""}.</h2>
-        <p className="sv-body mt-2">Choose your appointment time.</p>
-        <div className="mt-5 flex min-h-64 flex-col items-center justify-center gap-1 rounded-xl bg-[var(--sv-50)] p-6 text-center shadow-[inset_0_0_0_1px_var(--sv-200)]">
-          <span className="sv-h6">Booking calendar</span>
-          <span className="sv-sm">
-            Cal.com embed, limited to Marynett&rsquo;s off-shift hours
-          </span>
-        </div>
+        <p className="sv-body mt-2">
+          Check your email for next steps and to pick a time.
+        </p>
       </div>
     );
   }
@@ -96,6 +91,21 @@ export function LeadForm({ variant }: { variant: Variant }) {
           />
         </div>
 
+        <div>
+          <label htmlFor={`${variant}-email`} className="sv-label">
+            Email
+          </label>
+          <input
+            id={`${variant}-email`}
+            name="email"
+            type="email"
+            className="sv-field"
+            autoComplete="email"
+            inputMode="email"
+            required
+          />
+        </div>
+
         {variant === "coverage" ? (
           <>
             <div>
@@ -106,7 +116,8 @@ export function LeadForm({ variant }: { variant: Variant }) {
                 id="coverage-lookingFor"
                 name="lookingFor"
                 className="sv-field"
-                defaultValue=""
+                value={lookingFor}
+                onChange={(event) => setLookingFor(event.target.value)}
                 required
               >
                 <option value="" disabled>
@@ -115,52 +126,24 @@ export function LeadForm({ variant }: { variant: Variant }) {
                 <option>Coverage for my family</option>
                 <option>Questions about retirement income</option>
                 <option>I&rsquo;m curious about what you do</option>
+                <option>Others</option>
               </select>
             </div>
+            {lookingFor === "Others" ? (
+              <div>
+                <label htmlFor="coverage-lookingForOther" className="sv-label">
+                  Tell me what you&rsquo;re looking for (optional)
+                </label>
+                <input
+                  id="coverage-lookingForOther"
+                  name="lookingForOther"
+                  className="sv-field"
+                  maxLength={200}
+                />
+              </div>
+            ) : null}
           </>
-        ) : (
-          <>
-            <div>
-              <label htmlFor="recruit-licensed" className="sv-label">
-                Do you have a Texas insurance license?
-              </label>
-              <select
-                id="recruit-licensed"
-                name="licensed"
-                className="sv-field"
-                defaultValue=""
-                required
-              >
-                <option value="" disabled>
-                  Choose one
-                </option>
-                <option>Yes</option>
-                <option>No</option>
-                <option>Working on it</option>
-              </select>
-            </div>
-          </>
-        )}
-
-        <div>
-          <label htmlFor={`${variant}-bestTime`} className="sv-label">
-            Best time to call
-          </label>
-          <select
-            id={`${variant}-bestTime`}
-            name="bestTime"
-            className="sv-field"
-            defaultValue=""
-            required
-          >
-            <option value="" disabled>
-              Choose one
-            </option>
-            {bestTimes.map((time) => (
-              <option key={time}>{time}</option>
-            ))}
-          </select>
-        </div>
+        ) : null}
 
         {/* Hidden field that only spam bots fill in. */}
         <div className="hidden" aria-hidden="true">

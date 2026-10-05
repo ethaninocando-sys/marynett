@@ -82,7 +82,7 @@ export function Footer() {
             <p>
               © 2026 <span className="text-white">{site.name}</span>
             </p>
-            <p className="font-medium">Licensed in Texas only</p>
+            <p className="font-medium">Independent Agent</p>
           </div>
         </div>
       </div>

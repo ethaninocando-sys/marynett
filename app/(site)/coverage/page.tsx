@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import {
-  Briefcase,
   CalendarClock,
   FileSearch,
   HeartPulse,
   ListChecks,
-  MessageCircle,
 } from "lucide-react";
 import { site } from "@/lib/site";
 import { Confirm } from "@/components/Confirm";
 import { LeadForm } from "@/components/LeadForm";
 import { CountUp } from "@/components/sevora/CountUp";
-import { Faq } from "@/components/sevora/Faq";
 import { Process } from "@/components/sevora/Process";
 import { Reveal } from "@/components/sevora/Reveal";
 import { Words } from "@/components/sevora/Words";
@@ -19,23 +16,8 @@ import { Words } from "@/components/sevora/Words";
 export const metadata: Metadata = {
   title: "Life insurance you don't have to die to use",
   description:
-    "A 15-minute call about what your coverage does today, with a registered nurse and licensed Texas agent.",
+    "A conversation about what your coverage does today, with a registered nurse and licensed Texas agent.",
 };
-
-const points = [
-  {
-    icon: Briefcase,
-    text: "What your work policy does, and what happens if you leave.",
-  },
-  {
-    icon: HeartPulse,
-    text: "Living benefits: how they work, who qualifies.*",
-  },
-  {
-    icon: MessageCircle,
-    text: "Straight answers from a nurse.",
-  },
-];
 
 const comparison = [
   ["Usually pays at death only", "Can include living benefits*"],
@@ -46,42 +28,16 @@ const comparison = [
 const steps = [
   {
     icon: <CalendarClock size={20} strokeWidth={1.75} />,
-    title: "Book an appointment.",
+    title: "We talk about your goals.",
   },
   {
     icon: <FileSearch size={20} strokeWidth={1.75} />,
-    title: "We look at what you have.",
+    title: "We find a good fit.",
   },
   {
     icon: <ListChecks size={20} strokeWidth={1.75} />,
-    title: "I show you the gaps, if any.",
+    title: "We make it good and make it make sense.",
     text: "You decide.",
-  },
-];
-
-const faqs = [
-  {
-    question: "How do you get paid?",
-    answer:
-      "By commission. If you buy a policy, the insurance company pays me. The call carries no obligation.",
-  },
-  {
-    question: "I have insurance at work.",
-    answer:
-      "Good. Bring it. We’ll see what it pays and what happens when you leave.",
-  },
-  {
-    question: "Do I need a medical exam?",
-    answer: "Depends on the policy and the company. We’ll find out.",
-  },
-  {
-    question: "Will you pressure me?",
-    answer: "No. If you’re covered, I’ll say so.",
-  },
-  {
-    question: "Tax or investment advice?",
-    answer:
-      "No. Ask a tax professional, especially before moving retirement accounts.",
   },
 ];
 
@@ -106,7 +62,6 @@ export default function CoveragePage() {
               <p className="sv-lg max-w-[500px]">
                 Some policies can pay you while you&rsquo;re living, if
                 you&rsquo;re diagnosed with a qualifying serious illness.*
-                Fifteen minutes and you&rsquo;ll know what yours does.
               </p>
             </Reveal>
           </div>
@@ -145,30 +100,6 @@ export default function CoveragePage() {
               </div>
             </dl>
           </Reveal>
-        </div>
-      </section>
-
-      {/* On the call */}
-      <section className="sv-container flex flex-col gap-12 md:gap-16">
-        <Reveal>
-          <div className="sv-head">
-            <h2 className="sv-h2">On the call</h2>
-          </div>
-        </Reveal>
-        <div className="grid gap-2 md:grid-cols-3">
-          {points.map((point, index) => {
-            const Icon = point.icon;
-            return (
-              <Reveal key={point.text} delay={index * 100}>
-                <article className="sv-card flex h-full min-h-[240px] flex-col justify-between gap-10 p-6">
-                  <span className="sv-tile">
-                    <Icon size={24} strokeWidth={1.5} />
-                  </span>
-                  <p className="sv-h4">{point.text}</p>
-                </article>
-              </Reveal>
-            );
-          })}
         </div>
       </section>
 
@@ -254,25 +185,13 @@ export default function CoveragePage() {
         <Process steps={steps} />
       </section>
 
-      {/* FAQ */}
-      <section className="sv-container flex flex-col gap-12 md:gap-16">
-        <Reveal>
-          <div className="sv-head">
-            <h2 className="sv-h2">Straight answers</h2>
-          </div>
-        </Reveal>
-        <Reveal>
-          <Faq items={faqs} defaultOpen={0} />
-        </Reveal>
-      </section>
-
       {/* Closing */}
       <section className="sv-container pt-0 md:pt-0">
         <Reveal>
           <div className="sv-card-dark flex flex-col items-center gap-3 rounded-3xl px-6 py-16 text-center md:py-20">
-            <h2 className="sv-h2 max-w-xl">Fifteen minutes. Then you know.</h2>
+            <h2 className="sv-h2 max-w-xl">Let&rsquo;s Connect</h2>
             <a href="#book" className="sv-btn sv-btn-light mt-4">
-              Book my call
+              Contact
             </a>
           </div>
         </Reveal>
