@@ -5,7 +5,7 @@ Status as of October 13, 2026. `launch-prep` was merged into `main` that day, so
 ## Blocking launch
 
 - [x] **Her domain.** marynettbolivar.com was bought on October 13, 2026, is managed in Cloudflare, and was verified in Resend the same day.
-- [ ] **Email settings for Production.** `RESEND_API_KEY` and `LEAD_FROM_EMAIL` were set on the Vercel project on October 13, 2026. Not yet confirmed: send the form on the live site and check that the thank-you email arrives. If it does not, the Vercel logs say which setting is missing.
+- [x] **Email settings for Production.** `RESEND_API_KEY` and `LEAD_FROM_EMAIL` are set on the Vercel project. Confirmed October 13, 2026: a test thank-you email arrived from hello@marynettbolivar.com.
 - [ ] **Marynett's sign-off.** Five facts and the home page story:
   - 32 years as a nurse
   - 21 years of nursing before her license

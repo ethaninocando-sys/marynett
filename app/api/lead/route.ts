@@ -39,10 +39,19 @@ async function sendEmail(message: Record<string, unknown>): Promise<Delivery> {
   }
 }
 
+// The public address of the site, for anything a mail app has to load.
+// Vercel provides it for every build. A build's other addresses can be
+// private to the team, so the address the visitor used is not safe to reuse.
+// Outside Vercel, for example on a local machine, that address is the fallback.
+function publicSiteAddress(visitedUrl: string) {
+  const host = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  return host ? `https://${host}` : visitedUrl;
+}
+
 function thankVisitor(
   firstName: string,
   email: string,
-  siteAddress: string,
+  visitedUrl: string,
 ): Promise<Delivery> {
   const from = process.env.LEAD_FROM_EMAIL;
   // Say which piece is missing, so the host's logs explain a skipped email.
@@ -71,8 +80,11 @@ function thankVisitor(
         .map((license) => `${license.abbr}\u00a0#${license.number}`)
         .join(" · "),
     footer: `${site.legalName} · ${site.city}`,
-    // Mail apps load her photo from the live site.
-    photoUrl: new URL("/email/marynett.png", siteAddress).toString(),
+    // Mail apps load her photo from the public site.
+    photoUrl: new URL(
+      "/email/marynett.png",
+      publicSiteAddress(visitedUrl),
+    ).toString(),
   });
   return sendEmail({
     from,
