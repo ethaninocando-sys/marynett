@@ -1,11 +1,11 @@
 # Launch checklist
 
-Status as of October 12, 2026. The work is on the `launch-prep` branch. The live site still runs `main`.
+Status as of October 13, 2026. `launch-prep` was merged into `main` that day, so the live site runs this version. It is still hidden from search engines while it is being tested.
 
 ## Blocking launch
 
-- [ ] **Her domain.** Choose the name, buy it, add it to Resend and verify it. Steps are below.
-- [ ] **Email settings for Production.** `RESEND_API_KEY` and `LEAD_FROM_EMAIL` on the Vercel project, using her domain. Without them the visitor gets no thank-you email, even though the form says "Check your email for next steps and to pick a time."
+- [x] **Her domain.** marynettbolivar.com was bought on October 13, 2026, is managed in Cloudflare, and was verified in Resend the same day.
+- [ ] **Email settings for Production.** `RESEND_API_KEY` and `LEAD_FROM_EMAIL` were set on the Vercel project on October 13, 2026. Not yet confirmed: send the form on the live site and check that the thank-you email arrives. If it does not, the Vercel logs say which setting is missing.
 - [ ] **Marynett's sign-off.** Five facts and the home page story:
   - 32 years as a nurse
   - 21 years of nursing before her license
@@ -14,16 +14,16 @@ Status as of October 12, 2026. The work is on the `launch-prep` branch. The live
   - That she trains new agents today
   - The home page story, which is written in her voice and signed with her name
 - [ ] **Written approval from her agency's compliance team.** Marynett sends the site in herself. Include the thank-you email.
-- [ ] **Merge `launch-prep` into `main`** and push.
+- [x] **Merge `launch-prep` into `main`** and push. Done October 13, 2026.
 
-## When the domain is bought
+## Setting up the domain
 
-Do these in order.
+The domain is marynettbolivar.com, managed in Cloudflare. Do these in order.
 
-1. **Resend, Domains.** Add the domain. Resend lists a few DNS records. Enter them wherever the domain is managed, then click Verify and wait for it to show as verified.
+1. **Done.** The domain is added and verified in Resend. Its records in Cloudflare must stay on "DNS only".
 2. **Resend, API Keys.** Create a key that is allowed to send from her domain. The key made for testing only covers e2technologies.net.
-3. **Vercel, Environment Variables, Production.** Set `RESEND_API_KEY` to the new key and `LEAD_FROM_EMAIL` to `Marynett Bolivar <hello@HER-DOMAIN>`.
-4. **Vercel, Domains.** Add her domain to the project so the site lives there.
+3. **Vercel, Environment Variables, Production.** Set `RESEND_API_KEY` to the new key and `LEAD_FROM_EMAIL` to `Marynett Bolivar <hello@marynettbolivar.com>`. To test first, set the same two on Preview and try the `launch-prep` preview.
+4. **Vercel, Domains.** Add the domain to the project so the site lives there. `launch-prep` is merged, so this can be done now. Vercel lists the records to enter in Cloudflare. Set them to "DNS only", not proxied.
 5. **Redeploy.** Settings only apply to a new deployment.
 6. **Test on the live site.** Send the form with your own email. Two emails should arrive: the Formspree alert and the thank-you.
 
@@ -52,7 +52,7 @@ Staying as they are for now, by choice:
 ## Pending decisions
 
 - **Whose Calendly account.** For now the booking link comes from Enrique's account, so bookings arrive in his inbox and calendar and he passes them on. The plan is to move it to an account under Marynett's email, which needs one confirmation tap from her. The link in `lib/site.ts` changes when that happens.
-- **The domain.** Which name, and whether Marynett or we own it.
+- **Who owns the domain long term.** It is registered in our Cloudflare account for now.
 - **Formspree alerts to Marynett.** Add her address in Formspree. She clicks one confirmation link.
 
 ## Already done

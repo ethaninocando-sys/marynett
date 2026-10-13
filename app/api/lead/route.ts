@@ -27,8 +27,14 @@ async function sendEmail(message: Record<string, unknown>): Promise<Delivery> {
       },
       body: JSON.stringify(message),
     });
+    if (!res.ok) {
+      // Resend explains the refusal, for example a key that cannot send
+      // from this domain. The key itself is never logged.
+      console.error(`Resend refused the email (${res.status}):`, await res.text());
+    }
     return res.ok;
-  } catch {
+  } catch (error) {
+    console.error("Resend could not be reached:", error);
     return false;
   }
 }
@@ -39,7 +45,16 @@ function thankVisitor(
   siteAddress: string,
 ): Promise<Delivery> {
   const from = process.env.LEAD_FROM_EMAIL;
-  if (!from || !booking.url) return Promise.resolve(null);
+  // Say which piece is missing, so the host's logs explain a skipped email.
+  const missing = [
+    !process.env.RESEND_API_KEY && "RESEND_API_KEY",
+    !from && "LEAD_FROM_EMAIL",
+    !booking.url && "the booking link in lib/site.ts",
+  ].filter(Boolean);
+  if (!from || missing.length > 0) {
+    console.warn(`Thank-you email skipped. Missing: ${missing.join(", ")}.`);
+    return Promise.resolve(null);
+  }
   const { subject, text, html } = thankYouEmail({
     firstName,
     bookingUrl: booking.url,
