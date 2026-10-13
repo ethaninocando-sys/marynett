@@ -6,6 +6,8 @@ export const site = {
   legalName: "Marynett Hijosa Bolivar",
   credentials: "RN",
   city: "Edinburg, Texas",
+  // The clock in her city. Each lead is stamped with the time on this clock.
+  timeZone: "America/Chicago",
   phoneDisplay: "(956) 289-6297",
   phoneHref: "tel:+19562896297",
   email: "marynettbolivar@gmail.com",

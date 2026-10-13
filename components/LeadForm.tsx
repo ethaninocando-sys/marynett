@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { formspree } from "@/lib/site";
+import { formspree, site } from "@/lib/site";
 
 type Variant = "coverage" | "recruit";
 
@@ -17,6 +17,27 @@ const copy = {
     button: "Send",
   },
 };
+
+// The moment the form was sent, on the clock in Marynett's city, written the
+// way Formspree writes its own date, for example "2026-10-13 17:04:46".
+// Formspree's own date is always in UTC, which is five or six hours ahead.
+function timeInHerCity() {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: site.timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(new Date());
+  const part = (type: string) =>
+    parts.find((p) => p.type === type)?.value ?? "";
+  const date = `${part("year")}-${part("month")}-${part("day")}`;
+  const time = `${part("hour")}:${part("minute")}:${part("second")}`;
+  return `${date} ${time}`;
+}
 
 // Stores the lead in Formspree, which keeps the list and sends the alert.
 // Answers false when Formspree is not set up or did not accept it.
@@ -35,6 +56,7 @@ async function storeLead(
         phone: lead.phone,
         email: lead.email,
         type: kind,
+        received: timeInHerCity(),
         _subject: `New ${kind.toLowerCase()} lead: ${lead.firstName}`,
       }),
     });
