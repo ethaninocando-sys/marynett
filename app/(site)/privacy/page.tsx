@@ -24,9 +24,10 @@ export default function PrivacyPage() {
           personally. I do not use auto-dialers.
         </p>
         <p>
-          Three services help me do this. Formspree keeps the form entries.
-          Resend sends that email. Calendly handles the booking if you pick a
-          time. Each one receives only what it needs for that job.
+          Four services help me do this. Formspree keeps the form entries.
+          Google keeps a copy of the entries in a spreadsheet. Resend sends
+          that email. Calendly handles the booking if you pick a time. Each one
+          receives only what it needs for that job.
         </p>
         <p>
           I don&rsquo;t sell or share your information for marketing. If you
