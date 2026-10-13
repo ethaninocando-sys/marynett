@@ -431,7 +431,8 @@
   width: max-content;
   gap: 64px;
   padding-right: 64px;
-  animation: sv-ticker 28s linear infinite;
+  /* One full pass of the topics strip. A larger number scrolls slower. */
+  animation: sv-ticker 56s linear infinite;
 }
 
 @keyframes sv-ticker {
