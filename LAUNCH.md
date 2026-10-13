@@ -1,6 +1,6 @@
 # Launch checklist
 
-Status as of October 13, 2026. `launch-prep` was merged into `main` that day, so the live site runs this version. It is still hidden from search engines while it is being tested.
+Status as of October 13, 2026. `launch-prep` was merged into `main` that day, and the site is live at https://www.marynettbolivar.com. It is still hidden from search engines while it is being tested.
 
 ## Blocking launch
 
@@ -23,7 +23,7 @@ The domain is marynettbolivar.com, managed in Cloudflare. Do these in order.
 1. **Done.** The domain is added and verified in Resend. Its records in Cloudflare must stay on "DNS only".
 2. **Resend, API Keys.** Create a key that is allowed to send from her domain. The key made for testing only covers e2technologies.net.
 3. **Vercel, Environment Variables, Production.** Set `RESEND_API_KEY` to the new key and `LEAD_FROM_EMAIL` to `Marynett Bolivar <hello@marynettbolivar.com>`. To test first, set the same two on Preview and try the `launch-prep` preview.
-4. **Vercel, Domains.** Add the domain to the project so the site lives there. `launch-prep` is merged, so this can be done now. Vercel lists the records to enter in Cloudflare. Set them to "DNS only", not proxied.
+4. **Done.** The domain is attached to the Vercel project. `www.marynettbolivar.com` is the main address and the plain address forwards to it. Its two records in Cloudflare must stay on "DNS only".
 5. **Redeploy.** Settings only apply to a new deployment.
 6. **Test on the live site.** Send the form with your own email. Two emails should arrive: the Formspree alert and the thank-you.
 
