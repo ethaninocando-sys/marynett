@@ -1,11 +1,9 @@
 # Launch checklist
 
-Status as of October 13, 2026. `launch-prep` was merged into `main` that day, and the site is live at https://www.marynettbolivar.com. It is still hidden from search engines while it is being tested.
+The site is live at https://www.marynettbolivar.com and hidden from search engines until launch. This file lists only what is still open.
 
 ## Blocking launch
 
-- [x] **Her domain.** marynettbolivar.com was bought on October 13, 2026, is managed in Cloudflare, and was verified in Resend the same day.
-- [x] **Email settings for Production.** `RESEND_API_KEY` and `LEAD_FROM_EMAIL` are set on the Vercel project. Confirmed October 13, 2026: a test thank-you email arrived from hello@marynettbolivar.com.
 - [ ] **Marynett's sign-off.** Five facts and the home page story:
   - 32 years as a nurse
   - 21 years of nursing before her license
@@ -14,53 +12,27 @@ Status as of October 13, 2026. `launch-prep` was merged into `main` that day, an
   - That she trains new agents today
   - The home page story, which is written in her voice and signed with her name
 - [ ] **Written approval from her agency's compliance team.** Marynett sends the site in herself. Include the thank-you email.
-- [x] **Merge `launch-prep` into `main`** and push. Done October 13, 2026.
 
-## Setting up the domain
+## At launch
 
-The domain is marynettbolivar.com, managed in Cloudflare. Do these in order.
-
-1. **Done.** The domain is added and verified in Resend. Its records in Cloudflare must stay on "DNS only".
-2. **Resend, API Keys.** Create a key that is allowed to send from her domain. The key made for testing only covers e2technologies.net.
-3. **Vercel, Environment Variables, Production.** Set `RESEND_API_KEY` to the new key and `LEAD_FROM_EMAIL` to `Marynett Bolivar <hello@marynettbolivar.com>`. To test first, set the same two on Preview and try the `launch-prep` preview.
-4. **Done.** The domain is attached to the Vercel project. `www.marynettbolivar.com` is the main address and the plain address forwards to it. Its two records in Cloudflare must stay on "DNS only".
-5. **Redeploy.** Settings only apply to a new deployment.
-6. **Test on the live site.** Send the form with your own email. Two emails should arrive: the Formspree alert and the thank-you.
-
-The sending domain must not contain her agency's name or anything close to it.
-
-## Testing the thank-you email before the domain exists
-
-This uses e2technologies.net, which is already verified in Resend. Keep it on Preview only so it never reaches the live site.
-
-1. In Vercel, Environment Variables, add `RESEND_API_KEY` and `LEAD_FROM_EMAIL` with only **Preview** ticked. Use `Marynett Bolivar <hello@e2technologies.net>` as the from address.
-2. Redeploy the `launch-prep` preview.
-3. Send the form on the preview with your own email.
-4. If the thank-you does not arrive, check the Emails log in Resend.
-
-## Small fixes before launch
-
-- [ ] **Calendly profile name.** The booking page shows Enrique's name until it is changed in Calendly. This goes away once the booking moves to Marynett's own account.
 - [ ] **Confirmation marks.** After Marynett's sign-off, set `showConfirmMarks` to `false` in `lib/site.ts`.
-- [ ] **Search engines.** The site currently tells Google and other search engines not to list it, which was right while it was a prototype. Remove the `robots` block in `app/layout.tsx` at launch so people can find it by searching.
-- [ ] **Calendly text reminders stay off.** Email reminders only.
+- [ ] **Search engines.** Remove the `robots` block in `app/layout.tsx` so people can find the site by searching.
 
-Staying as they are for now, by choice:
+## Moving things to Marynett
 
-- The four "Soon" video cards on the home page.
+- [ ] **Her own Calendly.** The booking link in the thank-you email still comes from Enrique's account, so the booking page shows his name and bookings land in his calendar.
+  1. Marynett signs up at calendly.com with her own email and connects her calendar.
+  2. She creates one event: a 15-minute phone call where she calls the person who booked. Email reminders only, no text reminders.
+  3. She sets the hours she wants to take calls.
+  4. She sends us the event link.
+  5. Replace `booking.url` in `lib/site.ts` with her link and push.
+- [ ] **Lead sheet for Marynett.** Formspree now adds every lead to the "Website Leads" sheet in Enrique's Google Drive. Share it with her Gmail.
+- [ ] **Backup copy of leads.** Optional. Set `LEAD_TO_EMAIL` on Vercel so she is emailed whenever Formspree does not accept a lead.
+- [ ] **Who owns the domain long term.** It is registered in our Cloudflare account for now.
 
-## Pending decisions
+## Keep it working
 
-- **Whose Calendly account.** For now the booking link comes from Enrique's account, so bookings arrive in his inbox and calendar and he passes them on. The plan is to move it to an account under Marynett's email, which needs one confirmation tap from her. The link in `lib/site.ts` changes when that happens.
-- **Who owns the domain long term.** It is registered in our Cloudflare account for now.
-- **Formspree alerts to Marynett.** Add her address in Formspree. She clicks one confirmation link.
-
-## Already done
-
-- Leads are stored in Formspree. The form address is `formspree.endpoint` in `lib/site.ts`.
-- The Calendly link for the 15-minute phone call is `booking.url` in `lib/site.ts`.
-- All three licenses, the corrected license year and the new portrait are in.
-- The thank-you email is built, in a designed version and a plain-text version.
-- The privacy page describes the current form and names Formspree, Resend and Calendly.
-- The template reference page is removed.
-- Optional: set `LEAD_TO_EMAIL` on the host so Marynett is emailed a backup copy whenever Formspree does not accept a lead.
+- The domain's records in Cloudflare must stay on "DNS only".
+- The thank-you email needs `RESEND_API_KEY` and `LEAD_FROM_EMAIL` on Vercel, under Production.
+- A changed setting on Vercel only applies after a new deployment.
+- In the lead sheet, leave the header names as they are. The `received` column is Edinburg time and `_date` is UTC.

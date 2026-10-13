@@ -17,4 +17,4 @@ Then open http://localhost:3000.
 
 ## Launch
 
-Everything that still has to happen before launch, and the steps for the domain and email settings, is in [LAUNCH.md](LAUNCH.md).
+Everything that still has to happen before launch is in [LAUNCH.md](LAUNCH.md).
