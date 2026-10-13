@@ -67,8 +67,6 @@ function thankVisitor(
   const { subject, text, html } = thankYouEmail({
     firstName,
     bookingUrl: booking.url,
-    phone: site.phoneDisplay,
-    phoneHref: site.phoneHref,
     brandName: site.name,
     brandLine: `${site.credentials} · Independent Agent`,
     signature: `${site.name}, ${site.credentials}`,

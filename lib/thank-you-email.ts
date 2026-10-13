@@ -5,8 +5,6 @@
 type Details = {
   firstName: string;
   bookingUrl: string;
-  phone: string;
-  phoneHref: string;
   // "Marynett Bolivar" and "RN · Independent Agent", as in the site header.
   brandName: string;
   brandLine: string;
@@ -42,17 +40,21 @@ export function thankYouEmail(details: Details) {
 
   const thanks =
     "Thank you for reaching out. Pick a time that works and then we'll connect";
-  const sooner = "It's a 15-minute call. If you'd rather talk sooner, call or text me at";
+  // Replies go to her own inbox, so this gives people a way to reach her
+  // without putting her phone number in front of every lead.
+  const callNote =
+    "It's a 15-minute call. If you have a question first, just reply to this email.";
 
   // California requires a life agent's license number next to or on the line
-  // below their name or title, at least as large as the phone number. So the
-  // license line comes straight after her title, in the phone number's size.
+  // below their name or title, and no smaller than any phone number or
+  // address shown. So the license line comes straight after her title, in
+  // the same size as the body text.
   const text = [
     `Hi ${name},`,
     "",
     `${thanks}: ${details.bookingUrl}`,
     "",
-    `${sooner} ${details.phone}.`,
+    callNote,
     "",
     details.signature,
     details.title,
@@ -91,7 +93,7 @@ export function thankYouEmail(details: Details) {
                 </td>
               </tr>
             </table>
-            <p style="margin:28px 0 0;${body}">${escape(sooner)} <a href="${escape(details.phoneHref)}" style="color:#121218;font-weight:600;text-decoration:none;white-space:nowrap;">${escape(details.phone)}</a>.</p>
+            <p style="margin:28px 0 0;${body}">${escape(callNote)}</p>
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:32px;border-top:1px solid #edeef1;">
               <tr>
                 <td width="56" style="padding-top:24px;vertical-align:middle;">
