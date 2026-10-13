@@ -43,7 +43,7 @@ export function thankYouEmail(details: Details) {
   // Replies go to her own inbox, so this gives people a way to reach her
   // without putting her phone number in front of every lead.
   const callNote =
-    "It's a 15-minute call. If you have a question first, just reply to this email.";
+    "It's a 15-minute call. If you have any questions beforehand, feel free to reply to this email.";
 
   // California requires a life agent's license number next to or on the line
   // below their name or title, and no smaller than any phone number or
