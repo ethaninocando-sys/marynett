@@ -94,7 +94,7 @@ export default function CoveragePage() {
               </div>
               <div>
                 <dd className="font-serif text-[32px] leading-[48px] font-semibold">
-                  <Confirm>{site.licensedSince}</Confirm>
+                  {site.licensedSince}
                 </dd>
                 <dt className="sv-body">Licensed</dt>
               </div>

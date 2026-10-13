@@ -17,8 +17,8 @@ const topics = [
   "Work coverage",
   "Family protection",
   "Retirement questions",
-  "Getting licensed in Texas",
-  "Plain answers",
+  "Agent training",
+  "Policy reviews",
 ];
 
 const videos = [
@@ -87,7 +87,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <dd className="font-serif text-[32px] leading-[48px] font-semibold">
-                    <Confirm>{site.licensedSince}</Confirm>
+                    {site.licensedSince}
                   </dd>
                   <dt className="sv-body">Licensed</dt>
                 </div>
@@ -95,13 +95,15 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Portrait breaks out of the top of the panel on desktop. */}
-          <div className="pointer-events-none relative -mx-6 mt-6 h-[400px] overflow-hidden rounded-b-[24px] min-[1200px]:absolute min-[1200px]:top-[-72px] min-[1200px]:right-0 min-[1200px]:bottom-0 min-[1200px]:mx-0 min-[1200px]:mt-0 min-[1200px]:h-auto min-[1200px]:w-[560px] min-[1200px]:rounded-br-[32px] min-[1200px]:rounded-bl-none">
+          {/* Portrait breaks out of the top of the panel on desktop. The cutout
+              is wider than the original, so it sits further right and the
+              panel edge crops her far shoulder. */}
+          <div className="pointer-events-none relative -mx-6 mt-6 h-[400px] overflow-hidden rounded-b-[24px] min-[1200px]:absolute min-[1200px]:top-[-72px] min-[1200px]:right-0 min-[1200px]:bottom-0 min-[1200px]:mx-0 min-[1200px]:mt-0 min-[1200px]:h-auto min-[1200px]:w-[682px] min-[1200px]:rounded-br-[32px] min-[1200px]:rounded-bl-none">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/marynett-hero.webp"
               alt="Marynett Bolivar"
-              className="absolute inset-0 size-full object-contain object-bottom min-[1200px]:object-right-bottom"
+              className="absolute inset-0 size-full object-contain object-bottom min-[1200px]:inset-auto min-[1200px]:bottom-0 min-[1200px]:left-0 min-[1200px]:h-full min-[1200px]:w-auto min-[1200px]:max-w-none"
             />
           </div>
 
@@ -111,7 +113,7 @@ export default function HomePage() {
           >
             <Link
               href="/coverage#book"
-              className="sv-glass flex items-center gap-8 px-8 py-7 max-[1199px]:bg-[rgba(14,37,54,0.62)]"
+              className="sv-glass flex items-center gap-8 bg-[rgba(14,37,54,0.62)] px-8 py-7"
             >
               <span className="sv-h5 flex-1">Let&rsquo;s Connect</span>
               <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-white text-[var(--sv-900)]">
@@ -260,7 +262,7 @@ export default function HomePage() {
               </p>
             </div>
             <p className="text-white/60">
-              &mdash; {site.name}, {site.credentials}
+              {site.name}, {site.credentials}
             </p>
           </div>
         </Reveal>

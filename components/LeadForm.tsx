@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { formspree } from "@/lib/site";
 
 type Variant = "coverage" | "recruit";
 
@@ -17,26 +18,60 @@ const copy = {
   },
 };
 
+// Stores the lead in Formspree, which keeps the list and sends the alert.
+// Answers false when Formspree is not set up or did not accept it.
+async function storeLead(
+  variant: Variant,
+  lead: { firstName: string; phone: string; email: string },
+) {
+  if (!formspree.endpoint) return false;
+  const kind = variant === "recruit" ? "Recruit" : "Client";
+  try {
+    const res = await fetch(formspree.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: lead.firstName,
+        phone: lead.phone,
+        email: lead.email,
+        type: kind,
+        _subject: `New ${kind.toLowerCase()} lead: ${lead.firstName}`,
+      }),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 export function LeadForm({ variant }: { variant: Variant }) {
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
     "idle",
   );
   const [firstName, setFirstName] = useState("");
-  const [lookingFor, setLookingFor] = useState("");
   const text = copy[variant];
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.currentTarget));
+    const lead = {
+      firstName: String(data.firstName ?? ""),
+      phone: String(data.phone ?? ""),
+      email: String(data.email ?? ""),
+    };
     setStatus("sending");
     try {
+      // Spam bots fill in the hidden field, so their entries are not stored.
+      const stored = data.company ? false : await storeLead(variant, lead);
+      // The site then emails the thank-you, and a backup copy of the lead if
+      // it could not be stored.
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, variant }),
+        body: JSON.stringify({ ...data, variant, stored }),
       });
       if (!res.ok) throw new Error("Request failed");
-      setFirstName(String(data.firstName ?? ""));
+      setFirstName(lead.firstName);
       setStatus("done");
     } catch {
       setStatus("error");
@@ -105,45 +140,6 @@ export function LeadForm({ variant }: { variant: Variant }) {
             required
           />
         </div>
-
-        {variant === "coverage" ? (
-          <>
-            <div>
-              <label htmlFor="coverage-lookingFor" className="sv-label">
-                I&rsquo;m looking for
-              </label>
-              <select
-                id="coverage-lookingFor"
-                name="lookingFor"
-                className="sv-field"
-                value={lookingFor}
-                onChange={(event) => setLookingFor(event.target.value)}
-                required
-              >
-                <option value="" disabled>
-                  Choose one
-                </option>
-                <option>Coverage for my family</option>
-                <option>Questions about retirement income</option>
-                <option>I&rsquo;m curious about what you do</option>
-                <option>Others</option>
-              </select>
-            </div>
-            {lookingFor === "Others" ? (
-              <div>
-                <label htmlFor="coverage-lookingForOther" className="sv-label">
-                  Tell me what you&rsquo;re looking for (optional)
-                </label>
-                <input
-                  id="coverage-lookingForOther"
-                  name="lookingForOther"
-                  className="sv-field"
-                  maxLength={200}
-                />
-              </div>
-            ) : null}
-          </>
-        ) : null}
 
         {/* Hidden field that only spam bots fill in. */}
         <div className="hidden" aria-hidden="true">

@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { site } from "@/lib/site";
-import { Confirm } from "@/components/Confirm";
+import { licenses, site } from "@/lib/site";
 
 const pages = [
   { href: "/", label: "Home" },
@@ -23,12 +22,17 @@ export function Footer() {
                 <p className="text-lg leading-7 font-semibold tracking-[-0.03em]">
                   {site.name}, {site.credentials}
                 </p>
+                {/* California asks for the filed name, home state, license
+                    number and the word "insurance" in one type size. */}
                 <p className="sv-body">
                   Independent agent
                   <br />
-                  Texas insurance license #
-                  <Confirm>{site.licenseNumber}</Confirm> &middot; Licensed in
-                  Texas only
+                  {site.legalName} &middot; {site.city}
+                  {licenses.map((license) => (
+                    <span key={license.state} className="block">
+                      {license.state} insurance license #{license.number}
+                    </span>
+                  ))}
                 </p>
               </div>
               <div className="flex flex-wrap gap-x-24 gap-y-10">

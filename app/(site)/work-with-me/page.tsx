@@ -52,7 +52,7 @@ export default function WorkWithMePage() {
             <Reveal delay={450}>
               <p className="sv-lg max-w-[500px]">
                 <Confirm>I came to this from nursing, not finance.</Confirm> I
-                got my Texas license in <Confirm>{site.licensedSince}</Confirm>.
+                got my Texas license in {site.licensedSince}.
                 Want to know what it takes? Ask me.
               </p>
             </Reveal>
