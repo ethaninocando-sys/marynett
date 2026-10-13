@@ -1,5 +1,4 @@
-/* Design kit rebuilt from the Sevora template. Values were measured on the
-   live template: colours, type sizes, radii, shadows and spacing. */
+/* The site's design kit: colours, type sizes, radii, shadows and spacing. */
 
 .sv {
   --sv-50: #f7f7f8;
@@ -647,7 +646,7 @@
   --sv-accent-soft: #f3e3bd;
 }
 
-/* Long headlines need a smaller size than the four-word template hero. */
+/* Long headlines need a smaller size than the large display style. */
 .sv-display-sm {
   font-family: var(--font-serif);
   font-weight: 500;

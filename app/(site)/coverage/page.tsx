@@ -8,10 +8,10 @@ import {
 import { site } from "@/lib/site";
 import { Confirm } from "@/components/Confirm";
 import { LeadForm } from "@/components/LeadForm";
-import { CountUp } from "@/components/sevora/CountUp";
-import { Process } from "@/components/sevora/Process";
-import { Reveal } from "@/components/sevora/Reveal";
-import { Words } from "@/components/sevora/Words";
+import { CountUp } from "@/components/kit/CountUp";
+import { Process } from "@/components/kit/Process";
+import { Reveal } from "@/components/kit/Reveal";
+import { Words } from "@/components/kit/Words";
 
 export const metadata: Metadata = {
   title: "Life insurance you don't have to die to use",

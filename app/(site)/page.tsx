@@ -8,9 +8,9 @@ import {
 } from "lucide-react";
 import { site } from "@/lib/site";
 import { Confirm } from "@/components/Confirm";
-import { CountUp } from "@/components/sevora/CountUp";
-import { Reveal } from "@/components/sevora/Reveal";
-import { Words } from "@/components/sevora/Words";
+import { CountUp } from "@/components/kit/CountUp";
+import { Reveal } from "@/components/kit/Reveal";
+import { Words } from "@/components/kit/Words";
 
 const topics = [
   "Living benefits",

@@ -14,13 +14,19 @@ export default function PrivacyPage() {
       <div className="sv-card mt-10 grid gap-5 p-6 text-lg leading-7 md:p-10">
         <p>
           When you fill in a form on this site, I receive your first name, your
-          phone number, the answers you chose and the best time to call. I do
-          not ask for health, financial or identification details on this
-          website.
+          phone number and your email address. I do not ask for health,
+          financial or identification details on this website.
         </p>
         <p>
           I use that information for one thing: to contact you about the request
-          you made. I call and text personally. I do not use auto-dialers.
+          you made. Right after you send the form, you get one automatic email
+          from me with a link to pick a time for a call. I call and text
+          personally. I do not use auto-dialers.
+        </p>
+        <p>
+          Three services help me do this. Formspree keeps the form entries.
+          Resend sends that email. Calendly handles the booking if you pick a
+          time. Each one receives only what it needs for that job.
         </p>
         <p>
           I don&rsquo;t sell or share your information for marketing. If you

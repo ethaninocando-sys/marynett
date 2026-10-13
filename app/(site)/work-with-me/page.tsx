@@ -3,8 +3,8 @@ import { BadgeCheck, MessageSquareText, Users } from "lucide-react";
 import { site } from "@/lib/site";
 import { Confirm } from "@/components/Confirm";
 import { LeadForm } from "@/components/LeadForm";
-import { Reveal } from "@/components/sevora/Reveal";
-import { Words } from "@/components/sevora/Words";
+import { Reveal } from "@/components/kit/Reveal";
+import { Words } from "@/components/kit/Words";
 
 export const metadata: Metadata = {
   title: "Work with me",

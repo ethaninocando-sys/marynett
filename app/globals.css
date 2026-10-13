@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./sevora.css" layer(components);
+@import "./kit.css" layer(components);
 
 @theme inline {
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;

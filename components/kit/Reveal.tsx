@@ -1,6 +1,6 @@
 "use client";
 
-import { useInView } from "@/components/sevora/useInView";
+import { useInView } from "@/components/kit/useInView";
 
 // Fades its children up into place the first time they scroll into view.
 export function Reveal({

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useInView } from "@/components/sevora/useInView";
+import { useInView } from "@/components/kit/useInView";
 
 // Counts from zero up to `value` once the number scrolls into view.
 export function CountUp({

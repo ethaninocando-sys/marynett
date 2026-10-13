@@ -56,7 +56,7 @@ export const formspree = {
   endpoint: "https://formspree.io/f/mljgwvjn",
 };
 
-// BLOCKS LAUNCH while empty. See "Blocking launch" in README.md.
+// BLOCKS LAUNCH while empty. See LAUNCH.md.
 // Calendly link for the 15-minute call, for example
 // "https://calendly.com/marynett/15min". It goes in the thank-you email that
 // a visitor gets after sending the form. No email is sent while it is empty.

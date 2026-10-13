@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { site, isPrototype } from "@/lib/site";
-import { FloatNav } from "@/components/sevora/FloatNav";
+import { FloatNav } from "@/components/kit/FloatNav";
 
 const links = [
   { href: "/coverage", label: "Protect my family" },

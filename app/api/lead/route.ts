@@ -5,7 +5,7 @@
 //
 //   Thank-you email to the visitor, with the Calendly link
 //       needs RESEND_API_KEY, LEAD_FROM_EMAIL and the booking link in lib/site.ts
-//       BLOCKS LAUNCH until all three exist. See "Blocking launch" in README.md.
+//       BLOCKS LAUNCH until all three exist. See LAUNCH.md.
 //   Backup copy to Marynett, only when Formspree did not store the lead
 //       needs RESEND_API_KEY and LEAD_TO_EMAIL
 
