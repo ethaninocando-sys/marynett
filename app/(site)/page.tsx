@@ -59,7 +59,7 @@ export default function HomePage() {
                 delay={550}
                 className="grid max-w-[440px] gap-2 sm:grid-cols-2"
               >
-                <Link href="/coverage" className="sv-btn sv-btn-primary">
+                <Link href="/coverage#book" className="sv-btn sv-btn-primary">
                   <ShieldCheck
                     size={18}
                     strokeWidth={1.75}
@@ -67,7 +67,10 @@ export default function HomePage() {
                   />
                   Protect My Family
                 </Link>
-                <Link href="/work-with-me" className="sv-btn sv-btn-primary">
+                <Link
+                  href="/work-with-me#book"
+                  className="sv-btn sv-btn-primary"
+                >
                   <Handshake size={18} strokeWidth={1.75} aria-hidden="true" />
                   Work With Me
                 </Link>
