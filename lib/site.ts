@@ -66,6 +66,10 @@ export const booking = {
   url: "https://calendly.com/quiquemax34530/15-minute-call",
 };
 
+// The "What People Ask Me" video cards on the home page. Off until the
+// videos are recorded.
+export const showVideos = false;
+
 // Prototype switches. Set both to false at launch.
 export const showConfirmMarks = true;
 export const isPrototype = false;

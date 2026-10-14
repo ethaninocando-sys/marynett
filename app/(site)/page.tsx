@@ -6,7 +6,7 @@ import {
   Play,
   ShieldCheck,
 } from "lucide-react";
-import { site } from "@/lib/site";
+import { showVideos, site } from "@/lib/site";
 import { Confirm } from "@/components/Confirm";
 import { CountUp } from "@/components/kit/CountUp";
 import { Reveal } from "@/components/kit/Reveal";
@@ -49,9 +49,9 @@ export default function HomePage() {
                 </h1>
                 <Reveal delay={450}>
                   <p className="sv-lg max-w-[520px]">
-                    Marynett Bolivar is a registered nurse and a licensed Texas
-                    insurance agent. She explains coverage in plain words and
-                    trains new agents to do the same.
+                    I&rsquo;m a registered nurse and a licensed Texas insurance
+                    agent. I explain coverage in plain words and train new
+                    agents to do the same.
                   </p>
                 </Reveal>
               </div>
@@ -268,31 +268,33 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* Videos */}
-      <section className="sv-container flex flex-col gap-12 md:gap-16">
-        <Reveal>
-          <div className="sv-head">
-            <div className="sv-head-stack">
-              <h2 className="sv-h2">What People Ask Me</h2>
+      {/* Videos, hidden until they are recorded. See showVideos in lib/site.ts. */}
+      {showVideos && (
+        <section className="sv-container flex flex-col gap-12 md:gap-16">
+          <Reveal>
+            <div className="sv-head">
+              <div className="sv-head-stack">
+                <h2 className="sv-h2">What People Ask Me</h2>
+              </div>
             </div>
+          </Reveal>
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            {videos.map((title, index) => (
+              <Reveal key={title} delay={index * 80}>
+                <article className="sv-card flex h-[272px] flex-col justify-between p-5">
+                  <span className="sv-tile">
+                    <Play size={20} strokeWidth={1.5} />
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="sv-h5">{title}</h3>
+                    <p className="sv-sm">Soon</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          {videos.map((title, index) => (
-            <Reveal key={title} delay={index * 80}>
-              <article className="sv-card flex h-[272px] flex-col justify-between p-5">
-                <span className="sv-tile">
-                  <Play size={20} strokeWidth={1.5} />
-                </span>
-                <div className="flex flex-col gap-2">
-                  <h3 className="sv-h5">{title}</h3>
-                  <p className="sv-sm">Soon</p>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Closing */}
       <section className="sv-container pt-0 md:pt-0">
